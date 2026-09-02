@@ -1,0 +1,11 @@
+DeidiVino – Update v3.4 (Sortiment, Mobilansicht und Weinregionen)
+================================================================
+
+1. ZIP-Datei vollständig entpacken.
+2. Den Inhalt des entpackten Ordners in den lokalen Repository-Ordner DeidiVino kopieren.
+3. Bei Rückfrage „Dateien im Ziel ersetzen“ bestätigen.
+4. In GitHub Desktop die geänderten Dateien prüfen.
+5. Als Summary zum Beispiel „Sortiment und Weinlayout aktualisieren“ eintragen.
+6. „Commit to main“ und danach „Push origin“ anklicken.
+
+GitHub Actions veröffentlicht die aktualisierte Website anschließend automatisch.

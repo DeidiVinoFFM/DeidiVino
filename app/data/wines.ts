@@ -151,22 +151,6 @@ export const wines: Wine[] = [
     "featured": true
   },
   {
-    "id": "W0113",
-    "winery": "Weingut Bischel",
-    "region": "Rheinhessen",
-    "name": "Blaufränkisch VINTAGE",
-    "vintage": 2022,
-    "availability": "Nur noch wenige Flaschen",
-    "price": 15.9,
-    "volume": 0.75,
-    "unitPrice": 21.2,
-    "category": "Rotwein",
-    "grape": "Blaufränkisch",
-    "style": "Trocken",
-    "profile": "Rot & würzig",
-    "featured": false
-  },
-  {
     "id": "W0122",
     "winery": "Weingut Bischel",
     "region": "Rheinhessen",

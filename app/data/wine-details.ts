@@ -7,7 +7,6 @@ export const wineDescriptions: Record<string, string> = {
   W0112: "Saftige Beerenfrucht, trockene Art und eine angenehm frische Linie machen diesen Rosé zum unkomplizierten Begleiter für Terrasse, Salate und sommerliche Küche.",
   W0097: "Ein lebendiger Rosé mit roter Frucht, Frische und unkompliziertem Charme. Die passende Flasche für einen spontanen Abend oder ein leichtes Essen.",
   W0121: "Ein Spätburgunder mit feiner Kirschfrucht, Würze und spürbarer Herkunft. Elegant genug für den besonderen Abend, zugleich zugänglich genug für ein gutes Essen mit Freunden.",
-  W0113: "Dunkle Beeren, würzige Noten und eine lebendige Struktur geben diesem Blaufränkisch Profil. Eine spannende Wahl zu Gegrilltem, Schmorgerichten oder kräftiger Gemüseküche.",
   W0122: "Ein fein gebauter Spätburgunder mit roter Frucht, Würze und eleganter Struktur. Die Erste Lage bringt zusätzliche Tiefe, ohne die Trinkfreude aus dem Blick zu verlieren.",
   W0123: "Die Reserve zeigt Pinot Noir von seiner anspruchsvollen Seite: reife rote Frucht, feine Würze und ein dichter, langer Eindruck. Ein Wein für Ruhe im Glas und am Tisch.",
   W0084: "Rote Beeren, kühle Würze und ein mineralischer Eindruck prägen diesen Spätburgunder vom Vulkangestein. Straff, charaktervoll und reizvoll zu Pilzen oder dunklem Fleisch.",

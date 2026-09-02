@@ -101,6 +101,10 @@ function wineryShortName(winery: string) {
   return winery.replace(/^Weingut /, "");
 }
 
+function regionMapUrl(region: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Weinbaugebiet ${region}`)}`;
+}
+
 function WineCard({
   wine,
   selected,
@@ -127,10 +131,17 @@ function WineCard({
   return (
     <article className={`wine-card${selected ? " is-selected" : ""}`}>
       <div className="wine-card-topline">
-        <span className="region-label">
+        <a
+          className="region-label"
+          href={regionMapUrl(wine.region)}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${wine.region} als Weinbaugebiet in Google Maps öffnen`}
+        >
           <MapPin aria-hidden="true" size={14} />
           {wine.region}
-        </span>
+          <ExternalLink aria-hidden="true" className="region-external-icon" size={11} />
+        </a>
         <span className={`availability${availabilityClass}`}>{wine.availability}</span>
       </div>
 
@@ -148,28 +159,30 @@ function WineCard({
         )}
       </div>
 
-      {featureLabel && <span className="feature-label">{featureLabel}</span>}
+      <div className="wine-card-copy">
+        {featureLabel && <span className="feature-label">{featureLabel}</span>}
 
-      <p className="winery-name">
-        <button type="button" onClick={onShowWinery}>
-          {wineryShortName(wine.winery)}
-          <span aria-hidden="true">＋</span>
+        <p className="winery-name">
+          <button type="button" onClick={onShowWinery}>
+            {wineryShortName(wine.winery)}
+            <span aria-hidden="true">＋</span>
+          </button>
+        </p>
+        <h3>
+          <button type="button" onClick={onShowWine}>
+            {wine.name}
+          </button>
+        </h3>
+        <button className="wine-detail-hint" type="button" onClick={onShowWine}>
+          Charakter im Glas ansehen
+          <span aria-hidden="true">→</span>
         </button>
-      </p>
-      <h3>
-        <button type="button" onClick={onShowWine}>
-          {wine.name}
-        </button>
-      </h3>
-      <button className="wine-detail-hint" type="button" onClick={onShowWine}>
-        Charakter im Glas ansehen
-        <span aria-hidden="true">→</span>
-      </button>
 
-      <div className="wine-tags" aria-label="Weininformationen">
-        <span>{wine.vintage}</span>
-        <span>{wine.grape}</span>
-        <span>{wine.style}</span>
+        <div className="wine-tags" aria-label="Weininformationen">
+          <span>{wine.vintage}</span>
+          <span>{wine.grape}</span>
+          <span>{wine.style}</span>
+        </div>
       </div>
 
       <div className="wine-card-bottom">
@@ -749,23 +762,25 @@ export default function Home() {
                 </DialogDescription>
               </DialogHeader>
 
-              <div className={`detail-wine-media${wineMedia[activeWine.id] ? " has-image" : ""}`}>
-                {wineMedia[activeWine.id] ? (
-                  <img
-                    src={`${basePath}${wineMedia[activeWine.id]?.src}`}
-                    alt={wineMedia[activeWine.id]?.alt ?? activeWine.name}
-                  />
-                ) : (
-                  <div className="wine-image-placeholder large" aria-label="Flaschenfoto folgt">
-                    <WineIcon aria-hidden="true" size={52} strokeWidth={1.15} />
-                    <span>DeidiVino-Flaschenfoto folgt</span>
-                  </div>
-                )}
-              </div>
+              <div className="wine-detail-main">
+                <div className={`detail-wine-media${wineMedia[activeWine.id] ? " has-image" : ""}`}>
+                  {wineMedia[activeWine.id] ? (
+                    <img
+                      src={`${basePath}${wineMedia[activeWine.id]?.src}`}
+                      alt={wineMedia[activeWine.id]?.alt ?? activeWine.name}
+                    />
+                  ) : (
+                    <div className="wine-image-placeholder large" aria-label="Flaschenfoto folgt">
+                      <WineIcon aria-hidden="true" size={52} strokeWidth={1.15} />
+                      <span>DeidiVino-Flaschenfoto folgt</span>
+                    </div>
+                  )}
+                </div>
 
-              <div className="wine-character">
-                <p className="detail-label">Charakter im Glas</p>
-                <p>{wineDescriptions[activeWine.id]}</p>
+                <div className="wine-character">
+                  <p className="detail-label">Charakter im Glas</p>
+                  <p>{wineDescriptions[activeWine.id]}</p>
+                </div>
               </div>
 
               <div className="detail-wine-facts" aria-label="Weininformationen">

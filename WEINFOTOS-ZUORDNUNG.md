@@ -26,7 +26,6 @@ Bis ein freigegebenes oder eigenes Foto vorliegt, zeigt die Website einen neutra
 | W0112 | Bischel | Rosé Trocken | 2023 | Foto eingebunden |
 | W0097 | Daniel Mattern | Rosé | 2024 | Foto eingebunden |
 | W0121 | Bischel | Appenheim Spätburgunder aus 1. Lagen | 2019 | Foto eingebunden |
-| W0113 | Bischel | Blaufränkisch VINTAGE | 2022 | eigenes Foto erforderlich |
 | W0122 | Bischel | Gau-Algesheim Johannisberg Spätburgunder 1. Lage | 2020 | Foto eingebunden |
 | W0123 | Bischel | Pinot Noir Reserve | 2020 | Foto eingebunden |
 | W0084 | Christian Bamberger | Spätburgunder Vulkangestein | 2020 | Foto eingebunden |
