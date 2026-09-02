@@ -43,6 +43,11 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /Anderen Webmailer verwenden/);
   assert.match(page, /Alkoholfrei/);
   assert.match(page, /Nur noch 1 Flasche/);
+  assert.match(page, /Charakter im Glas ansehen/);
+  assert.match(page, /Flaschenfoto folgt/);
+  assert.match(page, /Offizielle Website des Weinguts/);
+  assert.match(page, /wineDescriptions\[activeWine\.id\]/);
+  assert.match(page, /wineryProfiles\[wine\.winery\]/);
   assert.match(page, /IntersectionObserver/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /overflow-x: auto/);
@@ -50,4 +55,25 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(css, /--footer-logo-image/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion: reduce/);
+  assert.match(css, /\.wine-card-media/);
+  assert.match(css, /\.detail-dialog/);
+  assert.match(css, /\.winery-description/);
+});
+
+test("provides a description for every wine and winery", async () => {
+  const winesSource = await read("app/data/wines.ts");
+  const marker = "export const wines: Wine[] = ";
+  const arrayStart = winesSource.indexOf("[", winesSource.indexOf(marker) + marker.length);
+  const wines = JSON.parse(winesSource.slice(arrayStart).trim().replace(/;$/, ""));
+  const detailsSource = await read("app/data/wine-details.ts");
+  const wineriesSource = await read("app/data/wineries.ts");
+
+  const describedWineIds = new Set(
+    [...detailsSource.matchAll(/^\s{2}(W\d{4}):/gm)].map((match) => match[1]),
+  );
+
+  assert.equal(describedWineIds.size, wines.length);
+  assert.ok(wines.every((wine) => describedWineIds.has(wine.id)));
+  assert.ok(wines.every((wine) => wineriesSource.includes(`"${wine.winery}":`)));
+  assert.match(wineriesSource, /sourceUrl: "https:\/\//);
 });

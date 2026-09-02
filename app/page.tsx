@@ -26,6 +26,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { wineDescriptions } from "./data/wine-details";
+import { wineMedia } from "./data/wine-media";
+import { wineryProfiles, type WineryProfile } from "./data/wineries";
 import { inventoryAsOf, wines, type Wine } from "./data/wines";
 import { siteConfig } from "./site-config";
 
@@ -102,13 +105,18 @@ function WineCard({
   wine,
   selected,
   onToggle,
+  onShowWine,
+  onShowWinery,
   featureLabel,
 }: {
   wine: Wine;
   selected: boolean;
   onToggle: () => void;
+  onShowWine: () => void;
+  onShowWinery: () => void;
   featureLabel?: string;
 }) {
+  const media = wineMedia[wine.id];
   const availabilityClass =
     wine.availability === "Nur noch 1 Flasche"
       ? " is-last"
@@ -126,10 +134,37 @@ function WineCard({
         <span className={`availability${availabilityClass}`}>{wine.availability}</span>
       </div>
 
+      <div className={`wine-card-media${media ? " has-image" : ""}`}>
+        {media ? (
+          <>
+            <img src={`${basePath}${media.src}`} alt={media.alt} loading="lazy" />
+            <small>{media.credit}</small>
+          </>
+        ) : (
+          <div className="wine-image-placeholder" aria-label="Flaschenfoto folgt">
+            <WineIcon aria-hidden="true" size={34} strokeWidth={1.35} />
+            <span>Flaschenfoto folgt</span>
+          </div>
+        )}
+      </div>
+
       {featureLabel && <span className="feature-label">{featureLabel}</span>}
 
-      <p className="winery-name">{wineryShortName(wine.winery)}</p>
-      <h3>{wine.name}</h3>
+      <p className="winery-name">
+        <button type="button" onClick={onShowWinery}>
+          {wineryShortName(wine.winery)}
+          <span aria-hidden="true">＋</span>
+        </button>
+      </p>
+      <h3>
+        <button type="button" onClick={onShowWine}>
+          {wine.name}
+        </button>
+      </h3>
+      <button className="wine-detail-hint" type="button" onClick={onShowWine}>
+        Charakter im Glas ansehen
+        <span aria-hidden="true">→</span>
+      </button>
 
       <div className="wine-tags" aria-label="Weininformationen">
         <span>{wine.vintage}</span>
@@ -163,6 +198,8 @@ export default function Home() {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [footerVisible, setFooterVisible] = useState(false);
   const [webmailOpen, setWebmailOpen] = useState(false);
+  const [activeWine, setActiveWine] = useState<Wine | null>(null);
+  const [activeWinery, setActiveWinery] = useState<WineryProfile | null>(null);
   const [copyStatus, setCopyStatus] = useState<
     "idle" | "all" | "email" | "subject" | "body" | "error"
   >("idle");
@@ -364,6 +401,8 @@ export default function Home() {
                 wine={wine}
                 selected={selectedIds.includes(wine.id)}
                 onToggle={() => toggleWine(wine.id)}
+                onShowWine={() => setActiveWine(wine)}
+                onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
                 featureLabel={featuredLabels[wine.id]}
               />
             ))}
@@ -467,6 +506,8 @@ export default function Home() {
                     wine={wine}
                     selected={selectedIds.includes(wine.id)}
                     onToggle={() => toggleWine(wine.id)}
+                    onShowWine={() => setActiveWine(wine)}
+                    onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
                   />
                 ))}
               </div>
@@ -676,6 +717,113 @@ export default function Home() {
               Alles zusammen kopieren
             </button>
           </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={Boolean(activeWine)}
+        onOpenChange={(open) => {
+          if (!open) setActiveWine(null);
+        }}
+      >
+        <DialogContent className="detail-dialog wine-detail-dialog">
+          {activeWine && (
+            <>
+              <DialogHeader>
+                <p className="detail-dialog-eyebrow">{activeWine.region} · {activeWine.vintage}</p>
+                <DialogTitle>{activeWine.name}</DialogTitle>
+                <DialogDescription>
+                  <button
+                    type="button"
+                    className="detail-winery-link"
+                    onClick={() => {
+                      setActiveWine(null);
+                      window.setTimeout(
+                        () => setActiveWinery(wineryProfiles[activeWine.winery]),
+                        120,
+                      );
+                    }}
+                  >
+                    {activeWine.winery} kennenlernen →
+                  </button>
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className={`detail-wine-media${wineMedia[activeWine.id] ? " has-image" : ""}`}>
+                {wineMedia[activeWine.id] ? (
+                  <img
+                    src={`${basePath}${wineMedia[activeWine.id]?.src}`}
+                    alt={wineMedia[activeWine.id]?.alt ?? activeWine.name}
+                  />
+                ) : (
+                  <div className="wine-image-placeholder large" aria-label="Flaschenfoto folgt">
+                    <WineIcon aria-hidden="true" size={52} strokeWidth={1.15} />
+                    <span>DeidiVino-Flaschenfoto folgt</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="wine-character">
+                <p className="detail-label">Charakter im Glas</p>
+                <p>{wineDescriptions[activeWine.id]}</p>
+              </div>
+
+              <div className="detail-wine-facts" aria-label="Weininformationen">
+                <span>{activeWine.grape}</span>
+                <span>{activeWine.style}</span>
+                <span>{formatVolume(activeWine.volume)}</span>
+                <strong>{formatEuro(activeWine.price)}</strong>
+              </div>
+
+              <button
+                type="button"
+                className={`detail-select-button${selectedIds.includes(activeWine.id) ? " is-selected" : ""}`}
+                onClick={() => toggleWine(activeWine.id)}
+              >
+                {selectedIds.includes(activeWine.id) ? (
+                  <Check aria-hidden="true" size={18} />
+                ) : (
+                  <Plus aria-hidden="true" size={18} />
+                )}
+                {selectedIds.includes(activeWine.id) ? "Für die Anfrage gemerkt" : "Für die Anfrage merken"}
+              </button>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={Boolean(activeWinery)}
+        onOpenChange={(open) => {
+          if (!open) setActiveWinery(null);
+        }}
+      >
+        <DialogContent className="detail-dialog winery-detail-dialog">
+          {activeWinery && (
+            <>
+              <DialogHeader>
+                <p className="detail-dialog-eyebrow">Weingut aus {activeWinery.region}</p>
+                <DialogTitle>{activeWinery.name}</DialogTitle>
+                <DialogDescription>Die Handschrift hinter den Weinen</DialogDescription>
+              </DialogHeader>
+              <div className="winery-monogram" aria-hidden="true">
+                <Grape size={42} strokeWidth={1.25} />
+              </div>
+              <p className="winery-description">{activeWinery.description}</p>
+              <a
+                className="official-winery-link"
+                href={activeWinery.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Offizielle Website des Weinguts
+                <ExternalLink aria-hidden="true" size={17} />
+              </a>
+              <small className="source-note">
+                Kurzporträt auf Grundlage der veröffentlichten Angaben des Weinguts.
+              </small>
+            </>
+          )}
         </DialogContent>
       </Dialog>
 

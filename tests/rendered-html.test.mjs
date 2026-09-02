@@ -14,10 +14,12 @@ test("renders the complete static sales page", async () => {
   assert.match(html, /Sechs gute Gründe, eine Flasche zu öffnen/);
   assert.match(html, /Tribut Grauschiefer Riesling/);
   assert.match(html, /No Limit Sparkling alkoholfrei/);
+  assert.match(html, /Charakter im Glas ansehen/);
+  assert.match(html, /Flaschenfoto folgt/);
   assert.match(html, /mailto:deidivino\.ffm@gmail\.com/);
   assert.doesNotMatch(html, /Sauvignon Blanc II/);
-  assert.match(html, /href="\/impressum\/"/);
-  assert.match(html, /href="\/datenschutz\/"/);
+  assert.match(html, /href="(?:\/DeidiVino)?\/impressum\/"/);
+  assert.match(html, /href="(?:\/DeidiVino)?\/datenschutz\/"/);
 });
 
 test("prerenders the legal pages", async () => {
