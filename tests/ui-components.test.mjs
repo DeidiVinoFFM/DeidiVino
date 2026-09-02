@@ -78,15 +78,16 @@ test("provides a description for every wine and winery", async () => {
   assert.match(wineriesSource, /sourceUrl: "https:\/\//);
 });
 
-test("includes the first own wine photographs as deployable web assets", async () => {
+test("includes both batches of own wine photographs as deployable web assets", async () => {
   const media = await read("app/data/wine-media.ts");
   const imageDirectory = new URL("public/wine-images/", projectUrl);
   const images = await readdir(imageDirectory);
 
-  assert.equal(images.filter((file) => file.endsWith(".webp")).length, 17);
+  assert.equal(images.filter((file) => file.endsWith(".webp")).length, 29);
   assert.match(media, /W0036: \{ src: "\/wine-images\/W0036\.webp"/);
   assert.match(media, /W0116: \{ src: "\/wine-images\/W0116\.webp"/);
-  assert.doesNotMatch(media, /W0103: \{ src:/);
+  assert.match(media, /W0103: \{ src: "\/wine-images\/W0103\.webp"/);
   await access(new URL("W0036.webp", imageDirectory));
   await access(new URL("W0116.webp", imageDirectory));
+  await access(new URL("W0103.webp", imageDirectory));
 });

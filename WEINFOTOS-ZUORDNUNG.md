@@ -20,9 +20,9 @@ Bis ein freigegebenes oder eigenes Foto vorliegt, zeigt die Website einen neutra
 |---|---|---|---:|---|
 | W0109 | Daniel Mattern | No Limit Sparkling alkoholfrei | 2024 | Foto eingebunden |
 | W0116 | Bischel | Riesling Sekt Brut | 2022 | Foto eingebunden |
-| W0103 | Daniel Mattern | Hop & Grape Perlwein / Secco | 2024 | neue Aufnahme erforderlich – Quelldatei nicht vollständig lesbar |
+| W0103 | Daniel Mattern | Hop & Grape Perlwein / Secco | 2024 | Foto eingebunden |
 | W0036 | Geisser | Chardonnay Sekt Brut | 2020 | Foto eingebunden |
-| W0068 | Schlossgut Diel | Rosé de Diel | 2022 | eigenes Foto erforderlich |
+| W0068 | Schlossgut Diel | Rosé de Diel | 2022 | Foto eingebunden |
 | W0112 | Bischel | Rosé Trocken | 2023 | eigenes Foto erforderlich |
 | W0097 | Daniel Mattern | Rosé | 2024 | Foto eingebunden |
 | W0121 | Bischel | Appenheim Spätburgunder aus 1. Lagen | 2019 | eigenes Foto erforderlich |
@@ -31,11 +31,11 @@ Bis ein freigegebenes oder eigenes Foto vorliegt, zeigt die Website einen neutra
 | W0123 | Bischel | Pinot Noir Reserve | 2020 | eigenes Foto erforderlich |
 | W0084 | Christian Bamberger | Spätburgunder Vulkangestein | 2020 | Foto eingebunden |
 | W0085 | Christian Bamberger | Spätburgunder Vulkangestein | 2021 | Foto eingebunden |
-| W0027 | Thanisch | Spätburgunder Trocken unfiltriert Barrique | 2020 | eigenes Foto erforderlich |
+| W0027 | Thanisch | Spätburgunder Trocken unfiltriert Barrique | 2020 | Foto eingebunden |
 | W0028 | Thanisch | Spätburgunder Trocken unfiltriert Barrique | 2021 | eigenes Foto erforderlich |
-| W0064 | Schlossgut Diel | Nahesteiner Weißburgunder | 2022 | eigenes Foto erforderlich |
-| W0066 | Schlossgut Diel | Pinot Gris Reserve | 2018 | eigenes Foto erforderlich |
-| W0067 | Schlossgut Diel | Prestige Cuvée Victor | 2018 | eigenes Foto erforderlich |
+| W0064 | Schlossgut Diel | Nahesteiner Weißburgunder | 2022 | Foto eingebunden |
+| W0066 | Schlossgut Diel | Pinot Gris Reserve | 2018 | Foto eingebunden |
+| W0067 | Schlossgut Diel | Prestige Cuvée Victor | 2018 | Foto eingebunden |
 | W0114 | Bischel | Appenheimer Weißburgunder & Chardonnay | 2023 | eigenes Foto erforderlich |
 | W0115 | Bischel | Chardonnay Reserve | 2022 | eigenes Foto erforderlich |
 | W0111 | Bischel | Grauer Burgunder | 2024 | eigenes Foto erforderlich |
@@ -67,9 +67,9 @@ Bis ein freigegebenes oder eigenes Foto vorliegt, zeigt die Website einen neutra
 | W0057 | Schloss Lieser | Riesling Goldtröpfchen Auslese | 2022 | eigenes Foto erforderlich |
 | W0056 | Schloss Lieser | Riesling Niederberg Helden Auslese Goldkapsel | 2022 | eigenes Foto erforderlich |
 | W0048 | Schloss Lieser | Weißburgunder Trocken | 2022 | eigenes Foto erforderlich |
-| W0012 | Thanisch | Alte Reben R Trocken | 2022 | eigenes Foto erforderlich |
-| W0002 | Thanisch | Chardonnay | 2023 | eigenes Foto erforderlich |
-| W0005 | Thanisch | Chardonnay 500 | 2022 | eigenes Foto erforderlich |
-| W0006 | Thanisch | Chardonnay 500 | 2023 | eigenes Foto erforderlich |
-| W0010 | Thanisch | Riesling Spätlese Trocken Niederberg Helden | 2022 | eigenes Foto erforderlich |
-| W0009 | Thanisch | Tribut Grauschiefer Riesling | 2023 | eigenes Foto erforderlich |
+| W0012 | Thanisch | Alte Reben R Trocken | 2022 | Foto eingebunden |
+| W0002 | Thanisch | Chardonnay | 2023 | Foto eingebunden |
+| W0005 | Thanisch | Chardonnay 500 | 2022 | Foto eingebunden |
+| W0006 | Thanisch | Chardonnay 500 | 2023 | Foto eingebunden |
+| W0010 | Thanisch | Riesling Spätlese Trocken Niederberg Helden | 2022 | Foto eingebunden |
+| W0009 | Thanisch | Tribut Grauschiefer Riesling | 2023 | Foto eingebunden |
