@@ -49,7 +49,9 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /wineDescriptions\[activeWine\.id\]/);
   assert.match(page, /wineryProfiles\[wine\.winery\]/);
   assert.match(page, /google\.com\/maps\/search\/\?api=1/);
-  assert.match(page, /target="_blank"/);
+  assert.match(page, /google\.com\/maps\?q=/);
+  assert.match(page, /activeMapWine/);
+  assert.match(page, /winery-map-dialog/);
   assert.match(page, /IntersectionObserver/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /overflow-x: auto/);
@@ -60,6 +62,8 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(css, /\.wine-card-media/);
   assert.match(css, /\.wine-card-copy/);
   assert.match(css, /\.wine-detail-main/);
+  assert.match(css, /\.wine-detail-copy/);
+  assert.match(css, /\.winery-map-frame/);
   assert.match(css, /\.detail-dialog/);
   assert.match(css, /\.winery-description/);
 });

@@ -22,7 +22,6 @@ test("renders the complete static sales page", async () => {
   assert.match(html, /mailto:deidivino\.ffm@gmail\.com/);
   assert.doesNotMatch(html, /Sauvignon Blanc II/);
   assert.doesNotMatch(html, /Blaufränkisch VINTAGE/);
-  assert.match(html, /google\.com\/maps\/search\/\?api=1/);
   assert.match(html, /href="(?:\/DeidiVino)?\/impressum\/"/);
   assert.match(html, /href="(?:\/DeidiVino)?\/datenschutz\/"/);
 });

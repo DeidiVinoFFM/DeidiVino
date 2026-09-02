@@ -520,7 +520,12 @@ input:focus-visible {
 }
 
 .region-label {
+  padding: 0;
+  border: 0;
   border-radius: 0.35rem;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
   text-decoration: none;
 }
 
@@ -1442,6 +1447,13 @@ input:focus-visible {
   align-items: stretch;
 }
 
+.wine-detail-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
 .detail-dialog [data-slot="dialog-title"] {
   padding-right: 2rem;
   color: var(--slate-deep);
@@ -1514,10 +1526,79 @@ input:focus-visible {
 .wine-character {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 1rem 1.05rem;
   border-left: 4px solid var(--brand-yellow);
   background: var(--brand-yellow-soft);
+}
+
+.wine-detail-copy .detail-select-button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.winery-map-dialog {
+  max-height: min(90vh, 760px);
+  max-width: min(46rem, calc(100% - 2rem));
+  overflow-y: auto;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  border: 1px solid var(--line);
+  border-radius: 1.35rem;
+  background: #fff;
+  color: var(--ink);
+}
+
+.winery-map-dialog [data-slot="dialog-title"] {
+  padding-right: 2rem;
+  color: var(--slate-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 4vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.winery-map-dialog [data-slot="dialog-description"] {
+  color: var(--copy);
+  font-size: 0.85rem;
+}
+
+.winery-map-frame {
+  height: clamp(17rem, 48vh, 25rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--ice);
+}
+
+.winery-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.winery-map-footer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.winery-map-footer p {
+  max-width: 31rem;
+  margin: 0;
+  color: var(--copy);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.winery-map-footer a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  color: var(--slate-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
 }
 
 .wine-character p {
@@ -1946,6 +2027,11 @@ input:focus-visible {
   .wine-character p {
     font-size: 0.85rem;
     line-height: 1.55;
+  }
+
+  .winery-map-footer {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .detail-wine-facts strong {

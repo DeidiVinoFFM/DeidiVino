@@ -101,8 +101,12 @@ function wineryShortName(winery: string) {
   return winery.replace(/^Weingut /, "");
 }
 
-function regionMapUrl(region: string) {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Weinbaugebiet ${region}`)}`;
+function googleMapsUrl(query: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function googleMapsEmbedUrl(query: string) {
+  return `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
 }
 
 function WineCard({
@@ -111,6 +115,7 @@ function WineCard({
   onToggle,
   onShowWine,
   onShowWinery,
+  onShowMap,
   featureLabel,
 }: {
   wine: Wine;
@@ -118,6 +123,7 @@ function WineCard({
   onToggle: () => void;
   onShowWine: () => void;
   onShowWinery: () => void;
+  onShowMap: () => void;
   featureLabel?: string;
 }) {
   const media = wineMedia[wine.id];
@@ -131,17 +137,16 @@ function WineCard({
   return (
     <article className={`wine-card${selected ? " is-selected" : ""}`}>
       <div className="wine-card-topline">
-        <a
+        <button
+          type="button"
           className="region-label"
-          href={regionMapUrl(wine.region)}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${wine.region} als Weinbaugebiet in Google Maps öffnen`}
+          onClick={onShowMap}
+          aria-label={`Standort von ${wine.winery} im Weinbaugebiet ${wine.region} ansehen`}
         >
           <MapPin aria-hidden="true" size={14} />
           {wine.region}
           <ExternalLink aria-hidden="true" className="region-external-icon" size={11} />
-        </a>
+        </button>
         <span className={`availability${availabilityClass}`}>{wine.availability}</span>
       </div>
 
@@ -213,6 +218,7 @@ export default function Home() {
   const [webmailOpen, setWebmailOpen] = useState(false);
   const [activeWine, setActiveWine] = useState<Wine | null>(null);
   const [activeWinery, setActiveWinery] = useState<WineryProfile | null>(null);
+  const [activeMapWine, setActiveMapWine] = useState<Wine | null>(null);
   const [copyStatus, setCopyStatus] = useState<
     "idle" | "all" | "email" | "subject" | "body" | "error"
   >("idle");
@@ -416,6 +422,7 @@ export default function Home() {
                 onToggle={() => toggleWine(wine.id)}
                 onShowWine={() => setActiveWine(wine)}
                 onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
+                onShowMap={() => setActiveMapWine(wine)}
                 featureLabel={featuredLabels[wine.id]}
               />
             ))}
@@ -521,6 +528,7 @@ export default function Home() {
                     onToggle={() => toggleWine(wine.id)}
                     onShowWine={() => setActiveWine(wine)}
                     onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
+                    onShowMap={() => setActiveMapWine(wine)}
                   />
                 ))}
               </div>
@@ -777,33 +785,82 @@ export default function Home() {
                   )}
                 </div>
 
-                <div className="wine-character">
-                  <p className="detail-label">Charakter im Glas</p>
-                  <p>{wineDescriptions[activeWine.id]}</p>
+                <div className="wine-detail-copy">
+                  <div className="wine-character">
+                    <p className="detail-label">Charakter im Glas</p>
+                    <p>{wineDescriptions[activeWine.id]}</p>
+                  </div>
+
+                  <div className="detail-wine-facts" aria-label="Weininformationen">
+                    <span>{activeWine.grape}</span>
+                    <span>{activeWine.style}</span>
+                    <span>{formatVolume(activeWine.volume)}</span>
+                    <strong>{formatEuro(activeWine.price)}</strong>
+                  </div>
+
+                  <button
+                    type="button"
+                    className={`detail-select-button${selectedIds.includes(activeWine.id) ? " is-selected" : ""}`}
+                    onClick={() => toggleWine(activeWine.id)}
+                  >
+                    {selectedIds.includes(activeWine.id) ? (
+                      <Check aria-hidden="true" size={18} />
+                    ) : (
+                      <Plus aria-hidden="true" size={18} />
+                    )}
+                    {selectedIds.includes(activeWine.id) ? "Für die Anfrage gemerkt" : "Für die Anfrage merken"}
+                  </button>
                 </div>
               </div>
-
-              <div className="detail-wine-facts" aria-label="Weininformationen">
-                <span>{activeWine.grape}</span>
-                <span>{activeWine.style}</span>
-                <span>{formatVolume(activeWine.volume)}</span>
-                <strong>{formatEuro(activeWine.price)}</strong>
-              </div>
-
-              <button
-                type="button"
-                className={`detail-select-button${selectedIds.includes(activeWine.id) ? " is-selected" : ""}`}
-                onClick={() => toggleWine(activeWine.id)}
-              >
-                {selectedIds.includes(activeWine.id) ? (
-                  <Check aria-hidden="true" size={18} />
-                ) : (
-                  <Plus aria-hidden="true" size={18} />
-                )}
-                {selectedIds.includes(activeWine.id) ? "Für die Anfrage gemerkt" : "Für die Anfrage merken"}
-              </button>
             </>
           )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={Boolean(activeMapWine)}
+        onOpenChange={(open) => {
+          if (!open) setActiveMapWine(null);
+        }}
+      >
+        <DialogContent className="winery-map-dialog">
+          {activeMapWine && (() => {
+            const profile = wineryProfiles[activeMapWine.winery];
+            return (
+              <>
+                <DialogHeader>
+                  <p className="detail-dialog-eyebrow">{profile.region} · Standort des Weinguts</p>
+                  <DialogTitle>{profile.name}</DialogTitle>
+                  <DialogDescription>{profile.locationLabel}</DialogDescription>
+                </DialogHeader>
+
+                <div className="winery-map-frame">
+                  <iframe
+                    src={googleMapsEmbedUrl(profile.mapQuery)}
+                    title={`Karte mit dem Standort von ${profile.name}`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
+
+                <div className="winery-map-footer">
+                  <p>
+                    Das Weingut liegt im Weinbaugebiet {profile.region}. Die Karte zeigt bewusst
+                    den konkreten Standort statt einer allgemeinen Liste von Betrieben.
+                  </p>
+                  <a
+                    href={googleMapsUrl(profile.mapQuery)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    In Google Maps öffnen
+                    <ExternalLink aria-hidden="true" size={15} />
+                  </a>
+                </div>
+              </>
+            );
+          })()}
         </DialogContent>
       </Dialog>
 
