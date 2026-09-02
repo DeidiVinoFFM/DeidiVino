@@ -8,10 +8,10 @@ test("renders the complete static sales page", async () => {
   const html = await readFile(new URL("dist/client/index.html", projectUrl), "utf8");
 
   assert.match(html, /DeidiVino Weinliste September 2026/);
-  assert.match(html, /Handverlesen\. Persönlich\. Verfügbar\./);
-  assert.match(html, /Verfügbare Positionen/);
+  assert.match(html, /Weine, die im Glas Freude machen\./);
+  assert.match(html, /Weine zur Auswahl/);
   assert.match(html, />56</);
-  assert.match(html, /Sechs Weine zum Entdecken/);
+  assert.match(html, /Sechs gute Gründe, eine Flasche zu öffnen/);
   assert.match(html, /Tribut Grauschiefer Riesling/);
   assert.match(html, /No Limit Sparkling alkoholfrei/);
   assert.match(html, /mailto:deidivino\.ffm@gmail\.com/);
@@ -30,5 +30,8 @@ test("prerenders the legal pages", async () => {
   );
 
   assert.match(impressum, /Angaben gemäß § 5 DDG/);
+  assert.match(impressum, /Marie-von-Oriola-Straße 24/);
+  assert.doesNotMatch(impressum, /022 426 00402/);
   assert.match(datenschutz, /Datenschutzerklärung/);
+  assert.match(datenschutz, /Hosting über GitHub Pages/);
 });

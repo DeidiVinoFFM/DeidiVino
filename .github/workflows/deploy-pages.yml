@@ -33,6 +33,9 @@ jobs:
       - name: Abhängigkeiten installieren
         run: npm ci
 
+      - name: Build-Skripte ausführbar machen
+        run: chmod +x scripts/*.sh
+
       - name: Statische Website bauen
         run: npm run build
 

@@ -5,17 +5,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export default function ImpressumPage() {
   return (
     <main className="legal-page">
-      <a className="back-link" href={`${basePath}/`}>
-        ← Zur Weinliste
-      </a>
+      <a className="back-link" href={`${basePath}/`}>← Zur Weinauswahl</a>
       <p className="eyebrow dark">Rechtliche Angaben</p>
       <h1>Impressum</h1>
-
-      <div className="legal-warning">
-        Vor der Veröffentlichung müssen die vollständige ladungsfähige Anschrift und –
-        soweit vorhanden – weitere Register- oder Umsatzsteuerangaben ergänzt und
-        rechtlich geprüft werden.
-      </div>
 
       <h2>Angaben gemäß § 5 DDG</h2>
       <p>
@@ -23,31 +15,27 @@ export default function ImpressumPage() {
         <br />
         Inhaber: {siteConfig.owner}
         <br />
-        [Straße und Hausnummer ergänzen]
+        {siteConfig.street}
         <br />
-        [PLZ und Ort ergänzen]
+        {siteConfig.postalCode} {siteConfig.city}
+        <br />
+        {siteConfig.country}
       </p>
 
       <h2>Kontakt</h2>
       <p>
+        Telefon: <a href={`tel:${siteConfig.phoneHref}`}>{siteConfig.phoneDisplay}</a>
+        <br />
         E-Mail: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-        <br />
-        Telefon: [Telefonnummer ergänzen]
-      </p>
-
-      <h2>Verantwortlich für den Inhalt</h2>
-      <p>
-        {siteConfig.owner}
-        <br />
-        [vollständige Anschrift ergänzen]
       </p>
 
       <h2>Verbraucherstreitbeilegung</h2>
       <p>
-        Die gesetzlich passende Erklärung zur Teilnahme oder Nichtteilnahme an einem
-        Streitbeilegungsverfahren ist vor Veröffentlichung anhand der konkreten
-        Unternehmenssituation zu ergänzen.
+        Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor
+        einer Verbraucherschlichtungsstelle teilzunehmen.
       </p>
+
+      <p><small>Stand: 1. September 2026</small></p>
     </main>
   );
 }

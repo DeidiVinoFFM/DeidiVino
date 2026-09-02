@@ -31,10 +31,11 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   const css = await read("app/globals.css");
 
   assert.match(page, /placeholder="Wein, Weingut, Rebsorte oder Region"/);
-  assert.match(page, /Auswahl anfragen/);
+  assert.match(page, /Jetzt anfragen/);
   assert.match(page, /Alkoholfrei/);
-  assert.match(page, /Nur wenige Flaschen/);
-  assert.match(css, /@media \(max-width: 680px\)/);
+  assert.match(page, /Nur noch 1 Flasche/);
+  assert.match(page, /IntersectionObserver/);
+  assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion: reduce/);
 });
