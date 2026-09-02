@@ -75,7 +75,7 @@ export const wines: Wine[] = [
     "winery": "Weingut Geisser",
     "region": "Pfalz",
     "name": "Chardonnay Sekt Brut",
-    "vintage": 2020,
+    "vintage": 2021,
     "availability": "Direkt verfügbar",
     "price": 12.8,
     "volume": 0.75,

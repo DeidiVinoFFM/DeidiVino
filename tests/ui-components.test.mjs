@@ -117,7 +117,9 @@ test("publishes verified 2024 product data and marks remaining label checks", as
   assert.match(productInfo, /W0097:/);
   assert.match(productInfo, /W0111:/);
   assert.match(productInfo, /Entalkoholisierter Wein/);
-  assert.match(productInfo, /313 kJ \/ 75 kcal/);
+  assert.match(productInfo, /318 kJ \/ 77 kcal/);
+  assert.match(productInfo, /93 kJ \/ 22 kcal/);
+  assert.match(productInfo, /Fotografiertes Rücketikett/);
   assert.match(productInfo, /verification: "label-needed"/);
   assert.match(shipping, /13 bis 18 Flaschen/);
   assert.match(shipping, /14,90 €/);

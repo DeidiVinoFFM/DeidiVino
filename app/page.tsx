@@ -874,14 +874,14 @@ export default function Home() {
                             <p className="product-transition-note">
                               Für diesen älteren Bestand gilt die zusätzliche Zutaten- und
                               Nährwertkennzeichnung für nach dem 8. Dezember 2023 erzeugte
-                              Weine grundsätzlich nicht. Alkohol, Allergene und die übrigen
-                              flaschenbezogenen Pflichtangaben werden dennoch vor einer
-                              verbindlichen Bestellung bestätigt.
+                              Weine grundsätzlich nicht. {product.verification === "verified"
+                                ? "Die verfügbaren flaschenbezogenen Angaben sind oben wiedergegeben."
+                                : "Noch offene flaschenbezogene Angaben werden vor einer verbindlichen Bestellung bestätigt."}
                             </p>
                           )}
 
                           <p className={`verification-note ${product.verification}`}>
-                            {product.verification === "verified" ? "Angaben anhand der veröffentlichten Herstellerdaten geprüft." : "Einzelne Angaben müssen noch mit dem Rücketikett des vorhandenen Jahrgangs abgeglichen werden."}
+                            {product.verification === "verified" ? "Angaben anhand des Rücketiketts oder der zugehörigen Herstellerinformationen geprüft." : "Einzelne Angaben müssen noch mit dem Rücketikett des vorhandenen Jahrgangs abgeglichen werden."}
                           </p>
                           <small>{product.sourceLabel}</small>
                         </div>

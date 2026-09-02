@@ -17,7 +17,7 @@ export const wineMedia: Partial<Record<string, WineMedia>> = {
   W0012: { src: "/wine-images/W0012.webp", alt: "Alte Reben R Trocken 2022 von Weingut Thanisch" },
   W0027: { src: "/wine-images/W0027.webp", alt: "Spätburgunder Trocken unfiltriert Barrique 2020 von Weingut Thanisch" },
   W0028: { src: "/wine-images/W0028.webp", alt: "Spätburgunder Trocken unfiltriert Barrique 2021 von Weingut Thanisch" },
-  W0036: { src: "/wine-images/W0036.webp", alt: "Chardonnay Sekt Brut von Weingut Geisser" },
+  W0036: { src: "/wine-images/W0036.webp", alt: "Chardonnay Sekt Brut 2021 von Weingut Geisser" },
   W0040: { src: "/wine-images/W0040.webp", alt: "Sauvignon Blanc Sonnenberg von Weingut Geisser" },
   W0048: { src: "/wine-images/W0048.webp", alt: "Weißburgunder Trocken 2022 von Weingut Schloss Lieser" },
   W0051: { src: "/wine-images/W0051.webp", alt: "Lieser Heldenstück Trocken 2022 von Weingut Schloss Lieser" },
