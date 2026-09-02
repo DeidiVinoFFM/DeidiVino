@@ -48,10 +48,10 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /Offizielle Website des Weinguts/);
   assert.match(page, /wineDescriptions\[activeWine\.id\]/);
   assert.match(page, /wineryProfiles\[wine\.winery\]/);
-  assert.match(page, /google\.com\/maps\/search\/\?api=1/);
-  assert.match(page, /google\.com\/maps\?q=/);
-  assert.match(page, /activeMapWine/);
-  assert.match(page, /winery-map-dialog/);
+  assert.doesNotMatch(page, /Google Maps/);
+  assert.doesNotMatch(page, /activeMapWine/);
+  assert.match(page, /Produkt- und Lebensmittelangaben/);
+  assert.match(page, /productInformationFor/);
   assert.match(page, /IntersectionObserver/);
   assert.match(page, /const scrollToResults/);
   assert.match(page, /id="weinergebnisse"/);
@@ -67,7 +67,7 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(css, /\.wine-card-copy/);
   assert.match(css, /\.wine-detail-main/);
   assert.match(css, /\.wine-detail-copy/);
-  assert.match(css, /\.winery-map-frame/);
+  assert.match(css, /\.product-information/);
   assert.match(css, /\.detail-dialog/);
   assert.match(css, /\.winery-description/);
 });
@@ -106,4 +106,19 @@ test("includes all three batches of own wine photographs as deployable web asset
   await access(new URL("W0116.webp", imageDirectory));
   await access(new URL("W0103.webp", imageDirectory));
   await access(new URL("W0123.webp", imageDirectory));
+});
+
+test("publishes verified 2024 product data and marks remaining label checks", async () => {
+  const productInfo = await read("app/data/product-information.ts");
+  const shipping = await read("app/versand/page.tsx");
+
+  assert.match(productInfo, /W0109:/);
+  assert.match(productInfo, /W0103:/);
+  assert.match(productInfo, /W0097:/);
+  assert.match(productInfo, /W0111:/);
+  assert.match(productInfo, /Entalkoholisierter Wein/);
+  assert.match(productInfo, /313 kJ \/ 75 kcal/);
+  assert.match(productInfo, /verification: "label-needed"/);
+  assert.match(shipping, /13 bis 18 Flaschen/);
+  assert.match(shipping, /14,90 €/);
 });

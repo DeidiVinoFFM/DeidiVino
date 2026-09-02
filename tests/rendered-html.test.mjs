@@ -24,6 +24,7 @@ test("renders the complete static sales page", async () => {
   assert.doesNotMatch(html, /Blaufränkisch VINTAGE/);
   assert.match(html, /href="(?:\/DeidiVino)?\/impressum\/"/);
   assert.match(html, /href="(?:\/DeidiVino)?\/datenschutz\/"/);
+  assert.match(html, /href="(?:\/DeidiVino)?\/versand\/"/);
 });
 
 test("prerenders the legal pages", async () => {
@@ -35,10 +36,18 @@ test("prerenders the legal pages", async () => {
     new URL("dist/client/datenschutz/index.html", projectUrl),
     "utf8",
   );
+  const versand = await readFile(
+    new URL("dist/client/versand/index.html", projectUrl),
+    "utf8",
+  );
 
   assert.match(impressum, /Angaben gemäß § 5 DDG/);
   assert.match(impressum, /Marie-von-Oriola-Straße 24/);
   assert.doesNotMatch(impressum, /022 426 00402/);
   assert.match(datenschutz, /Datenschutzerklärung/);
   assert.match(datenschutz, /Hosting über GitHub Pages/);
+  assert.doesNotMatch(datenschutz, /Google Maps/);
+  assert.match(versand, /Bis 6 Flaschen/);
+  assert.match(versand, /7,90/);
+  assert.match(versand, /Schöneck-Büdesheim/);
 });

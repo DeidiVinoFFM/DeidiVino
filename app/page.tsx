@@ -10,7 +10,6 @@ import {
   ExternalLink,
   Grape,
   Mail,
-  MapPin,
   Phone,
   Plus,
   Search,
@@ -30,6 +29,7 @@ import { wineDescriptions } from "./data/wine-details";
 import { wineMedia } from "./data/wine-media";
 import { wineryProfiles, type WineryProfile } from "./data/wineries";
 import { inventoryAsOf, wines, type Wine } from "./data/wines";
+import { productInformationFor } from "./data/product-information";
 import { siteConfig } from "./site-config";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -101,21 +101,12 @@ function wineryShortName(winery: string) {
   return winery.replace(/^Weingut /, "");
 }
 
-function googleMapsUrl(query: string) {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
-}
-
-function googleMapsEmbedUrl(query: string) {
-  return `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
-}
-
 function WineCard({
   wine,
   selected,
   onToggle,
   onShowWine,
   onShowWinery,
-  onShowMap,
   featureLabel,
 }: {
   wine: Wine;
@@ -123,7 +114,6 @@ function WineCard({
   onToggle: () => void;
   onShowWine: () => void;
   onShowWinery: () => void;
-  onShowMap: () => void;
   featureLabel?: string;
 }) {
   const media = wineMedia[wine.id];
@@ -137,16 +127,9 @@ function WineCard({
   return (
     <article className={`wine-card${selected ? " is-selected" : ""}`}>
       <div className="wine-card-topline">
-        <button
-          type="button"
-          className="region-label"
-          onClick={onShowMap}
-          aria-label={`Standort von ${wine.winery} im Weinbaugebiet ${wine.region} ansehen`}
-        >
-          <MapPin aria-hidden="true" size={14} />
+        <span className="region-label region-label-static">
           {wine.region}
-          <ExternalLink aria-hidden="true" className="region-external-icon" size={11} />
-        </button>
+        </span>
         <span className={`availability${availabilityClass}`}>{wine.availability}</span>
       </div>
 
@@ -218,7 +201,6 @@ export default function Home() {
   const [webmailOpen, setWebmailOpen] = useState(false);
   const [activeWine, setActiveWine] = useState<Wine | null>(null);
   const [activeWinery, setActiveWinery] = useState<WineryProfile | null>(null);
-  const [activeMapWine, setActiveMapWine] = useState<Wine | null>(null);
   const [copyStatus, setCopyStatus] = useState<
     "idle" | "all" | "email" | "subject" | "body" | "error"
   >("idle");
@@ -466,7 +448,6 @@ export default function Home() {
                 onToggle={() => toggleWine(wine.id)}
                 onShowWine={() => setActiveWine(wine)}
                 onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
-                onShowMap={() => setActiveMapWine(wine)}
                 featureLabel={featuredLabels[wine.id]}
               />
             ))}
@@ -572,7 +553,6 @@ export default function Home() {
                     onToggle={() => toggleWine(wine.id)}
                     onShowWine={() => setActiveWine(wine)}
                     onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
-                    onShowMap={() => setActiveMapWine(wine)}
                   />
                 ))}
               </div>
@@ -695,13 +675,15 @@ export default function Home() {
           <div className="legal-links">
             <a href={`${basePath}/impressum/`}>Impressum</a>
             <a href={`${basePath}/datenschutz/`}>Datenschutz</a>
+            <a href={`${basePath}/versand/`}>Versand & Lieferung</a>
           </div>
         </div>
         <div className="page-width footer-note">
           <p>
             Alle Preise sind Gesamtpreise. Gemäß § 19 UStG wird keine Umsatzsteuer
-            ausgewiesen (Kleinunternehmerregelung). Hinzu kommen gegebenenfalls
-            Versandkosten. Soweit nicht anders angegeben: 0,75 l. Lieferung ausschließlich
+            ausgewiesen (Kleinunternehmerregelung). Hinzu kommen die unter {" "}
+            <a href={`${basePath}/versand/`}>Versand und Lieferung</a> genannten Kosten.
+            Soweit nicht anders angegeben: 0,75 l. Lieferung ausschließlich
             innerhalb Deutschlands. Angebot freibleibend und solange der Vorrat reicht.
             Stand: {inventoryAsOf}.
           </p>
@@ -843,6 +825,70 @@ export default function Home() {
                     <strong>{formatEuro(activeWine.price)}</strong>
                   </div>
 
+                  {(() => {
+                    const product = productInformationFor(activeWine);
+                    return (
+                      <details className="product-information">
+                        <summary>Produkt- und Lebensmittelangaben</summary>
+                        <div className="product-information-content">
+                          <dl className="product-facts-list">
+                            <div><dt>Bezeichnung</dt><dd>{activeWine.category === "Alkoholfrei" ? "Entalkoholisierter, perlender Wein" : `${activeWine.category}, ${activeWine.style}`}</dd></div>
+                            <div><dt>Herkunft</dt><dd>Deutschland · {activeWine.region}</dd></div>
+                            <div><dt>Nennvolumen</dt><dd>{formatVolume(activeWine.volume)}</dd></div>
+                            <div><dt>Alkohol</dt><dd>{product.alcohol ?? "Wird vor verbindlicher Bestellung anhand der Flasche bestätigt"}</dd></div>
+                            <div><dt>Allergene</dt><dd><strong>{product.allergens}</strong></dd></div>
+                            <div><dt>Verantwortlicher Betrieb</dt><dd>{product.producer}</dd></div>
+                          </dl>
+
+                          {product.ingredients && (
+                            <div className="product-ingredients">
+                              <h4>Zutaten</h4>
+                              <p>{product.ingredients}</p>
+                            </div>
+                          )}
+
+                          {product.nutrition && (
+                            <div className="nutrition-block">
+                              <h4>Durchschnittliche Nährwerte je 100 ml</h4>
+                              <dl>
+                                <div><dt>Brennwert</dt><dd>{product.nutrition.energy}</dd></div>
+                                <div><dt>Fett</dt><dd>{product.nutrition.fat}</dd></div>
+                                <div><dt>davon gesättigte Fettsäuren</dt><dd>{product.nutrition.saturates}</dd></div>
+                                <div><dt>Kohlenhydrate</dt><dd>{product.nutrition.carbohydrates}</dd></div>
+                                <div><dt>davon Zucker</dt><dd>{product.nutrition.sugars}</dd></div>
+                                <div><dt>Eiweiß</dt><dd>{product.nutrition.protein}</dd></div>
+                                <div><dt>Salz</dt><dd>{product.nutrition.salt}</dd></div>
+                              </dl>
+                            </div>
+                          )}
+
+                          {activeWine.vintage >= 2024 && (!product.ingredients || !product.nutrition) && (
+                            <p className="product-warning">
+                              Für diesen Jahrgang fehlen noch einzelne Angaben des Rücketiketts.
+                              Vor einer verbindlichen Bestellung erhältst Du die vollständigen,
+                              flaschenbezogenen Zutaten- und Nährwertinformationen.
+                            </p>
+                          )}
+
+                          {activeWine.vintage < 2024 && (
+                            <p className="product-transition-note">
+                              Für diesen älteren Bestand gilt die zusätzliche Zutaten- und
+                              Nährwertkennzeichnung für nach dem 8. Dezember 2023 erzeugte
+                              Weine grundsätzlich nicht. Alkohol, Allergene und die übrigen
+                              flaschenbezogenen Pflichtangaben werden dennoch vor einer
+                              verbindlichen Bestellung bestätigt.
+                            </p>
+                          )}
+
+                          <p className={`verification-note ${product.verification}`}>
+                            {product.verification === "verified" ? "Angaben anhand der veröffentlichten Herstellerdaten geprüft." : "Einzelne Angaben müssen noch mit dem Rücketikett des vorhandenen Jahrgangs abgeglichen werden."}
+                          </p>
+                          <small>{product.sourceLabel}</small>
+                        </div>
+                      </details>
+                    );
+                  })()}
+
                   <button
                     type="button"
                     className={`detail-select-button${selectedIds.includes(activeWine.id) ? " is-selected" : ""}`}
@@ -859,53 +905,6 @@ export default function Home() {
               </div>
             </>
           )}
-        </DialogContent>
-      </Dialog>
-
-      <Dialog
-        open={Boolean(activeMapWine)}
-        onOpenChange={(open) => {
-          if (!open) setActiveMapWine(null);
-        }}
-      >
-        <DialogContent className="winery-map-dialog">
-          {activeMapWine && (() => {
-            const profile = wineryProfiles[activeMapWine.winery];
-            return (
-              <>
-                <DialogHeader>
-                  <p className="detail-dialog-eyebrow">{profile.region} · Standort des Weinguts</p>
-                  <DialogTitle>{profile.name}</DialogTitle>
-                  <DialogDescription>{profile.locationLabel}</DialogDescription>
-                </DialogHeader>
-
-                <div className="winery-map-frame">
-                  <iframe
-                    src={googleMapsEmbedUrl(profile.mapQuery)}
-                    title={`Karte mit dem Standort von ${profile.name}`}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    allowFullScreen
-                  />
-                </div>
-
-                <div className="winery-map-footer">
-                  <p>
-                    Das Weingut liegt im Weinbaugebiet {profile.region}. Die Karte zeigt bewusst
-                    den konkreten Standort statt einer allgemeinen Liste von Betrieben.
-                  </p>
-                  <a
-                    href={googleMapsUrl(profile.mapQuery)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    In Google Maps öffnen
-                    <ExternalLink aria-hidden="true" size={15} />
-                  </a>
-                </div>
-              </>
-            );
-          })()}
         </DialogContent>
       </Dialog>
 
