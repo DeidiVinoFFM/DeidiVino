@@ -479,7 +479,7 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   min-height: 23.5rem;
-  padding: 1.35rem;
+  padding: 1.35rem 10rem 1.35rem 1.35rem;
   border: 1px solid var(--line);
   border-radius: 1.35rem;
   background: var(--paper);
@@ -506,7 +506,6 @@ input:focus-visible {
   align-items: center;
   justify-content: space-between;
   min-height: 1.55rem;
-  white-space: nowrap;
 }
 
 .region-label,
@@ -519,32 +518,10 @@ input:focus-visible {
   font-weight: 800;
 }
 
-.region-label {
-  padding: 0;
-  border: 0;
-  border-radius: 0.35rem;
-  background: transparent;
-  cursor: pointer;
-  font: inherit;
-  text-decoration: none;
-}
-
-.region-label:hover,
-.region-label:focus-visible {
-  color: var(--slate-deep);
-  text-decoration: underline;
-  text-underline-offset: 0.16rem;
-}
-
-.region-external-icon {
-  opacity: 0.62;
-}
-
 .availability {
   position: relative;
   color: var(--success);
   text-align: right;
-  white-space: nowrap;
 }
 
 .availability::before {
@@ -575,7 +552,7 @@ input:focus-visible {
 
 .wine-card-media {
   position: absolute;
-  top: 4.15rem;
+  top: 3.25rem;
   right: 1.15rem;
   display: grid;
   place-items: center;
@@ -588,14 +565,6 @@ input:focus-visible {
   background:
     radial-gradient(circle at 50% 20%, rgba(243, 233, 0, 0.16), transparent 5rem),
     linear-gradient(145deg, #f8fbfb, #edf4f5);
-}
-
-.wine-card-copy {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-width: 0;
-  margin-right: 8.65rem;
 }
 
 .wine-card-media.has-image {
@@ -759,6 +728,7 @@ input:focus-visible {
   align-items: end;
   justify-content: space-between;
   grid-column: 1 / -1;
+  margin-right: -8.65rem;
   margin-top: auto;
   padding-top: 1.35rem;
 }
@@ -1431,27 +1401,13 @@ input:focus-visible {
 
 .detail-dialog {
   max-height: min(90vh, 780px);
-  max-width: min(54rem, calc(100% - 2rem));
+  max-width: min(42rem, calc(100% - 2rem));
   overflow-y: auto;
   padding: clamp(1.25rem, 4vw, 2rem);
   border: 1px solid var(--line);
   border-radius: 1.35rem;
   background: #fff;
   color: var(--ink);
-}
-
-.wine-detail-main {
-  display: grid;
-  grid-template-columns: minmax(13rem, 15rem) minmax(0, 1fr);
-  gap: 1.25rem;
-  align-items: stretch;
-}
-
-.wine-detail-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  min-width: 0;
 }
 
 .detail-dialog [data-slot="dialog-title"] {
@@ -1494,7 +1450,7 @@ input:focus-visible {
 .detail-wine-media {
   display: grid;
   place-items: center;
-  min-height: 20rem;
+  min-height: 10rem;
   overflow: hidden;
   border: 1px solid #dce7e9;
   border-radius: 1rem;
@@ -1509,10 +1465,9 @@ input:focus-visible {
 
 .detail-wine-media img {
   width: 100%;
-  height: 100%;
-  min-height: 20rem;
-  padding: 0;
-  object-fit: cover;
+  height: 13rem;
+  padding: 0.8rem;
+  object-fit: contain;
 }
 
 .wine-image-placeholder.large {
@@ -1524,81 +1479,9 @@ input:focus-visible {
 }
 
 .wine-character {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   padding: 1rem 1.05rem;
   border-left: 4px solid var(--brand-yellow);
   background: var(--brand-yellow-soft);
-}
-
-.wine-detail-copy .detail-select-button {
-  width: 100%;
-  margin-top: auto;
-}
-
-.winery-map-dialog {
-  max-height: min(90vh, 760px);
-  max-width: min(46rem, calc(100% - 2rem));
-  overflow-y: auto;
-  padding: clamp(1.1rem, 3vw, 1.6rem);
-  border: 1px solid var(--line);
-  border-radius: 1.35rem;
-  background: #fff;
-  color: var(--ink);
-}
-
-.winery-map-dialog [data-slot="dialog-title"] {
-  padding-right: 2rem;
-  color: var(--slate-deep);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.55rem, 4vw, 2.15rem);
-  font-weight: 500;
-  line-height: 1.1;
-}
-
-.winery-map-dialog [data-slot="dialog-description"] {
-  color: var(--copy);
-  font-size: 0.85rem;
-}
-
-.winery-map-frame {
-  height: clamp(17rem, 48vh, 25rem);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 1rem;
-  background: var(--ice);
-}
-
-.winery-map-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.winery-map-footer {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.winery-map-footer p {
-  max-width: 31rem;
-  margin: 0;
-  color: var(--copy);
-  font-size: 0.78rem;
-  line-height: 1.5;
-}
-
-.winery-map-footer a {
-  flex: 0 0 auto;
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-  color: var(--slate-dark);
-  font-size: 0.78rem;
-  font-weight: 900;
 }
 
 .wine-character p {
@@ -1991,47 +1874,18 @@ input:focus-visible {
   }
 
   .wine-card-media {
-    top: 4.2rem;
+    top: 3rem;
     right: 0.9rem;
     width: 6.55rem;
     height: 14rem;
   }
 
-  .wine-card-copy {
-    margin-right: 7.4rem;
+  .wine-card {
+    padding-right: 8.8rem;
   }
 
-  .wine-card-topline {
-    gap: 0.45rem;
-  }
-
-  .region-label,
-  .availability {
-    font-size: 0.69rem;
-  }
-
-  .wine-detail-main {
-    grid-template-columns: minmax(7.5rem, 9rem) minmax(0, 1fr);
-    gap: 0.85rem;
-  }
-
-  .detail-wine-media,
-  .detail-wine-media img {
-    min-height: 12rem;
-  }
-
-  .wine-character {
-    padding: 0.85rem;
-  }
-
-  .wine-character p {
-    font-size: 0.85rem;
-    line-height: 1.55;
-  }
-
-  .winery-map-footer {
-    flex-direction: column;
-    align-items: flex-start;
+  .wine-card-bottom {
+    margin-right: -7.45rem;
   }
 
   .detail-wine-facts strong {
@@ -2120,40 +1974,21 @@ input:focus-visible {
 @media (max-width: 420px) {
   .wine-card {
     min-height: 22.5rem;
+    padding-right: 7.1rem;
   }
 
   .wine-card-media {
-    top: 4.35rem;
     right: 0.7rem;
     width: 5.25rem;
     height: 12.25rem;
-  }
-
-  .wine-card-copy {
-    margin-right: 5.9rem;
-  }
-
-  .region-label,
-  .availability {
-    font-size: 0.64rem;
-  }
-
-  .region-external-icon {
-    display: none;
   }
 
   .wine-card h3 {
     font-size: 1.32rem;
   }
 
-  .wine-detail-main {
-    grid-template-columns: 6.6rem minmax(0, 1fr);
-    gap: 0.7rem;
-  }
-
-  .detail-wine-media,
-  .detail-wine-media img {
-    min-height: 10.5rem;
+  .wine-card-bottom {
+    margin-right: -5.75rem;
   }
 }
 

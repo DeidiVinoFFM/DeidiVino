@@ -101,21 +101,12 @@ function wineryShortName(winery: string) {
   return winery.replace(/^Weingut /, "");
 }
 
-function googleMapsUrl(query: string) {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
-}
-
-function googleMapsEmbedUrl(query: string) {
-  return `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
-}
-
 function WineCard({
   wine,
   selected,
   onToggle,
   onShowWine,
   onShowWinery,
-  onShowMap,
   featureLabel,
 }: {
   wine: Wine;
@@ -123,7 +114,6 @@ function WineCard({
   onToggle: () => void;
   onShowWine: () => void;
   onShowWinery: () => void;
-  onShowMap: () => void;
   featureLabel?: string;
 }) {
   const media = wineMedia[wine.id];
@@ -137,16 +127,10 @@ function WineCard({
   return (
     <article className={`wine-card${selected ? " is-selected" : ""}`}>
       <div className="wine-card-topline">
-        <button
-          type="button"
-          className="region-label"
-          onClick={onShowMap}
-          aria-label={`Standort von ${wine.winery} im Weinbaugebiet ${wine.region} ansehen`}
-        >
+        <span className="region-label">
           <MapPin aria-hidden="true" size={14} />
           {wine.region}
-          <ExternalLink aria-hidden="true" className="region-external-icon" size={11} />
-        </button>
+        </span>
         <span className={`availability${availabilityClass}`}>{wine.availability}</span>
       </div>
 
@@ -164,30 +148,28 @@ function WineCard({
         )}
       </div>
 
-      <div className="wine-card-copy">
-        {featureLabel && <span className="feature-label">{featureLabel}</span>}
+      {featureLabel && <span className="feature-label">{featureLabel}</span>}
 
-        <p className="winery-name">
-          <button type="button" onClick={onShowWinery}>
-            {wineryShortName(wine.winery)}
-            <span aria-hidden="true">＋</span>
-          </button>
-        </p>
-        <h3>
-          <button type="button" onClick={onShowWine}>
-            {wine.name}
-          </button>
-        </h3>
-        <button className="wine-detail-hint" type="button" onClick={onShowWine}>
-          Charakter im Glas ansehen
-          <span aria-hidden="true">→</span>
+      <p className="winery-name">
+        <button type="button" onClick={onShowWinery}>
+          {wineryShortName(wine.winery)}
+          <span aria-hidden="true">＋</span>
         </button>
+      </p>
+      <h3>
+        <button type="button" onClick={onShowWine}>
+          {wine.name}
+        </button>
+      </h3>
+      <button className="wine-detail-hint" type="button" onClick={onShowWine}>
+        Charakter im Glas ansehen
+        <span aria-hidden="true">→</span>
+      </button>
 
-        <div className="wine-tags" aria-label="Weininformationen">
-          <span>{wine.vintage}</span>
-          <span>{wine.grape}</span>
-          <span>{wine.style}</span>
-        </div>
+      <div className="wine-tags" aria-label="Weininformationen">
+        <span>{wine.vintage}</span>
+        <span>{wine.grape}</span>
+        <span>{wine.style}</span>
       </div>
 
       <div className="wine-card-bottom">
@@ -218,7 +200,6 @@ export default function Home() {
   const [webmailOpen, setWebmailOpen] = useState(false);
   const [activeWine, setActiveWine] = useState<Wine | null>(null);
   const [activeWinery, setActiveWinery] = useState<WineryProfile | null>(null);
-  const [activeMapWine, setActiveMapWine] = useState<Wine | null>(null);
   const [copyStatus, setCopyStatus] = useState<
     "idle" | "all" | "email" | "subject" | "body" | "error"
   >("idle");
@@ -261,51 +242,7 @@ export default function Home() {
   const selectedWines = wines.filter((wine) => selectedIds.includes(wine.id));
 
   const scrollToSection = (id: string) => {
-    const target = document.getElementById(id);
-    if (!target) return;
-
-    const header = document.querySelector<HTMLElement>(".site-header");
-    const headerHeight = header?.getBoundingClientRect().height ?? 0;
-    const top = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-  };
-
-  const scrollToResults = () => {
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        const target = document.getElementById("weinergebnisse");
-        if (!target) return;
-
-        const header = document.querySelector<HTMLElement>(".site-header");
-        const controls = document.querySelector<HTMLElement>(".catalog-controls");
-        const headerHeight = header?.getBoundingClientRect().height ?? 0;
-        const controlsHeight =
-          controls && window.getComputedStyle(controls).position === "sticky"
-            ? controls.getBoundingClientRect().height + 16
-            : 0;
-        const top =
-          window.scrollY + target.getBoundingClientRect().top - headerHeight - controlsHeight - 12;
-        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-      });
-    });
-  };
-
-  const updateCategory = (nextCategory: string) => {
-    setCategory(nextCategory);
-    scrollToResults();
-  };
-
-  const updateBudget = (nextBudget: string) => {
-    setBudget(nextBudget);
-    scrollToResults();
-  };
-
-  const updateQuery = (nextQuery: string) => {
-    setQuery(nextQuery);
-    const controls = document.querySelector<HTMLElement>(".catalog-controls");
-    if (controls && window.getComputedStyle(controls).position === "sticky") {
-      scrollToResults();
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const discoverCategory = (nextCategory: string) => {
@@ -466,7 +403,6 @@ export default function Home() {
                 onToggle={() => toggleWine(wine.id)}
                 onShowWine={() => setActiveWine(wine)}
                 onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
-                onShowMap={() => setActiveMapWine(wine)}
                 featureLabel={featuredLabels[wine.id]}
               />
             ))}
@@ -524,7 +460,7 @@ export default function Home() {
                 <input
                   type="search"
                   value={query}
-                  onChange={(event) => updateQuery(event.target.value)}
+                  onChange={(event) => setQuery(event.target.value)}
                   placeholder="Wein, Weingut, Rebsorte oder Region"
                 />
               </label>
@@ -536,7 +472,7 @@ export default function Home() {
                     type="button"
                     className={`filter-chip${category === item ? " is-active" : ""}`}
                     aria-pressed={category === item}
-                    onClick={() => updateCategory(item)}
+                    onClick={() => setCategory(item)}
                   >
                     {item}
                   </button>
@@ -550,7 +486,7 @@ export default function Home() {
                     type="button"
                     className={`filter-chip subtle${budget === item.value ? " is-active" : ""}`}
                     aria-pressed={budget === item.value}
-                    onClick={() => updateBudget(item.value)}
+                    onClick={() => setBudget(item.value)}
                   >
                     {item.label}
                   </button>
@@ -558,7 +494,7 @@ export default function Home() {
               </div>
             </div>
 
-            <p id="weinergebnisse" className="result-count" aria-live="polite">
+            <p className="result-count" aria-live="polite">
               {filteredWines.length} {filteredWines.length === 1 ? "Wein passt" : "Weine passen"} zu Deiner Auswahl
             </p>
 
@@ -572,7 +508,6 @@ export default function Home() {
                     onToggle={() => toggleWine(wine.id)}
                     onShowWine={() => setActiveWine(wine)}
                     onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
-                    onShowMap={() => setActiveMapWine(wine)}
                   />
                 ))}
               </div>
@@ -588,7 +523,6 @@ export default function Home() {
                     setCategory("Alle");
                     setBudget("all");
                     setQuery("");
-                    scrollToResults();
                   }}
                 >
                   Alles wieder anzeigen
@@ -815,97 +749,46 @@ export default function Home() {
                 </DialogDescription>
               </DialogHeader>
 
-              <div className="wine-detail-main">
-                <div className={`detail-wine-media${wineMedia[activeWine.id] ? " has-image" : ""}`}>
-                  {wineMedia[activeWine.id] ? (
-                    <img
-                      src={`${basePath}${wineMedia[activeWine.id]?.src}`}
-                      alt={wineMedia[activeWine.id]?.alt ?? activeWine.name}
-                    />
-                  ) : (
-                    <div className="wine-image-placeholder large" aria-label="Flaschenfoto folgt">
-                      <WineIcon aria-hidden="true" size={52} strokeWidth={1.15} />
-                      <span>DeidiVino-Flaschenfoto folgt</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="wine-detail-copy">
-                  <div className="wine-character">
-                    <p className="detail-label">Charakter im Glas</p>
-                    <p>{wineDescriptions[activeWine.id]}</p>
+              <div className={`detail-wine-media${wineMedia[activeWine.id] ? " has-image" : ""}`}>
+                {wineMedia[activeWine.id] ? (
+                  <img
+                    src={`${basePath}${wineMedia[activeWine.id]?.src}`}
+                    alt={wineMedia[activeWine.id]?.alt ?? activeWine.name}
+                  />
+                ) : (
+                  <div className="wine-image-placeholder large" aria-label="Flaschenfoto folgt">
+                    <WineIcon aria-hidden="true" size={52} strokeWidth={1.15} />
+                    <span>DeidiVino-Flaschenfoto folgt</span>
                   </div>
-
-                  <div className="detail-wine-facts" aria-label="Weininformationen">
-                    <span>{activeWine.grape}</span>
-                    <span>{activeWine.style}</span>
-                    <span>{formatVolume(activeWine.volume)}</span>
-                    <strong>{formatEuro(activeWine.price)}</strong>
-                  </div>
-
-                  <button
-                    type="button"
-                    className={`detail-select-button${selectedIds.includes(activeWine.id) ? " is-selected" : ""}`}
-                    onClick={() => toggleWine(activeWine.id)}
-                  >
-                    {selectedIds.includes(activeWine.id) ? (
-                      <Check aria-hidden="true" size={18} />
-                    ) : (
-                      <Plus aria-hidden="true" size={18} />
-                    )}
-                    {selectedIds.includes(activeWine.id) ? "Für die Anfrage gemerkt" : "Für die Anfrage merken"}
-                  </button>
-                </div>
+                )}
               </div>
+
+              <div className="wine-character">
+                <p className="detail-label">Charakter im Glas</p>
+                <p>{wineDescriptions[activeWine.id]}</p>
+              </div>
+
+              <div className="detail-wine-facts" aria-label="Weininformationen">
+                <span>{activeWine.grape}</span>
+                <span>{activeWine.style}</span>
+                <span>{formatVolume(activeWine.volume)}</span>
+                <strong>{formatEuro(activeWine.price)}</strong>
+              </div>
+
+              <button
+                type="button"
+                className={`detail-select-button${selectedIds.includes(activeWine.id) ? " is-selected" : ""}`}
+                onClick={() => toggleWine(activeWine.id)}
+              >
+                {selectedIds.includes(activeWine.id) ? (
+                  <Check aria-hidden="true" size={18} />
+                ) : (
+                  <Plus aria-hidden="true" size={18} />
+                )}
+                {selectedIds.includes(activeWine.id) ? "Für die Anfrage gemerkt" : "Für die Anfrage merken"}
+              </button>
             </>
           )}
-        </DialogContent>
-      </Dialog>
-
-      <Dialog
-        open={Boolean(activeMapWine)}
-        onOpenChange={(open) => {
-          if (!open) setActiveMapWine(null);
-        }}
-      >
-        <DialogContent className="winery-map-dialog">
-          {activeMapWine && (() => {
-            const profile = wineryProfiles[activeMapWine.winery];
-            return (
-              <>
-                <DialogHeader>
-                  <p className="detail-dialog-eyebrow">{profile.region} · Standort des Weinguts</p>
-                  <DialogTitle>{profile.name}</DialogTitle>
-                  <DialogDescription>{profile.locationLabel}</DialogDescription>
-                </DialogHeader>
-
-                <div className="winery-map-frame">
-                  <iframe
-                    src={googleMapsEmbedUrl(profile.mapQuery)}
-                    title={`Karte mit dem Standort von ${profile.name}`}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    allowFullScreen
-                  />
-                </div>
-
-                <div className="winery-map-footer">
-                  <p>
-                    Das Weingut liegt im Weinbaugebiet {profile.region}. Die Karte zeigt bewusst
-                    den konkreten Standort statt einer allgemeinen Liste von Betrieben.
-                  </p>
-                  <a
-                    href={googleMapsUrl(profile.mapQuery)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    In Google Maps öffnen
-                    <ExternalLink aria-hidden="true" size={15} />
-                  </a>
-                </div>
-              </>
-            );
-          })()}
         </DialogContent>
       </Dialog>
 

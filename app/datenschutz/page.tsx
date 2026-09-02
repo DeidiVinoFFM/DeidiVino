@@ -96,26 +96,14 @@ export default function DatenschutzPage() {
         </a>.
       </p>
 
-      <h2>6. Standortkarten von Google Maps</h2>
+      <h2>6. Cookies, Analyse und externe Inhalte</h2>
       <p>
-        Die Standortkarte eines Weinguts wird erst geladen, wenn Du die jeweilige
-        Herkunftsangabe anklickst. Dabei wird eine Karte von Google Maps eingebettet.
-        Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4,
-        Irland. Beim Laden der Karte werden insbesondere Deine IP-Adresse sowie technische
-        Angaben zu Browser und Gerät an Google übermittelt. Eine Verarbeitung in den USA
-        kann nicht ausgeschlossen werden. Die Karte wird auf Grundlage Deiner bewussten
-        Anforderung gemäß Art. 6 Abs. 1 lit. a DSGVO geladen. Weitere Informationen enthält
-        die <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noreferrer">Datenschutzerklärung von Google</a>.
+        Diese Website setzt keine Cookies, keine Analyse- oder Werbewerkzeuge und keine
+        extern geladenen Schriftarten ein. Es sind keine Videos, Karten, Social-Media-Feeds
+        oder sonstigen Inhalte von Drittanbietern eingebettet.
       </p>
 
-      <h2>7. Cookies, Analyse und weitere externe Inhalte</h2>
-      <p>
-        Abgesehen von der erst nach Deinem Klick geladenen Google-Karte setzt diese Website
-        keine eigenen Cookies, keine Analyse- oder Werbewerkzeuge und keine extern
-        geladenen Schriftarten ein. Es sind keine Videos oder Social-Media-Feeds eingebettet.
-      </p>
-
-      <h2>8. Deine Rechte</h2>
+      <h2>7. Deine Rechte</h2>
       <p>Dir stehen nach der DSGVO insbesondere folgende Rechte zu:</p>
       <ul>
         <li>Auskunft über Deine verarbeiteten personenbezogenen Daten (Art. 15 DSGVO),</li>
@@ -135,10 +123,10 @@ export default function DatenschutzPage() {
         </a>, Gustav-Stresemann-Ring 1, 65189 Wiesbaden.
       </p>
 
-      <h2>9. Aktualität dieser Erklärung</h2>
+      <h2>8. Aktualität dieser Erklärung</h2>
       <p>
         Diese Datenschutzerklärung entspricht dem technischen Stand der Website vom
-        2. September 2026. Wenn Funktionen, Dienstleister oder Kommunikationswege geändert
+        1. September 2026. Wenn Funktionen, Dienstleister oder Kommunikationswege geändert
         werden, wird sie entsprechend angepasst.
       </p>
     </main>
