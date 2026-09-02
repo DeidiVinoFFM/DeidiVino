@@ -19,6 +19,7 @@ test("renders the complete static sales page", async () => {
   assert.match(html, /\/(?:DeidiVino\/)?wine-images\/W0036\.webp/);
   assert.match(html, /\/(?:DeidiVino\/)?wine-images\/W0116\.webp/);
   assert.match(html, /\/(?:DeidiVino\/)?wine-images\/W0103\.webp/);
+  assert.match(html, /\/(?:DeidiVino\/)?wine-images\/W0123\.webp/);
   assert.match(html, /mailto:deidivino\.ffm@gmail\.com/);
   assert.doesNotMatch(html, /Sauvignon Blanc II/);
   assert.match(html, /href="(?:\/DeidiVino)?\/impressum\/"/);

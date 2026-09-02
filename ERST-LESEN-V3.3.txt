@@ -1,0 +1,15 @@
+DeidiVino – Update v3.3 (dritte Fototranche)
+================================================
+
+1. ZIP-Datei vollständig entpacken.
+2. Den Inhalt des entpackten Ordners in den lokalen Repository-Ordner DeidiVino kopieren.
+3. Bei Rückfrage „Dateien im Ziel ersetzen“ bestätigen.
+4. In GitHub Desktop prüfen, dass die Bilddateien unter public/wine-images sowie
+   die Änderung an app/data/wine-media.ts angezeigt werden.
+5. Summary eintragen, zum Beispiel: „Dritte Fototranche einbinden“.
+6. „Commit to main“ und danach „Push origin“ anklicken.
+
+GitHub Actions veröffentlicht die aktualisierte Website anschließend automatisch.
+
+Das Paket enthält alle 54 bisher eingebundenen Weinbilder. Noch ohne Foto bleibt
+nur W0113 – Blaufränkisch VINTAGE 2022 von Weingut Bischel.
