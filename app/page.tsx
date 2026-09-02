@@ -243,13 +243,18 @@ export default function Home() {
   const selectedWines = wines.filter((wine) => selectedIds.includes(wine.id));
 
   const scrollToSection = (id: string) => {
-    const target = document.getElementById(id);
-    if (!target) return;
+    const performScroll = () => {
+      const target = document.getElementById(id);
+      if (!target) return;
 
-    const header = document.querySelector<HTMLElement>(".site-header");
-    const headerHeight = header?.getBoundingClientRect().height ?? 0;
-    const top = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      const header = document.querySelector<HTMLElement>(".site-header");
+      const headerHeight = header?.getBoundingClientRect().height ?? 0;
+      const top = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    };
+
+    const fontsReady = document.fonts?.ready ?? Promise.resolve();
+    void fontsReady.then(() => window.requestAnimationFrame(performScroll));
   };
 
   const scrollToResults = () => {
@@ -372,6 +377,8 @@ export default function Home() {
             <img
               src={`${basePath}/deidivino-logo.png`}
               alt="DeidiVino – Pure Taste"
+              width={1000}
+              height={239}
             />
           </button>
           <nav aria-label="Hauptnavigation">
@@ -584,6 +591,8 @@ export default function Home() {
               src={`${basePath}/dieter-gruen.webp`}
               alt="Dieter Grün von DeidiVino mit einem Glas Wein"
               loading="lazy"
+              width={632}
+              height={948}
             />
           </div>
           <div className="advice-copy">

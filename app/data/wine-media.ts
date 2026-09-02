@@ -59,8 +59,8 @@ export const wineMedia: Partial<Record<string, WineMedia>> = {
   W0117: { src: "/wine-images/W0117.webp", alt: "Riesling Hundertgulden GG 2023 von Weingut Bischel" },
   W0118: { src: "/wine-images/W0118.webp", alt: "Riesling Scharlachberg GG 2023 von Weingut Bischel" },
   W0119: { src: "/wine-images/W0119.webp", alt: "Riesling Heerkretz GG 2023 von Weingut Bischel" },
-  W0120: { src: "/wine-images/W0120.webp", alt: "Riesling St. Laurenzikirche GG 2023 von Weingut Bischel" },
+  W0120: { src: "/wine-images/W0120.webp", alt: "Riesling St. Laurenzikapelle GG 2023 von Weingut Bischel" },
   W0121: { src: "/wine-images/W0121.webp", alt: "Appenheim Spätburgunder aus 1. Lagen 2019 von Weingut Bischel" },
   W0122: { src: "/wine-images/W0122.webp", alt: "Gau-Algesheim Johannisberg Spätburgunder 1. Lage 2020 von Weingut Bischel" },
-  W0123: { src: "/wine-images/W0123.webp", alt: "Pinot Noir Reserve 2020 von Weingut Bischel" },
+  W0123: { src: "/wine-images/W0123.webp", alt: "Pinot Noir Reserve 2021 von Weingut Bischel" },
 };
