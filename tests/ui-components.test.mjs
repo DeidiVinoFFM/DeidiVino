@@ -37,12 +37,17 @@ test("keeps selection, search and mobile accessibility in the implementation", a
 
   assert.match(page, /placeholder="Wein, Weingut, Rebsorte oder Region"/);
   assert.match(page, /Jetzt anfragen/);
-  assert.match(page, /Anfrage für Webmail kopieren/);
+  assert.match(page, /Webmail verwenden/);
+  assert.match(page, /In Gmail öffnen/);
+  assert.match(page, /mail\.google\.com\/mail\/\?view=cm/);
+  assert.match(page, /Anderen Webmailer verwenden/);
   assert.match(page, /Alkoholfrei/);
   assert.match(page, /Nur noch 1 Flasche/);
   assert.match(page, /IntersectionObserver/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /overflow-x: auto/);
+  assert.match(css, /@media \(max-width: 1120px\)/);
+  assert.match(css, /--footer-logo-image/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion: reduce/);
 });

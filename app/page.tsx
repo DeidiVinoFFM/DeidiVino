@@ -7,6 +7,7 @@ import {
   AtSign,
   Check,
   Copy,
+  ExternalLink,
   Grape,
   Mail,
   MapPin,
@@ -16,7 +17,15 @@ import {
   Sparkles,
   Wine as WineIcon,
 } from "lucide-react";
+import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { inventoryAsOf, wines, type Wine } from "./data/wines";
 import { siteConfig } from "./site-config";
 
@@ -153,7 +162,10 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [footerVisible, setFooterVisible] = useState(false);
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
+  const [webmailOpen, setWebmailOpen] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<
+    "idle" | "all" | "email" | "subject" | "body" | "error"
+  >("idle");
 
   const featuredWines = wines.filter((wine) => wine.featured);
   const wineryCount = new Set(wines.map((wine) => wine.winery)).size;
@@ -219,15 +231,21 @@ export default function Home() {
   const inquiryUrl = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
     inquirySubject,
   )}&body=${encodeURIComponent(inquiryBody)}`;
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    siteConfig.email,
+  )}&su=${encodeURIComponent(inquirySubject)}&body=${encodeURIComponent(inquiryBody)}`;
   const inquiryClipboardText = `An: ${siteConfig.email}\nBetreff: ${inquirySubject}\n\n${inquiryBody}`;
 
-  const copyInquiry = async () => {
+  const copyText = async (
+    text: string,
+    successStatus: "all" | "email" | "subject" | "body",
+  ) => {
     try {
       if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(inquiryClipboardText);
+        await navigator.clipboard.writeText(text);
       } else {
         const textArea = document.createElement("textarea");
-        textArea.value = inquiryClipboardText;
+        textArea.value = text;
         textArea.style.position = "fixed";
         textArea.style.opacity = "0";
         document.body.appendChild(textArea);
@@ -236,13 +254,26 @@ export default function Home() {
         textArea.remove();
         if (!copied) throw new Error("Kopieren nicht verfügbar");
       }
-      setCopyStatus("copied");
+      setCopyStatus(successStatus);
       window.setTimeout(() => setCopyStatus("idle"), 3000);
     } catch {
       setCopyStatus("error");
       window.setTimeout(() => setCopyStatus("idle"), 5000);
     }
   };
+
+  const copyStatusMessage =
+    copyStatus === "all"
+      ? "Die vollständige Anfrage wurde kopiert."
+      : copyStatus === "email"
+        ? "E-Mail-Adresse kopiert."
+        : copyStatus === "subject"
+          ? "Betreff kopiert."
+          : copyStatus === "body"
+            ? "Nachrichtentext kopiert."
+            : copyStatus === "error"
+              ? `Kopieren war nicht möglich. Bitte schreibe an ${siteConfig.email}.`
+              : "";
 
   return (
     <>
@@ -292,9 +323,9 @@ export default function Home() {
                 <Mail aria-hidden="true" size={18} />
                 Dieter um Rat fragen
               </a>
-              <button className="copy-inquiry-button" type="button" onClick={copyInquiry}>
-                {copyStatus === "copied" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
-                {copyStatus === "copied" ? "Anfrage kopiert" : "Anfrage für Webmail kopieren"}
+              <button className="copy-inquiry-button" type="button" onClick={() => setWebmailOpen(true)}>
+                <Mail aria-hidden="true" size={17} />
+                Webmail verwenden
               </button>
             </div>
             <dl className="hero-stats">
@@ -481,9 +512,9 @@ export default function Home() {
                 <Mail aria-hidden="true" size={18} />
                 E-Mail öffnen
               </a>
-              <button className="copy-inquiry-button light" type="button" onClick={copyInquiry}>
-                {copyStatus === "copied" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
-                {copyStatus === "copied" ? "Anfrage kopiert" : "Für Webmail kopieren"}
+              <button className="copy-inquiry-button light" type="button" onClick={() => setWebmailOpen(true)}>
+                <Mail aria-hidden="true" size={17} />
+                Webmail verwenden
               </button>
               <a className="phone-link" href={`tel:${siteConfig.phoneHref}`}>
                 <Phone aria-hidden="true" size={18} />
@@ -537,7 +568,10 @@ export default function Home() {
       <footer className="site-footer">
         <div className="page-width footer-grid">
           <div>
-            <span className="footer-logo">
+            <span
+              className="footer-logo"
+              style={{ "--footer-logo-image": `url("${basePath}/deidivino-logo.png")` } as CSSProperties}
+            >
               <img
                 src={`${basePath}/deidivino-logo.png`}
                 alt="DeidiVino – Pure Taste"
@@ -575,8 +609,8 @@ export default function Home() {
             <button type="button" onClick={() => setSelectedIds([])}>Auswahl löschen</button>
           </div>
           <div className="inquiry-actions">
-            <button className="copy-icon-button" type="button" onClick={copyInquiry} aria-label="Anfrage für Webmail kopieren" title="Für Webmail kopieren">
-              {copyStatus === "copied" ? <Check aria-hidden="true" size={18} /> : <Copy aria-hidden="true" size={18} />}
+            <button className="copy-icon-button" type="button" onClick={() => setWebmailOpen(true)} aria-label="Webmail-Optionen öffnen" title="Webmail verwenden">
+              <Mail aria-hidden="true" size={18} />
             </button>
             <a className="button button-primary" href={inquiryUrl}>
               <Mail aria-hidden="true" size={18} />
@@ -586,12 +620,67 @@ export default function Home() {
         </aside>
       )}
 
+      <Dialog open={webmailOpen} onOpenChange={setWebmailOpen}>
+        <DialogContent className="webmail-dialog">
+          <DialogHeader>
+            <DialogTitle>Wie möchtest Du Deine Anfrage senden?</DialogTitle>
+            <DialogDescription>
+              Mit Gmail oder einer eingerichteten Mail-App werden Empfänger, Betreff und Nachricht automatisch befüllt.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="webmail-options">
+            <a className="webmail-option primary" href={gmailUrl} target="_blank" rel="noreferrer">
+              <span><Mail aria-hidden="true" size={20} />In Gmail öffnen</span>
+              <small>Alle drei Felder werden automatisch eingetragen.</small>
+              <ExternalLink aria-hidden="true" size={17} />
+            </a>
+            <a className="webmail-option" href={inquiryUrl}>
+              <span><Mail aria-hidden="true" size={20} />Standard-Mail-App öffnen</span>
+              <small>Funktioniert auch mit einem im Browser eingerichteten Webmailer.</small>
+            </a>
+          </div>
+
+          <div className="manual-webmail">
+            <h3>Anderen Webmailer verwenden</h3>
+            <p>Öffne dort „Neue Nachricht“ und kopiere die Angaben jeweils in das passende Feld.</p>
+
+            <div className="mail-field-row">
+              <span>An</span>
+              <strong>{siteConfig.email}</strong>
+              <button type="button" onClick={() => copyText(siteConfig.email, "email")}>
+                {copyStatus === "email" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
+                {copyStatus === "email" ? "Kopiert" : "Kopieren"}
+              </button>
+            </div>
+            <div className="mail-field-row">
+              <span>Betreff</span>
+              <strong>{inquirySubject}</strong>
+              <button type="button" onClick={() => copyText(inquirySubject, "subject")}>
+                {copyStatus === "subject" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
+                {copyStatus === "subject" ? "Kopiert" : "Kopieren"}
+              </button>
+            </div>
+            <div className="mail-body-field">
+              <div>
+                <span>Nachricht</span>
+                <button type="button" onClick={() => copyText(inquiryBody, "body")}>
+                  {copyStatus === "body" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
+                  {copyStatus === "body" ? "Kopiert" : "Text kopieren"}
+                </button>
+              </div>
+              <pre>{inquiryBody}</pre>
+            </div>
+            <button className="copy-all-button" type="button" onClick={() => copyText(inquiryClipboardText, "all")}>
+              <Copy aria-hidden="true" size={17} />
+              Alles zusammen kopieren
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       <p className="copy-status" aria-live="polite">
-        {copyStatus === "copied"
-          ? "Anfrage kopiert. Du kannst sie jetzt in Gmail, Web.de oder einem anderen Maildienst einfügen."
-          : copyStatus === "error"
-            ? `Kopieren war nicht möglich. Bitte schreibe an ${siteConfig.email}.`
-            : ""}
+        {copyStatusMessage}
       </p>
     </>
   );

@@ -1,0 +1,24 @@
+DeidiVino – Update auf Version 2.2
+=================================
+
+Voraussetzung: Version 2.1 ist bereits installiert.
+
+Installation:
+1. ZIP-Datei vollständig entpacken.
+2. Den Inhalt des Ordners „DeidiVino-Update-v2.2“ in den lokalen Repository-Ordner
+   „DeidiVino“ kopieren.
+3. Bei der Windows-Rückfrage „Dateien im Ziel ersetzen“ bestätigen.
+4. In GitHub Desktop als Summary „Website Version 2.2“ eintragen und committen.
+5. Anschließend „Push origin“ klicken.
+
+Enthaltene Änderungen:
+- Footer-Logo wieder mit gelbem DEIDI und heller, zur Fußzeile passender VINO-Schrift.
+- Zweizeilige Navigation greift bereits bei mittelbreiten Browserfenstern.
+- Auf Mobilgeräten stehen Logo und „Schreib mir“ in derselben Zeile; das Menü folgt darunter.
+- Neues Webmail-Auswahlfenster:
+  * Gmail öffnet eine neue Nachricht mit automatisch befülltem Empfänger, Betreff und Text.
+  * Standard-Mail-App bzw. eingerichteter Webmailer bleibt auswählbar.
+  * Für andere Webmailer lassen sich Empfänger, Betreff und Nachricht einzeln kopieren.
+
+Wichtig:
+Den Ordner .git im lokalen Repository niemals löschen oder ersetzen.
