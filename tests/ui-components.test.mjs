@@ -53,6 +53,10 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /activeMapWine/);
   assert.match(page, /winery-map-dialog/);
   assert.match(page, /IntersectionObserver/);
+  assert.match(page, /const scrollToResults/);
+  assert.match(page, /id="weinergebnisse"/);
+  assert.match(page, /getBoundingClientRect\(\)\.height/);
+  assert.match(page, /window\.requestAnimationFrame/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /overflow-x: auto/);
   assert.match(css, /@media \(max-width: 1120px\)/);

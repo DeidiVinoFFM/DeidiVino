@@ -261,7 +261,51 @@ export default function Home() {
   const selectedWines = wines.filter((wine) => selectedIds.includes(wine.id));
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const header = document.querySelector<HTMLElement>(".site-header");
+    const headerHeight = header?.getBoundingClientRect().height ?? 0;
+    const top = window.scrollY + target.getBoundingClientRect().top - headerHeight - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  };
+
+  const scrollToResults = () => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const target = document.getElementById("weinergebnisse");
+        if (!target) return;
+
+        const header = document.querySelector<HTMLElement>(".site-header");
+        const controls = document.querySelector<HTMLElement>(".catalog-controls");
+        const headerHeight = header?.getBoundingClientRect().height ?? 0;
+        const controlsHeight =
+          controls && window.getComputedStyle(controls).position === "sticky"
+            ? controls.getBoundingClientRect().height + 16
+            : 0;
+        const top =
+          window.scrollY + target.getBoundingClientRect().top - headerHeight - controlsHeight - 12;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      });
+    });
+  };
+
+  const updateCategory = (nextCategory: string) => {
+    setCategory(nextCategory);
+    scrollToResults();
+  };
+
+  const updateBudget = (nextBudget: string) => {
+    setBudget(nextBudget);
+    scrollToResults();
+  };
+
+  const updateQuery = (nextQuery: string) => {
+    setQuery(nextQuery);
+    const controls = document.querySelector<HTMLElement>(".catalog-controls");
+    if (controls && window.getComputedStyle(controls).position === "sticky") {
+      scrollToResults();
+    }
   };
 
   const discoverCategory = (nextCategory: string) => {
@@ -480,7 +524,7 @@ export default function Home() {
                 <input
                   type="search"
                   value={query}
-                  onChange={(event) => setQuery(event.target.value)}
+                  onChange={(event) => updateQuery(event.target.value)}
                   placeholder="Wein, Weingut, Rebsorte oder Region"
                 />
               </label>
@@ -492,7 +536,7 @@ export default function Home() {
                     type="button"
                     className={`filter-chip${category === item ? " is-active" : ""}`}
                     aria-pressed={category === item}
-                    onClick={() => setCategory(item)}
+                    onClick={() => updateCategory(item)}
                   >
                     {item}
                   </button>
@@ -506,7 +550,7 @@ export default function Home() {
                     type="button"
                     className={`filter-chip subtle${budget === item.value ? " is-active" : ""}`}
                     aria-pressed={budget === item.value}
-                    onClick={() => setBudget(item.value)}
+                    onClick={() => updateBudget(item.value)}
                   >
                     {item.label}
                   </button>
@@ -514,7 +558,7 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="result-count" aria-live="polite">
+            <p id="weinergebnisse" className="result-count" aria-live="polite">
               {filteredWines.length} {filteredWines.length === 1 ? "Wein passt" : "Weine passen"} zu Deiner Auswahl
             </p>
 
@@ -544,6 +588,7 @@ export default function Home() {
                     setCategory("Alle");
                     setBudget("all");
                     setQuery("");
+                    scrollToResults();
                   }}
                 >
                   Alles wieder anzeigen

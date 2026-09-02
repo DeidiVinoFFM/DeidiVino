@@ -1,0 +1,11 @@
+DeidiVino – Update v3.6 (Navigation und Filterergebnisse)
+=========================================================
+
+1. ZIP-Datei vollständig entpacken.
+2. Den Inhalt des entpackten Ordners in den lokalen Repository-Ordner DeidiVino kopieren.
+3. Bei Rückfrage „Dateien im Ziel ersetzen“ bestätigen.
+4. In GitHub Desktop die geänderten Dateien prüfen.
+5. Als Summary zum Beispiel „Navigation und Filterergebnisse korrigieren“ eintragen.
+6. „Commit to main“ und danach „Push origin“ anklicken.
+
+GitHub Actions veröffentlicht die aktualisierte Website anschließend automatisch.
