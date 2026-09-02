@@ -901,21 +901,5 @@ export const wines: Wine[] = [
     "style": "Trocken",
     "profile": "Frisch & mineralisch",
     "featured": true
-  },
-  {
-    "id": "W0090",
-    "winery": "Weingut von Winning",
-    "region": "Pfalz",
-    "name": "Sauvignon Blanc II",
-    "vintage": 2022,
-    "availability": "Nur noch wenige Flaschen",
-    "price": 11,
-    "volume": 0.75,
-    "unitPrice": 14.67,
-    "category": "Weißwein",
-    "grape": "Sauvignon Blanc",
-    "style": "Trocken",
-    "profile": "Frisch & mineralisch",
-    "featured": false
   }
 ];

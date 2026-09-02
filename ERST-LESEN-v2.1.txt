@@ -1,0 +1,25 @@
+DeidiVino – Update auf Version 2.1
+=================================
+
+Dieses Paket enthält ausschließlich die in Version 2.1 geänderten Dateien.
+
+Installation:
+1. ZIP-Datei vollständig entpacken.
+2. Den Inhalt des Ordners „DeidiVino-Update-v2.1“ in den lokalen Repository-Ordner
+   „DeidiVino“ kopieren.
+3. Bei der Windows-Rückfrage „Dateien im Ziel ersetzen“ bestätigen.
+4. In GitHub Desktop kontrollieren, dass Änderungen unter app und tests angezeigt werden.
+5. Als Summary beispielsweise „Website Version 2.1“ eintragen und committen.
+6. Anschließend „Push origin“ klicken.
+
+Enthaltene Änderungen:
+- Anfrage funktioniert weiterhin über das Standard-Mailprogramm.
+- Zusätzliche Kopierfunktion für Gmail, Web.de und andere Webmailer.
+- Hauptnavigation bleibt auch auf kleineren Bildschirmen und Smartphones erreichbar.
+- Footer-Logo ohne weißen Hintergrund und passend zur dunklen Fußzeile.
+- Sauvignon Blanc II vom Weingut von Winning entfernt.
+- Datumsangabe auf der Startseite nur noch dezent im unteren Hinweisbereich.
+- Seitentitel ohne Monatsangabe.
+
+Wichtig:
+Den Ordner .git im lokalen Repository niemals löschen oder ersetzen.

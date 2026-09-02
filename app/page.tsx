@@ -6,6 +6,7 @@ import {
   ArrowDown,
   AtSign,
   Check,
+  Copy,
   Grape,
   Mail,
   MapPin,
@@ -152,6 +153,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [footerVisible, setFooterVisible] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
 
   const featuredWines = wines.filter((wine) => wine.featured);
   const wineryCount = new Set(wines.map((wine) => wine.winery)).size;
@@ -211,9 +213,36 @@ export default function Home() {
         .join("\n")}\n\nBitte gib mir kurz Rückmeldung zu Verfügbarkeit, Lieferung innerhalb Deutschlands und Gesamtpreis.\n\nViele Grüße`
     : "Hallo Dieter,\n\nich hätte gern eine persönliche Weinempfehlung. Hier ein paar Anhaltspunkte:\n\n– Geschmack: \n– Anlass oder Essen: \n– Budget je Flasche: \n– Anzahl Flaschen: \n\nViele Grüße";
 
+  const inquirySubject = selectedWines.length
+    ? "Meine Weinauswahl bei DeidiVino"
+    : "Persönliche Weinempfehlung";
   const inquiryUrl = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-    selectedWines.length ? "Meine Weinauswahl bei DeidiVino" : "Persönliche Weinempfehlung",
+    inquirySubject,
   )}&body=${encodeURIComponent(inquiryBody)}`;
+  const inquiryClipboardText = `An: ${siteConfig.email}\nBetreff: ${inquirySubject}\n\n${inquiryBody}`;
+
+  const copyInquiry = async () => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(inquiryClipboardText);
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = inquiryClipboardText;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.select();
+        const copied = document.execCommand("copy");
+        textArea.remove();
+        if (!copied) throw new Error("Kopieren nicht verfügbar");
+      }
+      setCopyStatus("copied");
+      window.setTimeout(() => setCopyStatus("idle"), 3000);
+    } catch {
+      setCopyStatus("error");
+      window.setTimeout(() => setCopyStatus("idle"), 5000);
+    }
+  };
 
   return (
     <>
@@ -247,7 +276,7 @@ export default function Home() {
       <main id="top">
         <section className="hero-shell page-width" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">Persönlich ausgewählt · {inventoryAsOf}</p>
+            <p className="eyebrow">Persönlich für Dich ausgewählt</p>
             <h1 id="hero-title">Weine, die im Glas Freude machen.</h1>
             <p className="hero-intro">
               Ich suche Weine aus, die ich selbst gern öffne: charaktervoll, ehrlich gemacht
@@ -263,6 +292,10 @@ export default function Home() {
                 <Mail aria-hidden="true" size={18} />
                 Dieter um Rat fragen
               </a>
+              <button className="copy-inquiry-button" type="button" onClick={copyInquiry}>
+                {copyStatus === "copied" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
+                {copyStatus === "copied" ? "Anfrage kopiert" : "Anfrage für Webmail kopieren"}
+              </button>
             </div>
             <dl className="hero-stats">
               <div><dt>Weine zur Auswahl</dt><dd>{wines.length}</dd></div>
@@ -446,8 +479,12 @@ export default function Home() {
             <div className="advice-contact">
               <a className="button button-light" href={inquiryUrl}>
                 <Mail aria-hidden="true" size={18} />
-                Empfehlung per E-Mail
+                E-Mail öffnen
               </a>
+              <button className="copy-inquiry-button light" type="button" onClick={copyInquiry}>
+                {copyStatus === "copied" ? <Check aria-hidden="true" size={17} /> : <Copy aria-hidden="true" size={17} />}
+                {copyStatus === "copied" ? "Anfrage kopiert" : "Für Webmail kopieren"}
+              </button>
               <a className="phone-link" href={`tel:${siteConfig.phoneHref}`}>
                 <Phone aria-hidden="true" size={18} />
                 {siteConfig.phoneDisplay}
@@ -487,7 +524,7 @@ export default function Home() {
             </li>
             <li>
               <span>2</span>
-              <div><strong>Unverbindlich anfragen</strong><p>Eine vorausgefüllte E-Mail bringt Deine Auswahl schnell und unkompliziert zu mir.</p></div>
+              <div><strong>Unverbindlich anfragen</strong><p>Öffne eine vorausgefüllte E-Mail oder kopiere die Anfrage in Deinen bevorzugten Webmailer.</p></div>
             </li>
             <li>
               <span>3</span>
@@ -537,12 +574,25 @@ export default function Home() {
             <strong>{selectedWines.length} {selectedWines.length === 1 ? "Wein gemerkt" : "Weine gemerkt"}</strong>
             <button type="button" onClick={() => setSelectedIds([])}>Auswahl löschen</button>
           </div>
-          <a className="button button-primary" href={inquiryUrl}>
-            <Mail aria-hidden="true" size={18} />
-            Jetzt anfragen
-          </a>
+          <div className="inquiry-actions">
+            <button className="copy-icon-button" type="button" onClick={copyInquiry} aria-label="Anfrage für Webmail kopieren" title="Für Webmail kopieren">
+              {copyStatus === "copied" ? <Check aria-hidden="true" size={18} /> : <Copy aria-hidden="true" size={18} />}
+            </button>
+            <a className="button button-primary" href={inquiryUrl}>
+              <Mail aria-hidden="true" size={18} />
+              Jetzt anfragen
+            </a>
+          </div>
         </aside>
       )}
+
+      <p className="copy-status" aria-live="polite">
+        {copyStatus === "copied"
+          ? "Anfrage kopiert. Du kannst sie jetzt in Gmail, Web.de oder einem anderen Maildienst einfügen."
+          : copyStatus === "error"
+            ? `Kopieren war nicht möglich. Bitte schreibe an ${siteConfig.email}.`
+            : ""}
+      </p>
     </>
   );
 }

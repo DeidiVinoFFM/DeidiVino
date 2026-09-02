@@ -4,7 +4,7 @@ import "./globals.css";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
-  title: "DeidiVino Weinliste September 2026 | Persönlich ausgewählte Weine",
+  title: "DeidiVino Weinliste | Persönlich ausgewählte Weine",
   description:
     "Entdecke persönlich ausgewählte Weine deutscher Weingüter – mit ehrlicher Empfehlung von Dieter Grün und unkomplizierter Anfrage.",
   keywords: [
