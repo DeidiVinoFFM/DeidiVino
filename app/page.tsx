@@ -835,7 +835,7 @@ export default function Home() {
                             <div><dt>Bezeichnung</dt><dd>{activeWine.category === "Alkoholfrei" ? "Entalkoholisierter, perlender Wein" : `${activeWine.category}, ${activeWine.style}`}</dd></div>
                             <div><dt>Herkunft</dt><dd>Deutschland · {activeWine.region}</dd></div>
                             <div><dt>Nennvolumen</dt><dd>{formatVolume(activeWine.volume)}</dd></div>
-                            <div><dt>Alkohol</dt><dd>{product.alcohol ?? "Wird vor verbindlicher Bestellung anhand der Flasche bestätigt"}</dd></div>
+                            {product.alcohol && <div><dt>Alkohol</dt><dd>{product.alcohol}</dd></div>}
                             <div><dt>Allergene</dt><dd><strong>{product.allergens}</strong></dd></div>
                             <div><dt>Verantwortlicher Betrieb</dt><dd>{product.producer}</dd></div>
                           </dl>
@@ -862,28 +862,6 @@ export default function Home() {
                             </div>
                           )}
 
-                          {activeWine.vintage >= 2024 && (!product.ingredients || !product.nutrition) && (
-                            <p className="product-warning">
-                              Für diesen Jahrgang fehlen noch einzelne Angaben des Rücketiketts.
-                              Vor einer verbindlichen Bestellung erhältst Du die vollständigen,
-                              flaschenbezogenen Zutaten- und Nährwertinformationen.
-                            </p>
-                          )}
-
-                          {activeWine.vintage < 2024 && (
-                            <p className="product-transition-note">
-                              Für diesen älteren Bestand gilt die zusätzliche Zutaten- und
-                              Nährwertkennzeichnung für nach dem 8. Dezember 2023 erzeugte
-                              Weine grundsätzlich nicht. {product.verification === "verified"
-                                ? "Die verfügbaren flaschenbezogenen Angaben sind oben wiedergegeben."
-                                : "Noch offene flaschenbezogene Angaben werden vor einer verbindlichen Bestellung bestätigt."}
-                            </p>
-                          )}
-
-                          <p className={`verification-note ${product.verification}`}>
-                            {product.verification === "verified" ? "Angaben anhand des Rücketiketts oder der zugehörigen Herstellerinformationen geprüft." : "Einzelne Angaben müssen noch mit dem Rücketikett des vorhandenen Jahrgangs abgeglichen werden."}
-                          </p>
-                          <small>{product.sourceLabel}</small>
                         </div>
                       </details>
                     );

@@ -176,10 +176,23 @@ const researched: Record<string, Partial<ProductInformation>> = {
     sourceLabel: "Veröffentlichte Händlerangaben zum Jahrgang 2024; Zutaten und Nährwerte noch am Rücketikett zu prüfen",
     verification: "label-needed",
   },
+  W0048: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Weißburgunder trocken 2022", verification: "verified" },
+  W0051: { alcohol: "12,0 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Lieser Riesling trocken 2022", verification: "verified" },
+  W0052: { alcohol: "10,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Brauneberger Juffer Riesling feinherb 2022", verification: "verified" },
+  W0053: { alcohol: "10,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Lieser Niederberg Helden Riesling feinherb 2022", verification: "verified" },
+  W0054: { alcohol: "7,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Brauneberger Juffer Riesling Kabinett 2022", verification: "verified" },
+  W0056: { alcohol: "7,0 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett der Lieser Niederberg Helden Riesling Auslese Goldkapsel 2022", verification: "verified" },
+  W0057: { alcohol: "7,0 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett der Piesporter Goldtröpfchen Riesling Auslese 2022", verification: "verified" },
+  W0059: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Graacher Himmelreich Riesling trocken 2022", verification: "verified" },
+  W0060: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Lieser Niederberg Helden Riesling trocken 2022", verification: "verified" },
+  W0061: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Brauneberger Juffer Sonnenuhr Riesling trocken 2022", verification: "verified" },
+  W0062: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Wehlener Sonnenuhr Riesling trocken 2022", verification: "verified" },
+  W0063: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Piesporter Goldtröpfchen Riesling trocken 2022", verification: "verified" },
   W0071: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Christian Bamberger, Steinhardter Hof 2, 55566 Bad Sobernheim, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Grauburgunder trocken 2022", verification: "verified" },
   W0072: { alcohol: "13,0 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Christian Bamberger, Steinhardter Hof 2, 55566 Bad Sobernheim, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Weißburgunder trocken 2021", verification: "verified" },
   W0080: { alcohol: "12,0 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Christian Bamberger, Steinhardter Hof 2, 55566 Bad Sobernheim, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Glückslos trocken 2023", verification: "verified" },
   W0081: { alcohol: "11,0 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Christian Bamberger, Steinhardter Hof 2, 55566 Bad Sobernheim, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Augenblick trocken 2023", verification: "verified" },
+  W0082: { alcohol: "13,0 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Christian Bamberger, Steinhardter Hof 2, 55566 Bad Sobernheim, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Riesling Vulkangestein 2021", verification: "verified" },
   W0084: { alcohol: "13,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Christian Bamberger, Steinhardter Hof 2, 55566 Bad Sobernheim, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Spätburgunder Vulkangestein 2020", verification: "verified" },
   W0085: { alcohol: "13,5 % vol.", allergens: "Enthält Sulfite", producer: "Weingut Christian Bamberger, Steinhardter Hof 2, 55566 Bad Sobernheim, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Spätburgunder Vulkangestein 2021", verification: "verified" },
   W0002: { alcohol: "12,5 % vol.", allergens: "Enthält Sulfite", producer: "Abfüller: Weinhaus Thanisch, 54470 Lieser, Deutschland", sourceLabel: "Fotografiertes Rücketikett des Chardonnay trocken 2023", verification: "verified" },
@@ -195,7 +208,7 @@ const researched: Record<string, Partial<ProductInformation>> = {
 export function productInformationFor(wine: Wine): ProductInformation {
   const override = researched[wine.id] ?? {};
   return {
-    allergens: "Enthält Sulfite – maßgeblich ist das Etikett der angebotenen Flasche",
+    allergens: "Enthält Sulfite",
     producer: wineryAddresses[wine.winery] ?? `${wine.winery}, Deutschland`,
     sourceLabel:
       "Basisangaben aus Bestandsliste und veröffentlichten Hersteller-/Händlerdaten; Alkohol, Abfüller und Allergenangabe werden vor einer verbindlichen Bestellung anhand der Flasche bestätigt",
