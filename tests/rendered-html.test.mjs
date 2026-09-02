@@ -16,6 +16,8 @@ test("renders the complete static sales page", async () => {
   assert.match(html, /No Limit Sparkling alkoholfrei/);
   assert.match(html, /Charakter im Glas ansehen/);
   assert.match(html, /Flaschenfoto folgt/);
+  assert.match(html, /\/DeidiVino\/wine-images\/W0036\.webp/);
+  assert.match(html, /\/DeidiVino\/wine-images\/W0116\.webp/);
   assert.match(html, /mailto:deidivino\.ffm@gmail\.com/);
   assert.doesNotMatch(html, /Sauvignon Blanc II/);
   assert.match(html, /href="(?:\/DeidiVino)?\/impressum\/"/);

@@ -138,7 +138,7 @@ function WineCard({
         {media ? (
           <>
             <img src={`${basePath}${media.src}`} alt={media.alt} loading="lazy" />
-            <small>{media.credit}</small>
+            {media.credit && <small>{media.credit}</small>}
           </>
         ) : (
           <div className="wine-image-placeholder" aria-label="Flaschenfoto folgt">

@@ -18,19 +18,19 @@ Bis ein freigegebenes oder eigenes Foto vorliegt, zeigt die Website einen neutra
 
 | Wein-ID | Weingut | Wein | Jahrgang | Bildstatus |
 |---|---|---|---:|---|
-| W0109 | Daniel Mattern | No Limit Sparkling alkoholfrei | 2024 | eigenes Foto erforderlich |
-| W0116 | Bischel | Riesling Sekt Brut | 2022 | eigenes Foto erforderlich |
-| W0103 | Daniel Mattern | Hop & Grape Perlwein / Secco | 2024 | eigenes Foto erforderlich |
-| W0036 | Geisser | Chardonnay Sekt Brut | 2020 | eigenes Foto erforderlich |
+| W0109 | Daniel Mattern | No Limit Sparkling alkoholfrei | 2024 | Foto eingebunden |
+| W0116 | Bischel | Riesling Sekt Brut | 2022 | Foto eingebunden |
+| W0103 | Daniel Mattern | Hop & Grape Perlwein / Secco | 2024 | neue Aufnahme erforderlich – Quelldatei nicht vollständig lesbar |
+| W0036 | Geisser | Chardonnay Sekt Brut | 2020 | Foto eingebunden |
 | W0068 | Schlossgut Diel | Rosé de Diel | 2022 | eigenes Foto erforderlich |
 | W0112 | Bischel | Rosé Trocken | 2023 | eigenes Foto erforderlich |
-| W0097 | Daniel Mattern | Rosé | 2024 | eigenes Foto erforderlich |
+| W0097 | Daniel Mattern | Rosé | 2024 | Foto eingebunden |
 | W0121 | Bischel | Appenheim Spätburgunder aus 1. Lagen | 2019 | eigenes Foto erforderlich |
 | W0113 | Bischel | Blaufränkisch VINTAGE | 2022 | eigenes Foto erforderlich |
 | W0122 | Bischel | Gau-Algesheim Johannisberg Spätburgunder 1. Lage | 2020 | eigenes Foto erforderlich |
 | W0123 | Bischel | Pinot Noir Reserve | 2020 | eigenes Foto erforderlich |
-| W0084 | Christian Bamberger | Spätburgunder Vulkangestein | 2020 | eigenes Foto erforderlich |
-| W0085 | Christian Bamberger | Spätburgunder Vulkangestein | 2021 | eigenes Foto erforderlich |
+| W0084 | Christian Bamberger | Spätburgunder Vulkangestein | 2020 | Foto eingebunden |
+| W0085 | Christian Bamberger | Spätburgunder Vulkangestein | 2021 | Foto eingebunden |
 | W0027 | Thanisch | Spätburgunder Trocken unfiltriert Barrique | 2020 | eigenes Foto erforderlich |
 | W0028 | Thanisch | Spätburgunder Trocken unfiltriert Barrique | 2021 | eigenes Foto erforderlich |
 | W0064 | Schlossgut Diel | Nahesteiner Weißburgunder | 2022 | eigenes Foto erforderlich |
@@ -43,18 +43,18 @@ Bis ein freigegebenes oder eigenes Foto vorliegt, zeigt die Website einen neutra
 | W0117 | Bischel | Riesling Hundertgulden GG | 2023 | eigenes Foto erforderlich |
 | W0118 | Bischel | Riesling Scharlachberg GG | 2023 | eigenes Foto erforderlich |
 | W0120 | Bischel | Riesling St. Laurenzikirche GG | 2023 | eigenes Foto erforderlich |
-| W0081 | Christian Bamberger | Augenblick | 2023 | eigenes Foto erforderlich |
-| W0080 | Christian Bamberger | Glückslos | 2023 | eigenes Foto erforderlich |
-| W0071 | Christian Bamberger | Grauburgunder | 2022 | eigenes Foto erforderlich |
-| W0082 | Christian Bamberger | Riesling Vulkangestein Trocken | 2021 | eigenes Foto erforderlich |
+| W0081 | Christian Bamberger | Augenblick | 2023 | Foto eingebunden |
+| W0080 | Christian Bamberger | Glückslos | 2023 | Foto eingebunden |
+| W0071 | Christian Bamberger | Grauburgunder | 2022 | Foto eingebunden |
+| W0082 | Christian Bamberger | Riesling Vulkangestein Trocken | 2021 | Foto eingebunden |
 | W0072 | Christian Bamberger | Weissburgunder | 2021 | eigenes Foto erforderlich |
-| W0100 | Daniel Mattern | Dittelsheimer Assemblage Réserve | 2019 | eigenes Foto erforderlich |
-| W0099 | Daniel Mattern | Dittelsheimer Chardonnay Reserve | 2021 | eigenes Foto erforderlich |
-| W0098 | Daniel Mattern | Grauburgunder | 2023 | eigenes Foto erforderlich |
-| W0040 | Geisser | Sauvignon Blanc „Sonnenberg“ | 2022 | eigenes Foto erforderlich |
-| W0093 | Matthias Müller | Riesling Bopparder Hamm Kieselgallenschiefer | 2022 | eigenes Foto erforderlich |
-| W0094 | Matthias Müller | Riesling Feuerlay GG | 2022 | eigenes Foto erforderlich |
-| W0095 | Matthias Müller | Riesling Mandelstein GG | 2021 | eigenes Foto erforderlich |
+| W0100 | Daniel Mattern | Dittelsheimer Assemblage Réserve | 2019 | Foto eingebunden |
+| W0099 | Daniel Mattern | Dittelsheimer Chardonnay Reserve | 2021 | Foto eingebunden |
+| W0098 | Daniel Mattern | Grauburgunder | 2023 | Foto eingebunden |
+| W0040 | Geisser | Sauvignon Blanc „Sonnenberg“ | 2022 | Foto eingebunden |
+| W0093 | Matthias Müller | Riesling Bopparder Hamm Kieselgallenschiefer | 2022 | Foto eingebunden |
+| W0094 | Matthias Müller | Riesling Feuerlay GG | 2022 | Foto eingebunden |
+| W0095 | Matthias Müller | Riesling Mandelstein GG | 2021 | Foto eingebunden |
 | W0052 | Schloss Lieser | Juffer Feinherb | 2022 | eigenes Foto erforderlich |
 | W0054 | Schloss Lieser | Juffer Kabinett Feinfruchtig | 2022 | eigenes Foto erforderlich |
 | W0051 | Schloss Lieser | Lieser Heldenstück Trocken | 2022 | eigenes Foto erforderlich |

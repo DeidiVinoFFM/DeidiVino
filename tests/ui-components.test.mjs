@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const projectUrl = new URL("../", import.meta.url);
@@ -76,4 +76,17 @@ test("provides a description for every wine and winery", async () => {
   assert.ok(wines.every((wine) => describedWineIds.has(wine.id)));
   assert.ok(wines.every((wine) => wineriesSource.includes(`"${wine.winery}":`)));
   assert.match(wineriesSource, /sourceUrl: "https:\/\//);
+});
+
+test("includes the first own wine photographs as deployable web assets", async () => {
+  const media = await read("app/data/wine-media.ts");
+  const imageDirectory = new URL("public/wine-images/", projectUrl);
+  const images = await readdir(imageDirectory);
+
+  assert.equal(images.filter((file) => file.endsWith(".webp")).length, 17);
+  assert.match(media, /W0036: \{ src: "\/wine-images\/W0036\.webp"/);
+  assert.match(media, /W0116: \{ src: "\/wine-images\/W0116\.webp"/);
+  assert.doesNotMatch(media, /W0103: \{ src:/);
+  await access(new URL("W0036.webp", imageDirectory));
+  await access(new URL("W0116.webp", imageDirectory));
 });
