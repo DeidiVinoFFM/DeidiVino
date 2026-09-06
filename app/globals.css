@@ -69,12 +69,19 @@
 }
 
 html {
+  width: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 8% 4%, rgba(243, 233, 0, 0.11), transparent 25rem),
     #ffffff;
@@ -148,6 +155,7 @@ input:focus-visible {
   width: min(1180px, calc(100% - 2rem));
   min-height: 4.75rem;
   margin-inline: auto;
+  min-width: 0;
 }
 
 .brand-link {
@@ -168,6 +176,8 @@ input:focus-visible {
 .site-header nav {
   display: flex;
   gap: 0.2rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .site-header nav button {
@@ -484,8 +494,8 @@ input:focus-visible {
   border-radius: 1.35rem;
   background: var(--paper);
   box-shadow: 0 8px 30px rgba(38, 56, 63, 0.045);
-  content-visibility: auto;
-  contain-intrinsic-size: 380px;
+  min-width: 0;
+  max-width: 100%;
   transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
@@ -1677,6 +1687,8 @@ input:focus-visible {
     padding: 0.2rem 0 0.5rem;
     scrollbar-width: none;
     white-space: nowrap;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .site-header nav::-webkit-scrollbar {
@@ -1923,6 +1935,7 @@ input:focus-visible {
   }
 
   .wine-card {
+    width: 100%;
     min-height: 23rem;
   }
 

@@ -34,6 +34,7 @@ test("publishes 54 sellable records without internal inventory fields", async ()
 test("keeps selection, search and mobile accessibility in the implementation", async () => {
   const page = await read("app/page.tsx");
   const css = await read("app/globals.css");
+  const layout = await read("app/layout.tsx");
 
   assert.match(page, /placeholder="Wein, Weingut, Rebsorte oder Region"/);
   assert.match(page, /Jetzt anfragen/);
@@ -57,8 +58,17 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /id="weinergebnisse"/);
   assert.match(page, /getBoundingClientRect\(\)\.height/);
   assert.match(page, /window\.requestAnimationFrame/);
+  assert.match(page, /adviceImage\.decode\(\)/);
+  assert.match(page, /loading="eager"/);
+  assert.match(layout, /export const viewport/);
+  assert.match(layout, /width: "device-width"/);
+  assert.match(layout, /initialScale: 1/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(css, /overflow-x: auto/);
+  assert.match(css, /overflow-x: clip/);
+  assert.match(css, /-webkit-text-size-adjust: 100%/);
+  assert.doesNotMatch(css, /content-visibility: auto/);
+  assert.doesNotMatch(css, /contain-intrinsic-size/);
   assert.match(css, /@media \(max-width: 1120px\)/);
   assert.match(css, /--footer-logo-image/);
   assert.match(css, /:focus-visible/);

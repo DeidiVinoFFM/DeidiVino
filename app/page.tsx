@@ -254,7 +254,16 @@ export default function Home() {
     };
 
     const fontsReady = document.fonts?.ready ?? Promise.resolve();
-    void fontsReady.then(() => window.requestAnimationFrame(performScroll));
+    const target = document.getElementById(id);
+    const adviceImage = id === "beratung" ? target?.querySelector("img") : null;
+    const imageReady =
+      adviceImage instanceof HTMLImageElement && !adviceImage.complete
+        ? adviceImage.decode().catch(() => undefined)
+        : Promise.resolve();
+
+    void Promise.all([fontsReady, imageReady]).then(() => {
+      window.requestAnimationFrame(() => window.requestAnimationFrame(performScroll));
+    });
   };
 
   const scrollToResults = () => {
@@ -590,7 +599,7 @@ export default function Home() {
             <img
               src={`${basePath}/dieter-gruen.webp`}
               alt="Dieter Grün von DeidiVino mit einem Glas Wein"
-              loading="lazy"
+              loading="eager"
               width={632}
               height={948}
             />
