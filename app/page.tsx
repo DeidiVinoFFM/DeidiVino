@@ -56,7 +56,7 @@ const featuredLabels: Record<string, string> = {
 const discoveryCards = [
   {
     category: "Alle",
-    image: "mixed-wines.webp",
+    image: "mixed-wines-retina.webp",
     eyebrow: "Quer durch den Keller",
     title: "Entdeckungen für jeden Anlass",
     copy: "Von frisch und leicht bis kraftvoll und vielschichtig – hier beginnt Deine Suche.",
@@ -373,6 +373,7 @@ export default function Home() {
 
   return (
     <>
+      <a className="skip-link" href="#top">Direkt zum Inhalt</a>
       <div className="age-strip">Wein und Sekt gibt es bei DeidiVino ausschließlich ab 16 Jahren.</div>
 
       <header className="site-header">
@@ -402,7 +403,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main id="top">
+      <main id="top" tabIndex={-1}>
         <section className="hero-shell page-width" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">Persönlich für Dich ausgewählt</p>
@@ -434,8 +435,10 @@ export default function Home() {
           </div>
           <figure className="hero-image">
             <img
-              src={`${basePath}/mixed-wines.webp`}
+              src={`${basePath}/mixed-wines-retina.webp`}
               alt="Eine von Dieter Grün zusammengestellte Auswahl verschiedener Weinflaschen im Weinkeller"
+              width={1264}
+              height={944}
               loading="eager"
               fetchPriority="high"
             />

@@ -44,6 +44,14 @@ export default function VersandPage() {
       </div>
       <p>Liefertermin und Übergabe werden persönlich abgestimmt.</p>
 
+      <h2>Zahlung</h2>
+      <p>
+        Die Zahlung erfolgt grundsätzlich per Überweisung. Bei persönlicher Abholung ist
+        nach Absprache auch Barzahlung möglich. Bei Deiner ersten Bestellung versende ich
+        die Weine nach Eingang des vollständigen Rechnungsbetrags. Alle Zahlungsinformationen
+        erhältst Du mit der Rechnung.
+      </p>
+
       <h2>Lieferzeit und Transportrisiko</h2>
       <p>
         Die voraussichtliche Lieferzeit wird in der Bestellbestätigung genannt. Bei

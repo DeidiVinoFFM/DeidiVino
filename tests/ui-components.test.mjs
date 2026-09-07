@@ -60,6 +60,9 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /window\.requestAnimationFrame/);
   assert.match(page, /adviceImage\.decode\(\)/);
   assert.match(page, /loading="eager"/);
+  assert.match(page, /className="skip-link" href="#top"/);
+  assert.match(page, /<main id="top" tabIndex=\{-1\}>/);
+  assert.match(page, /mixed-wines-retina\.webp/);
   assert.match(layout, /export const viewport/);
   assert.match(layout, /width: "device-width"/);
   assert.match(layout, /initialScale: 1/);
@@ -80,6 +83,12 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(css, /\.product-information/);
   assert.match(css, /\.detail-dialog/);
   assert.match(css, /\.winery-description/);
+  assert.match(css, /\.skip-link/);
+  assert.doesNotMatch(css, /\bInter\b/);
+  assert.match(layout, /openGraph:/);
+  assert.match(layout, /twitter:/);
+  assert.match(layout, /summary_large_image/);
+  assert.match(layout, /mixed-wines-retina\.webp/);
 });
 
 test("provides a description for every wine and winery", async () => {
@@ -136,4 +145,18 @@ test("publishes verified 2024 product data and marks remaining label checks", as
   assert.match(shipping, /13 bis 18 Flaschen/);
   assert.match(shipping, /14,90 €/);
   assert.match(shipping, /trägt DeidiVino das Transportrisiko bis zur Übergabe/);
+  assert.match(shipping, /Die Zahlung erfolgt grundsätzlich per Überweisung/);
+  assert.match(shipping, /auch Barzahlung möglich/);
+  assert.match(shipping, /nach Eingang des vollständigen Rechnungsbetrags/);
+});
+
+test("uses the confirmed address for Christian Bamberger at the Steinhardter Hof", async () => {
+  const wineries = await read("app/data/wineries.ts");
+  const productInfo = await read("app/data/product-information.ts");
+
+  assert.match(wineries, /Steinhardter Hof/);
+  assert.match(wineries, /Kreuznacher Straße 2, 55566 Bad Sobernheim/);
+  assert.match(productInfo, /Steinhardter Hof, Kreuznacher Straße 2/);
+  assert.doesNotMatch(productInfo, /Steinhardter Hof 2/);
+  await access(new URL("public/mixed-wines-retina.webp", projectUrl));
 });

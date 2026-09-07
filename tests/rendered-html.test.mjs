@@ -8,6 +8,10 @@ test("renders the complete static sales page", async () => {
   const html = await readFile(new URL("dist/client/index.html", projectUrl), "utf8");
 
   assert.match(html, /DeidiVino Weinliste \| Persönlich ausgewählte Weine/);
+  assert.match(html, /property="og:image"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  assert.match(html, /mixed-wines-retina\.webp/);
+  assert.match(html, /Direkt zum Inhalt/);
   assert.match(html, /Weine, die im Glas Freude machen\./);
   assert.match(html, /Weine zur Auswahl/);
   assert.match(html, />54</);
@@ -50,4 +54,6 @@ test("prerenders the legal pages", async () => {
   assert.match(versand, /Bis 6 Flaschen/);
   assert.match(versand, /7,90/);
   assert.match(versand, /Schöneck-Büdesheim/);
+  assert.match(versand, /grundsätzlich per Überweisung/);
+  assert.match(versand, /Barzahlung/);
 });

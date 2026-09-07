@@ -44,7 +44,7 @@ export const wineryProfiles: Record<string, WineryProfile> = {
     region: "Nahe",
     locationLabel: "Kreuznacher Straße 2, 55566 Bad Sobernheim",
     description:
-      "Bei Christian Bamberger reicht die familiäre Weinbautradition bis 1658 zurück. Seit 2007 führt er das Gut in 14. Generation und verbindet die Erfahrung der Familie mit einer klaren, charaktervollen Handschrift.",
+      "Das Weingut Christian Bamberger am Steinhardter Hof blickt auf eine familiäre Weinbautradition bis 1658 zurück. Seit 2007 führt Christian Bamberger das Gut in 14. Generation und verbindet die Erfahrung der Familie mit einer klaren, charaktervollen Handschrift.",
     sourceUrl: "https://www.cb-wein.de/",
   },
   "Weingut Thanisch": {
