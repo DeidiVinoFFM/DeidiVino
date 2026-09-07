@@ -10,13 +10,17 @@ import {
   ExternalLink,
   Grape,
   Mail,
+  Minus,
   Phone,
   Plus,
   Search,
+  ShoppingBag,
   Sparkles,
+  Trash2,
+  UserRound,
   Wine as WineIcon,
 } from "lucide-react";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ImgHTMLAttributes } from "react";
 import { useEffect, useMemo, useState } from "react";
 import {
   Dialog,
@@ -30,6 +34,7 @@ import { wineMedia } from "./data/wine-media";
 import { wineryProfiles, type WineryProfile } from "./data/wineries";
 import { inventoryAsOf, wines, type Wine } from "./data/wines";
 import { productInformationFor } from "./data/product-information";
+import { wineRatings } from "./data/ratings";
 import { siteConfig } from "./site-config";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -101,6 +106,47 @@ function wineryShortName(winery: string) {
   return winery.replace(/^Weingut /, "");
 }
 
+function ImageWithFallback({
+  fallbackLabel = "Dieses Bild konnte gerade nicht geladen werden.",
+  alt = "",
+  onError,
+  ...props
+}: ImgHTMLAttributes<HTMLImageElement> & { fallbackLabel?: string }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <div className="image-load-error" role="status">
+        <WineIcon aria-hidden="true" size={28} strokeWidth={1.35} />
+        <span>{fallbackLabel}</span>
+        <button type="button" onClick={() => window.location.reload()}>Seite neu laden</button>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      {...props}
+      alt={alt}
+      onError={(event) => {
+        onError?.(event);
+        setFailed(true);
+      }}
+    />
+  );
+}
+
+function servingSuggestion(wine: Wine) {
+  const text = `${wine.category} ${wine.style} ${wine.name}`.toLocaleLowerCase("de-DE");
+  if (wine.category === "Alkoholfrei") return "Gut gekühlt bei etwa 6–8 °C servieren – ideal als alkoholfreier Aperitif.";
+  if (wine.category === "Prickelnd") return "Gut gekühlt bei etwa 7–9 °C servieren – als Aperitif oder Begleiter für einen besonderen Auftakt.";
+  if (text.includes("auslese")) return "Leicht gekühlt bei etwa 8–10 °C und in kleinen Gläsern servieren; spannend zu Dessert, Käse oder ganz für sich.";
+  if (wine.category === "Rosé") return "Bei etwa 8–10 °C servieren – unkompliziert solo, zu Salaten oder zur leichten Sommerküche.";
+  if (wine.category === "Rotwein") return "Leicht temperiert bei etwa 14–16 °C servieren; ein größeres Glas und etwas Luft lassen die Aromen aufblühen.";
+  if (text.includes("gg") || text.includes("reserve") || text.includes("réserve")) return "Nicht zu kalt bei etwa 10–12 °C servieren und dem Wein im größeren Glas etwas Luft geben.";
+  return "Bei etwa 8–11 °C servieren – ein vielseitiger Begleiter, der auch ohne Essen Freude macht.";
+}
+
 function WineCard({
   wine,
   selected,
@@ -136,7 +182,7 @@ function WineCard({
       <div className={`wine-card-media${media ? " has-image" : ""}`}>
         {media ? (
           <>
-            <img src={`${basePath}${media.src}`} alt={media.alt} loading="lazy" />
+            <ImageWithFallback src={`${basePath}${media.src}`} alt={media.alt} loading="lazy" />
             {media.credit && <small>{media.credit}</small>}
           </>
         ) : (
@@ -165,6 +211,12 @@ function WineCard({
           Charakter im Glas ansehen
           <span aria-hidden="true">→</span>
         </button>
+
+        {wineRatings[wine.id]?.[0] ? (
+          <button className="card-rating" type="button" onClick={onShowWine}>
+            {wineRatings[wine.id][0].score} · {wineRatings[wine.id][0].publication}
+          </button>
+        ) : null}
 
         <div className="wine-tags" aria-label="Weininformationen">
           <span>{wine.vintage}</span>
@@ -196,7 +248,10 @@ export default function Home() {
   const [category, setCategory] = useState("Alle");
   const [budget, setBudget] = useState("all");
   const [query, setQuery] = useState("");
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [selectedQuantities, setSelectedQuantities] = useState<Record<string, number>>({});
+  const [selectionReady, setSelectionReady] = useState(false);
+  const [wishlistOpen, setWishlistOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
   const [webmailOpen, setWebmailOpen] = useState(false);
   const [activeWine, setActiveWine] = useState<Wine | null>(null);
@@ -226,6 +281,33 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        const saved = window.sessionStorage.getItem("deidivino-merkliste");
+        if (saved) {
+          const parsed = JSON.parse(saved) as Record<string, number>;
+          const valid = Object.fromEntries(
+            Object.entries(parsed).filter(
+              ([id, quantity]) => wines.some((wine) => wine.id === id) && Number.isInteger(quantity) && quantity > 0 && quantity <= 99,
+            ),
+          );
+          setSelectedQuantities(valid);
+        }
+      } catch {
+        window.sessionStorage.removeItem("deidivino-merkliste");
+      } finally {
+        setSelectionReady(true);
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (!selectionReady) return;
+    window.sessionStorage.setItem("deidivino-merkliste", JSON.stringify(selectedQuantities));
+  }, [selectedQuantities, selectionReady]);
+
   const filteredWines = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase("de-DE");
     return wines.filter((wine) => {
@@ -240,7 +322,14 @@ export default function Home() {
     });
   }, [budget, category, query]);
 
-  const selectedWines = wines.filter((wine) => selectedIds.includes(wine.id));
+  const selectedWines = wines
+    .filter((wine) => selectedQuantities[wine.id])
+    .map((wine) => ({ wine, quantity: selectedQuantities[wine.id] }));
+  const selectedBottleCount = selectedWines.reduce((sum, item) => sum + item.quantity, 0);
+  const selectedSubtotal = selectedWines.reduce(
+    (sum, item) => sum + item.wine.price * item.quantity,
+    0,
+  );
 
   const scrollToSection = (id: string) => {
     const performScroll = () => {
@@ -310,15 +399,35 @@ export default function Home() {
   };
 
   const toggleWine = (id: string) => {
-    setSelectedIds((current) =>
-      current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
-    );
+    setSelectedQuantities((current) => {
+      if (current[id]) {
+        const next = { ...current };
+        delete next[id];
+        return next;
+      }
+      return { ...current, [id]: 1 };
+    });
+  };
+
+  const updateQuantity = (id: string, quantity: number) => {
+    setSelectedQuantities((current) => ({
+      ...current,
+      [id]: Math.max(1, Math.min(99, Math.round(quantity))),
+    }));
+  };
+
+  const removeWine = (id: string) => {
+    setSelectedQuantities((current) => {
+      const next = { ...current };
+      delete next[id];
+      return next;
+    });
   };
 
   const inquiryBody = selectedWines.length
     ? `Hallo Dieter,\n\nich interessiere mich für folgende Weine:\n\n${selectedWines
-        .map((wine) => `– ${wine.name}, ${wine.winery}, ${wine.vintage} (${formatEuro(wine.price)})`)
-        .join("\n")}\n\nBitte gib mir kurz Rückmeldung zu Verfügbarkeit, Lieferung innerhalb Deutschlands und Gesamtpreis.\n\nViele Grüße`
+        .map(({ wine, quantity }) => `– ${quantity} × ${wine.name}, ${wine.winery}, ${wine.vintage} (je ${formatEuro(wine.price)})`)
+        .join("\n")}\n\nWarenwert laut aktueller Auswahl: ${formatEuro(selectedSubtotal)} (zuzüglich gegebenenfalls anfallender Lieferkosten).\n\nBitte gib mir kurz Rückmeldung zu Verfügbarkeit, Lieferung innerhalb Deutschlands und Gesamtpreis.\n\nViele Grüße`
     : "Hallo Dieter,\n\nich hätte gern eine persönliche Weinempfehlung. Hier ein paar Anhaltspunkte:\n\n– Geschmack: \n– Anlass oder Essen: \n– Budget je Flasche: \n– Anzahl Flaschen: \n\nViele Grüße";
 
   const inquirySubject = selectedWines.length
@@ -395,6 +504,9 @@ export default function Home() {
             <button type="button" onClick={() => scrollToSection("empfehlungen")}>Favoriten</button>
             <button type="button" onClick={() => scrollToSection("weine")}>Weine entdecken</button>
             <button type="button" onClick={() => scrollToSection("beratung")}>Persönliche Beratung</button>
+            <button className="nav-wishlist" type="button" onClick={() => setWishlistOpen(true)}>
+              Merkliste{selectedWines.length > 0 ? ` (${selectedBottleCount})` : ""}
+            </button>
           </nav>
           <a className="header-contact" href={`mailto:${siteConfig.email}`}>
             <Mail aria-hidden="true" size={17} />
@@ -403,11 +515,18 @@ export default function Home() {
         </div>
       </header>
 
+      <noscript>
+        <div className="noscript-notice">
+          Bilder und Weininformationen sind sichtbar. Für Filter, Detailfenster und Merkliste
+          aktiviere bitte JavaScript und lade die Seite neu.
+        </div>
+      </noscript>
+
       <main id="top" tabIndex={-1}>
         <section className="hero-shell page-width" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">Persönlich für Dich ausgewählt</p>
-            <h1 id="hero-title">Weine, die im Glas Freude machen.</h1>
+              <p className="eyebrow">Deutsche Weine · persönliche Beratung aus Schöneck</p>
+            <h1 id="hero-title">Deutsche Weine, die im Glas Freude machen.</h1>
             <p className="hero-intro">
               Ich suche Weine aus, die ich selbst gern öffne: charaktervoll, ehrlich gemacht
               und mit einem überzeugenden Preis-Genuss-Verhältnis. Schau Dich in Ruhe um –
@@ -434,7 +553,7 @@ export default function Home() {
             </dl>
           </div>
           <figure className="hero-image">
-            <img
+            <ImageWithFallback
               src={`${basePath}/mixed-wines-retina.webp`}
               alt="Eine von Dieter Grün zusammengestellte Auswahl verschiedener Weinflaschen im Weinkeller"
               width={1264}
@@ -463,7 +582,7 @@ export default function Home() {
               <WineCard
                 key={wine.id}
                 wine={wine}
-                selected={selectedIds.includes(wine.id)}
+                selected={Boolean(selectedQuantities[wine.id])}
                 onToggle={() => toggleWine(wine.id)}
                 onShowWine={() => setActiveWine(wine)}
                 onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
@@ -488,7 +607,7 @@ export default function Home() {
                 key={card.title}
                 onClick={() => discoverCategory(card.category)}
               >
-                <img
+                <ImageWithFallback
                   src={`${basePath}/${card.image}`}
                   alt=""
                   loading="lazy"
@@ -568,7 +687,7 @@ export default function Home() {
                   <WineCard
                     key={wine.id}
                     wine={wine}
-                    selected={selectedIds.includes(wine.id)}
+                    selected={Boolean(selectedQuantities[wine.id])}
                     onToggle={() => toggleWine(wine.id)}
                     onShowWine={() => setActiveWine(wine)}
                     onShowWinery={() => setActiveWinery(wineryProfiles[wine.winery])}
@@ -599,7 +718,7 @@ export default function Home() {
 
         <section id="beratung" className="advice-section page-width" aria-labelledby="advice-heading">
           <div className="advice-portrait">
-            <img
+            <ImageWithFallback
               src={`${basePath}/dieter-gruen.webp`}
               alt="Dieter Grün von DeidiVino mit einem Glas Wein"
               loading="eager"
@@ -615,6 +734,10 @@ export default function Home() {
               ausgeben möchtest. Ich antworte Dir persönlich mit einer kleinen Auswahl, die
               wirklich zu Deinen Vorstellungen passt.
             </p>
+            <button className="about-link" type="button" onClick={() => setAboutOpen(true)}>
+              <UserRound aria-hidden="true" size={17} />
+              Mehr über mich
+            </button>
             <div className="advice-contact">
               <a className="button button-light" href={inquiryUrl}>
                 <Mail aria-hidden="true" size={18} />
@@ -715,8 +838,8 @@ export default function Home() {
       {selectedWines.length > 0 && !footerVisible && (
         <aside className="inquiry-bar" aria-label="Gemerkt für Deine Anfrage">
           <div>
-            <strong>{selectedWines.length} {selectedWines.length === 1 ? "Wein gemerkt" : "Weine gemerkt"}</strong>
-            <button type="button" onClick={() => setSelectedIds([])}>Auswahl löschen</button>
+            <strong>{selectedBottleCount} {selectedBottleCount === 1 ? "Flasche" : "Flaschen"} gemerkt</strong>
+            <button type="button" onClick={() => setWishlistOpen(true)}>Merkliste ansehen</button>
           </div>
           <div className="inquiry-actions">
             <button className="copy-icon-button" type="button" onClick={() => setWebmailOpen(true)} aria-label="Webmail-Optionen öffnen" title="Webmail verwenden">
@@ -789,6 +912,134 @@ export default function Home() {
         </DialogContent>
       </Dialog>
 
+      <Dialog open={wishlistOpen} onOpenChange={setWishlistOpen}>
+        <DialogContent className="wishlist-dialog">
+          <DialogHeader>
+            <DialogTitle>Deine Merkliste</DialogTitle>
+            <DialogDescription>
+              Passe die gewünschte Flaschenzahl an. Die Auswahl bleibt bis zum Schließen dieses Browser-Tabs erhalten.
+            </DialogDescription>
+          </DialogHeader>
+
+          {selectedWines.length ? (
+            <>
+              <div className="wishlist-items">
+                {selectedWines.map(({ wine, quantity }) => (
+                  <article className="wishlist-item" key={wine.id}>
+                    <div className="wishlist-thumb">
+                      {wineMedia[wine.id] ? (
+                        <ImageWithFallback
+                          src={`${basePath}${wineMedia[wine.id].src}`}
+                          alt=""
+                          loading="lazy"
+                        />
+                      ) : (
+                        <WineIcon aria-hidden="true" size={24} />
+                      )}
+                    </div>
+                    <div className="wishlist-copy">
+                      <small>{wineryShortName(wine.winery)} · {wine.vintage}</small>
+                      <strong>{wine.name}</strong>
+                      <span>{formatEuro(wine.price)} je Flasche</span>
+                    </div>
+                    <div className="quantity-control" aria-label={`Flaschenzahl für ${wine.name}`}>
+                      <button
+                        type="button"
+                        aria-label={`Eine Flasche ${wine.name} weniger`}
+                        disabled={quantity <= 1}
+                        onClick={() => updateQuantity(wine.id, quantity - 1)}
+                      >
+                        <Minus aria-hidden="true" size={16} />
+                      </button>
+                      <input
+                        aria-label={`Anzahl Flaschen ${wine.name}`}
+                        type="number"
+                        min="1"
+                        max="99"
+                        inputMode="numeric"
+                        value={quantity}
+                        onChange={(event) => updateQuantity(wine.id, Number(event.target.value) || 1)}
+                      />
+                      <button
+                        type="button"
+                        aria-label={`Eine Flasche ${wine.name} mehr`}
+                        onClick={() => updateQuantity(wine.id, quantity + 1)}
+                      >
+                        <Plus aria-hidden="true" size={16} />
+                      </button>
+                    </div>
+                    <strong className="wishlist-line-total">{formatEuro(wine.price * quantity)}</strong>
+                    <button
+                      className="wishlist-remove"
+                      type="button"
+                      aria-label={`${wine.name} aus der Merkliste entfernen`}
+                      onClick={() => removeWine(wine.id)}
+                    >
+                      <Trash2 aria-hidden="true" size={17} />
+                    </button>
+                  </article>
+                ))}
+              </div>
+              <div className="wishlist-summary">
+                <span>{selectedBottleCount} {selectedBottleCount === 1 ? "Flasche" : "Flaschen"}</span>
+                <strong>Warenwert {formatEuro(selectedSubtotal)}</strong>
+                <small>Zuzüglich gegebenenfalls anfallender Lieferkosten.</small>
+              </div>
+              <div className="wishlist-actions">
+                <button
+                  className="button button-ghost"
+                  type="button"
+                  onClick={() => setSelectedQuantities({})}
+                >
+                  Merkliste leeren
+                </button>
+                <a className="button button-primary" href={inquiryUrl}>
+                  <Mail aria-hidden="true" size={18} />
+                  Auswahl anfragen
+                </a>
+              </div>
+            </>
+          ) : (
+            <div className="wishlist-empty">
+              <ShoppingBag aria-hidden="true" size={34} />
+              <strong>Noch nichts gemerkt</strong>
+              <p>Schließe dieses Fenster und tippe bei interessanten Weinen auf „Merken“.</p>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={aboutOpen} onOpenChange={setAboutOpen}>
+        <DialogContent className="about-dialog detail-dialog">
+          <DialogHeader>
+            <p className="detail-dialog-eyebrow">Persönliche Weinberatung</p>
+            <DialogTitle>Hallo, ich bin Dieter.</DialogTitle>
+            <DialogDescription>Der Mensch hinter DeidiVino</DialogDescription>
+          </DialogHeader>
+          <div className="about-dialog-content">
+            <ImageWithFallback
+              src={`${basePath}/dieter-gruen.webp`}
+              alt="Dieter Grün von DeidiVino mit einem Glas Wein"
+              loading="lazy"
+              width={632}
+              height={948}
+            />
+            <div>
+              <p>
+                Hinter DeidiVino stehe ich, Dieter Grün. Als zertifizierter Sommelier suche
+                ich charaktervolle Weine aus, die ich selbst gern öffne – von unkomplizierten
+                Entdeckungen bis zu besonderen Flaschen mit klarer Herkunft.
+              </p>
+              <p>
+                Mir geht es nicht um einen anonymen Warenkorb. Ich höre zu, frage nach Anlass,
+                Geschmack und Budget und stelle daraus eine überschaubare Auswahl zusammen,
+                die wirklich zu Dir passt.
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       <Dialog
         open={Boolean(activeWine)}
         onOpenChange={(open) => {
@@ -821,7 +1072,7 @@ export default function Home() {
               <div className="wine-detail-main">
                 <div className={`detail-wine-media${wineMedia[activeWine.id] ? " has-image" : ""}`}>
                   {wineMedia[activeWine.id] ? (
-                    <img
+                    <ImageWithFallback
                       src={`${basePath}${wineMedia[activeWine.id]?.src}`}
                       alt={wineMedia[activeWine.id]?.alt ?? activeWine.name}
                     />
@@ -837,7 +1088,20 @@ export default function Home() {
                   <div className="wine-character">
                     <p className="detail-label">Charakter im Glas</p>
                     <p>{wineDescriptions[activeWine.id]}</p>
+                    <p className="serving-suggestion"><strong>Mein Serviertipp:</strong> {servingSuggestion(activeWine)}</p>
                   </div>
+
+                  {wineRatings[activeWine.id]?.length ? (
+                    <div className="wine-ratings" aria-label="Veröffentlichte Weinbewertungen">
+                      <span>Ausgezeichnet</span>
+                      {wineRatings[activeWine.id].map((rating) => (
+                        <a key={`${rating.publication}-${rating.score}`} href={rating.sourceUrl} target="_blank" rel="noreferrer">
+                          <strong>{rating.score}</strong> {rating.publication} · Jahrgang {rating.vintage}
+                          <ExternalLink aria-hidden="true" size={14} />
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
 
                   <div className="detail-wine-facts" aria-label="Weininformationen">
                     <span>{activeWine.grape}</span>
@@ -890,15 +1154,15 @@ export default function Home() {
 
                   <button
                     type="button"
-                    className={`detail-select-button${selectedIds.includes(activeWine.id) ? " is-selected" : ""}`}
+                    className={`detail-select-button${selectedQuantities[activeWine.id] ? " is-selected" : ""}`}
                     onClick={() => toggleWine(activeWine.id)}
                   >
-                    {selectedIds.includes(activeWine.id) ? (
+                    {selectedQuantities[activeWine.id] ? (
                       <Check aria-hidden="true" size={18} />
                     ) : (
                       <Plus aria-hidden="true" size={18} />
                     )}
-                    {selectedIds.includes(activeWine.id) ? "Für die Anfrage gemerkt" : "Für die Anfrage merken"}
+                    {selectedQuantities[activeWine.id] ? "Für die Anfrage gemerkt" : "Für die Anfrage merken"}
                   </button>
                 </div>
               </div>

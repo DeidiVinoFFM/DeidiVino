@@ -61,6 +61,14 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /adviceImage\.decode\(\)/);
   assert.match(page, /loading="eager"/);
   assert.match(page, /className="skip-link" href="#top"/);
+  assert.match(page, /deidivino-merkliste/);
+  assert.match(page, /sessionStorage/);
+  assert.match(page, /updateQuantity/);
+  assert.match(page, /Deine Merkliste/);
+  assert.match(page, /Mehr über mich/);
+  assert.match(page, /ImageWithFallback/);
+  assert.match(page, /servingSuggestion/);
+  assert.match(page, /wineRatings/);
   assert.match(page, /<main id="top" tabIndex=\{-1\}>/);
   assert.match(page, /mixed-wines-retina\.webp/);
   assert.match(layout, /export const viewport/);
@@ -89,6 +97,9 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(layout, /twitter:/);
   assert.match(layout, /summary_large_image/);
   assert.match(layout, /mixed-wines-retina\.webp/);
+  assert.match(layout, /alternates:/);
+  assert.match(layout, /application\/ld\+json/);
+  await access(new URL("public/sitemap.xml", projectUrl));
 });
 
 test("provides a description for every wine and winery", async () => {

@@ -7,12 +7,16 @@ const projectUrl = new URL("../", import.meta.url);
 test("renders the complete static sales page", async () => {
   const html = await readFile(new URL("dist/client/index.html", projectUrl), "utf8");
 
-  assert.match(html, /DeidiVino Weinliste \| Persönlich ausgewählte Weine/);
+  assert.match(html, /DeidiVino \| Deutsche Weine &amp; persönliche Weinberatung/);
   assert.match(html, /property="og:image"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /mixed-wines-retina\.webp/);
   assert.match(html, /Direkt zum Inhalt/);
-  assert.match(html, /Weine, die im Glas Freude machen\./);
+  assert.match(html, /Deutsche Weine, die im Glas Freude machen\./);
+  assert.match(html, /rel="canonical"/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /Merkliste/);
+  assert.match(html, /Mehr über mich/);
   assert.match(html, /Weine zur Auswahl/);
   assert.match(html, />54</);
   assert.match(html, /Sechs gute Gründe, eine Flasche zu öffnen/);
