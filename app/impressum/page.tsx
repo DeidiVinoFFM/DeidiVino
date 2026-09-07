@@ -1,13 +1,6 @@
-import type { Metadata } from "next";
 import { siteConfig } from "../site-config";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-export const metadata: Metadata = {
-  title: "Impressum | DeidiVino",
-  description: "Impressum und Kontaktangaben von DeidiVino.",
-  alternates: { canonical: "https://deidivinoffm.github.io/DeidiVino/impressum/" },
-};
 
 export default function ImpressumPage() {
   return (

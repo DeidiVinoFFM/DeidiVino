@@ -1,13 +1,6 @@
-import type { Metadata } from "next";
 import { siteConfig } from "../site-config";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-export const metadata: Metadata = {
-  title: "Datenschutz | DeidiVino",
-  description: "Datenschutzerklärung von DeidiVino.",
-  alternates: { canonical: "https://deidivinoffm.github.io/DeidiVino/datenschutz/" },
-};
 
 export default function DatenschutzPage() {
   return (
@@ -59,8 +52,7 @@ export default function DatenschutzPage() {
       <h2>3. Suche, Filter und gemerkte Weine</h2>
       <p>
         Die Suche, die Filter und die Merkliste funktionieren ausschließlich lokal in
-        Deinem Browser. Die Merkliste wird nur für die Dauer des geöffneten Browser-Tabs
-        im Sitzungsspeicher gespeichert und nicht an mich
+        Deinem Browser. Deine Auswahl wird nicht dauerhaft gespeichert und nicht an mich
         oder GitHub übermittelt. Erst wenn Du auf „Jetzt anfragen“ klickst, wird Dein
         E-Mail-Programm mit einem vorbereiteten Nachrichtentext geöffnet. Du entscheidest
         selbst, ob und mit welchem Inhalt Du die Nachricht versendest.

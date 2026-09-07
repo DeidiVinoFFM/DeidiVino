@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl = "https://deidivinoffm.github.io/DeidiVino/";
 const socialImageUrl = `${siteUrl}mixed-wines-retina.webp`;
 
@@ -11,9 +12,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
+  verification: {
+    google: "lJxNDekwJizbML81flGZfCShpCr0Tsv0vDiXmXQKdxw",
+  },
+  title: "DeidiVino Weinliste | Persönlich ausgewählte Weine",
   description:
-    "Entdecke persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün in Schöneck – unkompliziert merken und anfragen.",
+    "Entdecke persönlich ausgewählte Weine deutscher Weingüter – mit ehrlicher Empfehlung von Dieter Grün und unkomplizierter Anfrage.",
   keywords: [
     "DeidiVino",
     "Weinliste",
@@ -26,21 +30,18 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: siteUrl,
-  },
   icons: {
-    icon: `${siteUrl}favicon.svg`,
-    shortcut: `${siteUrl}favicon.svg`,
+    icon: `${basePath}/favicon.svg`,
+    shortcut: `${basePath}/favicon.svg`,
   },
   openGraph: {
     type: "website",
     locale: "de_DE",
     url: siteUrl,
     siteName: "DeidiVino",
-    title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
+    title: "DeidiVino | Persönlich ausgewählte Weine",
     description:
-      "Persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün.",
+      "Charaktervolle Weine deutscher Weingüter – persönlich ausgewählt und unkompliziert angefragt.",
     images: [
       {
         url: socialImageUrl,
@@ -52,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
+    title: "DeidiVino | Persönlich ausgewählte Weine",
     description:
-      "Persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün.",
+      "Charaktervolle Weine deutscher Weingüter – persönlich ausgewählt und unkompliziert angefragt.",
     images: [socialImageUrl],
   },
 };
@@ -64,34 +65,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "DeidiVino",
-    url: siteUrl,
-    logo: `${siteUrl}deidivino-logo.png`,
-    description: "Persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün.",
-    email: "mailto:deidivino.ffm@gmail.com",
-    telephone: "+49 173 300 5720",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Marie-von-Oriola-Straße 24",
-      postalCode: "61137",
-      addressLocality: "Schöneck",
-      addressCountry: "DE",
-    },
-    sameAs: ["https://www.instagram.com/deidivino/"],
-  };
-
   return (
     <html lang="de">
-      <body className="antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
-        />
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

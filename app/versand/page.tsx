@@ -5,7 +5,6 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export const metadata: Metadata = {
   title: "Versand und Lieferung | DeidiVino",
   description: "Versandkosten und persönliche Lieferung der DeidiVino-Weinauswahl.",
-  alternates: { canonical: "https://deidivinoffm.github.io/DeidiVino/versand/" },
 };
 
 export default function VersandPage() {
