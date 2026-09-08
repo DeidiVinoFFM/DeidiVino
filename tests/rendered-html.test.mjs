@@ -13,6 +13,8 @@ test("renders the complete static sales page", async () => {
   assert.match(html, /mixed-wines-retina\.webp/);
   assert.match(html, /Direkt zum Inhalt/);
   assert.match(html, /Deutsche Weine, die im Glas Freude machen\./);
+  assert.match(html, /ausschließlich ab 18 Jahren/);
+  assert.doesNotMatch(html, /ab 16 Jahren/);
   assert.match(html, /rel="canonical"/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /google-site-verification/);

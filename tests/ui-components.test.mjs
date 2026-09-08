@@ -71,6 +71,9 @@ test("keeps selection, search and mobile accessibility in the implementation", a
   assert.match(page, /wineRatings/);
   assert.match(page, /<main id="top" tabIndex=\{-1\}>/);
   assert.match(page, /mixed-wines-retina\.webp/);
+  assert.match(page, /ausschließlich ab 18 Jahren/);
+  assert.doesNotMatch(page, /ab 16 Jahren/);
+  assert.match(page, /Für DeidiVino wähle ich nur Weine aus/);
   assert.match(layout, /export const viewport/);
   assert.match(layout, /width: "device-width"/);
   assert.match(layout, /initialScale: 1/);

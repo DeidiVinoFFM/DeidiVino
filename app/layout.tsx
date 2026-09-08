@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
   description:
-    "Entdecke persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün in Schöneck – unkompliziert merken und anfragen.",
+    "Entdecke handverlesene deutsche Weine und persönliche Weinberatung von Sommelier Dieter Grün in Schöneck. Favoriten merken und unverbindlich anfragen.",
   keywords: [
     "DeidiVino",
     "Weinliste",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "DeidiVino",
     title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
     description:
-      "Persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün.",
+      "Handverlesene deutsche Weine und persönliche Weinberatung von Sommelier Dieter Grün.",
     images: [
       {
         url: socialImageUrl,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
     description:
-      "Persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün.",
+      "Handverlesene deutsche Weine und persönliche Weinberatung von Sommelier Dieter Grün.",
     images: [socialImageUrl],
   },
 };
@@ -73,7 +73,7 @@ export default function RootLayout({
     name: "DeidiVino",
     url: siteUrl,
     logo: `${siteUrl}deidivino-logo.png`,
-    description: "Persönlich ausgewählte deutsche Weine und individuelle Weinberatung von Sommelier Dieter Grün.",
+    description: "Handverlesene deutsche Weine und persönliche Weinberatung von Sommelier Dieter Grün.",
     email: "mailto:deidivino.ffm@gmail.com",
     telephone: "+49 173 300 5720",
     address: {

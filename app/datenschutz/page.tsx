@@ -60,8 +60,8 @@ export default function DatenschutzPage() {
       <p>
         Die Suche, die Filter und die Merkliste funktionieren ausschließlich lokal in
         Deinem Browser. Die Merkliste wird nur für die Dauer des geöffneten Browser-Tabs
-        im Sitzungsspeicher gespeichert und nicht an mich
-        oder GitHub übermittelt. Erst wenn Du auf „Jetzt anfragen“ klickst, wird Dein
+        im Sitzungsspeicher gespeichert und weder an mich noch an GitHub übermittelt.
+        Erst wenn Du auf „Jetzt anfragen“ klickst, wird Dein
         E-Mail-Programm mit einem vorbereiteten Nachrichtentext geöffnet. Du entscheidest
         selbst, ob und mit welchem Inhalt Du die Nachricht versendest.
       </p>

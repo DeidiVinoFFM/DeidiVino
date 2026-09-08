@@ -64,21 +64,21 @@ const discoveryCards = [
     image: "mixed-wines-retina.webp",
     eyebrow: "Quer durch den Keller",
     title: "Entdeckungen für jeden Anlass",
-    copy: "Von frisch und leicht bis kraftvoll und vielschichtig – hier beginnt Deine Suche.",
+    copy: "Von frisch und leicht bis kraftvoll und vielschichtig – stöbere einfach los.",
   },
   {
     category: "Rosé",
     image: "rose-wines.webp",
     eyebrow: "Rosé",
     title: "Leichtigkeit im Glas",
-    copy: "Trocken, saftig und unkompliziert: perfekt für Terrasse, Freunde und lange Abende.",
+    copy: "Trocken, saftig und entspannt: für die Terrasse, mit Freunden oder einen langen Abend.",
   },
   {
     category: "Prickelnd",
     image: "sparkling-wines.webp",
     eyebrow: "Sekt & Secco",
     title: "Wenn es etwas zu feiern gibt",
-    copy: "Feine Perlage für den Empfang, den besonderen Moment oder einfach zwischendurch.",
+    copy: "Feine Perlage zum Anstoßen, für besondere Momente oder einfach zwischendurch.",
   },
 ];
 
@@ -139,12 +139,12 @@ function ImageWithFallback({
 function servingSuggestion(wine: Wine) {
   const text = `${wine.category} ${wine.style} ${wine.name}`.toLocaleLowerCase("de-DE");
   if (wine.category === "Alkoholfrei") return "Gut gekühlt bei etwa 6–8 °C servieren – ideal als alkoholfreier Aperitif.";
-  if (wine.category === "Prickelnd") return "Gut gekühlt bei etwa 7–9 °C servieren – als Aperitif oder Begleiter für einen besonderen Auftakt.";
+  if (wine.category === "Prickelnd") return "Gut gekühlt bei etwa 7–9 °C servieren – als Aperitif oder zum Anstoßen.";
   if (text.includes("auslese")) return "Leicht gekühlt bei etwa 8–10 °C und in kleinen Gläsern servieren; spannend zu Dessert, Käse oder ganz für sich.";
   if (wine.category === "Rosé") return "Bei etwa 8–10 °C servieren – unkompliziert solo, zu Salaten oder zur leichten Sommerküche.";
   if (wine.category === "Rotwein") return "Leicht temperiert bei etwa 14–16 °C servieren; ein größeres Glas und etwas Luft lassen die Aromen aufblühen.";
   if (text.includes("gg") || text.includes("reserve") || text.includes("réserve")) return "Nicht zu kalt bei etwa 10–12 °C servieren und dem Wein im größeren Glas etwas Luft geben.";
-  return "Bei etwa 8–11 °C servieren – ein vielseitiger Begleiter, der auch ohne Essen Freude macht.";
+  return "Bei etwa 8–11 °C servieren – passt zu vielen Gerichten und schmeckt auch solo.";
 }
 
 function WineCard({
@@ -483,7 +483,7 @@ export default function Home() {
   return (
     <>
       <a className="skip-link" href="#top">Direkt zum Inhalt</a>
-      <div className="age-strip">Wein und Sekt gibt es bei DeidiVino ausschließlich ab 16 Jahren.</div>
+      <div className="age-strip">Wein und Sekt gibt es bei DeidiVino ausschließlich ab 18 Jahren.</div>
 
       <header className="site-header">
         <div className="site-header-inner">
@@ -528,9 +528,10 @@ export default function Home() {
               <p className="eyebrow">Deutsche Weine · persönliche Beratung aus Schöneck</p>
             <h1 id="hero-title">Deutsche Weine, die im Glas Freude machen.</h1>
             <p className="hero-intro">
-              Ich suche Weine aus, die ich selbst gern öffne: charaktervoll, ehrlich gemacht
-              und mit einem überzeugenden Preis-Genuss-Verhältnis. Schau Dich in Ruhe um –
-              oder erzähl mir, was Du vorhast, und ich stelle Dir etwas Passendes zusammen.
+              Für DeidiVino wähle ich nur Weine aus, die ich auch selbst gern öffne:
+              charaktervoll, ehrlich gemacht und mit einem überzeugenden Preis-Genuss-Verhältnis.
+              Schau Dich in Ruhe um – oder erzähl mir, was Du vorhast, und ich stelle Dir
+              etwas Passendes zusammen.
             </p>
             <div className="hero-actions">
               <button className="button button-primary" type="button" onClick={() => scrollToSection("weine")}>
@@ -572,9 +573,9 @@ export default function Home() {
               <h2 id="featured-heading">Sechs gute Gründe, eine Flasche zu öffnen</h2>
             </div>
             <p>
-              Mal frisch und unkompliziert, mal mit Tiefe und besonderer Herkunft: Diese
-              Weine zeigen, wie vielseitig die aktuelle Auswahl ist – und sind ein schöner
-              Startpunkt, wenn Du Dich inspirieren lassen möchtest.
+              Mal frisch und leicht, mal mit Tiefe und besonderer Herkunft: Diese Weine
+              zeigen, wie vielseitig meine aktuelle Auswahl ist. Wenn Du noch nicht weißt,
+              wonach Dir ist, kannst Du hier gut anfangen.
             </p>
           </div>
           <div className="featured-grid">
@@ -631,8 +632,9 @@ export default function Home() {
                 <h2 id="catalog-heading">Finde den Wein, der zu Dir passt</h2>
               </div>
               <p>
-                Nutze die Suche oder wähle Weinart und Preisrahmen. Interessante Flaschen
-                kannst Du merken und anschließend gemeinsam unverbindlich anfragen.
+                Suche nach einem bestimmten Wein oder filtere nach Weinart und Preis.
+                Was Dir gefällt, kommt auf die Merkliste und lässt sich anschließend
+                unverbindlich anfragen.
               </p>
             </div>
 
@@ -698,7 +700,7 @@ export default function Home() {
               <div className="empty-state">
                 <WineIcon aria-hidden="true" size={32} />
                 <h3>Noch nicht das Richtige dabei?</h3>
-                <p>Ändere Deine Auswahl oder schreib mir – oft finde ich im Gespräch schneller den passenden Wein.</p>
+                <p>Ändere die Filter oder schreib mir – gemeinsam finden wir bestimmt etwas Passendes.</p>
                 <button
                   type="button"
                   className="button button-dark"
@@ -730,9 +732,9 @@ export default function Home() {
             <p className="eyebrow">Persönlich statt kompliziert</p>
             <h2 id="advice-heading">Welcher Wein passt zu Dir?</h2>
             <p>
-              Erzähl mir kurz, was Du gern trinkst, für welchen Anlass Du suchst und was Du
-              ausgeben möchtest. Ich antworte Dir persönlich mit einer kleinen Auswahl, die
-              wirklich zu Deinen Vorstellungen passt.
+              Erzähl mir, was Du gern trinkst, für welchen Anlass Du suchst und was Du
+              ausgeben möchtest. Ich antworte Dir persönlich und schlage Dir eine kleine
+              Auswahl vor, die zu Deinen Vorstellungen passt.
             </p>
             <button className="about-link" type="button" onClick={() => setAboutOpen(true)}>
               <UserRound aria-hidden="true" size={17} />
@@ -761,7 +763,7 @@ export default function Home() {
               <div>
                 <Grape aria-hidden="true" size={21} />
                 <span>Geschmack</span>
-                <strong>Von frisch und mineralisch bis kraftvoll oder feinherb</strong>
+                <strong>Von frisch und mineralisch bis kraftvoll und feinherb</strong>
               </div>
               <div>
                 <WineIcon aria-hidden="true" size={21} />
@@ -782,15 +784,15 @@ export default function Home() {
           <ol className="steps-list">
             <li>
               <span>1</span>
-              <div><strong>Lieblingsweine merken</strong><p>Wähle interessante Flaschen aus – oder bitte direkt um eine Empfehlung.</p></div>
+              <div><strong>Lieblingsweine merken</strong><p>Merke Dir interessante Flaschen – oder frag mich direkt nach einer Empfehlung.</p></div>
             </li>
             <li>
               <span>2</span>
-              <div><strong>Unverbindlich anfragen</strong><p>Öffne eine vorausgefüllte E-Mail oder kopiere die Anfrage in Deinen bevorzugten Webmailer.</p></div>
+              <div><strong>Unverbindlich anfragen</strong><p>Öffne eine vorbereitete E-Mail oder kopiere die Anfrage in Deinen Webmailer.</p></div>
             </li>
             <li>
               <span>3</span>
-              <div><strong>Alles Weitere klären</strong><p>Du erhältst Verfügbarkeit, Gesamtpreis und die Lieferdetails für Deutschland.</p></div>
+              <div><strong>Alles Weitere klären</strong><p>Ich melde mich mit Verfügbarkeit, Gesamtpreis und den passenden Lieferdetails.</p></div>
             </li>
           </ol>
         </section>
@@ -809,7 +811,7 @@ export default function Home() {
                 loading="lazy"
               />
             </span>
-            <p>Weine mit Persönlichkeit – ausgesucht und beraten von Dieter Grün.</p>
+            <p>Weine mit Persönlichkeit – ausgewählt von Dieter Grün, auf Wunsch persönlich beraten.</p>
           </div>
           <div className="footer-links">
             <a href={`mailto:${siteConfig.email}`}><Mail aria-hidden="true" size={16} />{siteConfig.email}</a>
@@ -831,7 +833,7 @@ export default function Home() {
             innerhalb Deutschlands. Angebot freibleibend und solange der Vorrat reicht.
             Stand: {inventoryAsOf}.
           </p>
-          <p>Abgabe von Wein und Sekt ausschließlich an Personen ab 16 Jahren.</p>
+          <p>Abgabe von Wein und Sekt ausschließlich an Personen ab 18 Jahren.</p>
         </div>
       </footer>
 
@@ -858,7 +860,7 @@ export default function Home() {
           <DialogHeader>
             <DialogTitle>Wie möchtest Du Deine Anfrage senden?</DialogTitle>
             <DialogDescription>
-              Mit Gmail oder einer eingerichteten Mail-App werden Empfänger, Betreff und Nachricht automatisch befüllt.
+              Mit Gmail oder einer eingerichteten Mail-App werden Empfänger, Betreff und Nachricht automatisch eingetragen.
             </DialogDescription>
           </DialogHeader>
 
@@ -1026,22 +1028,21 @@ export default function Home() {
             />
             <div>
               <p>
-                Hinter DeidiVino stehe ich, Dieter Grün. Meine Weinliebe begann mit dem ersten
-                bewussten Schluck – und mit der Neugier darauf, warum Herkunft, Rebsorte und
-                Handwerk im Glas so unterschiedlich schmecken können.
+                Hinter DeidiVino stehe ich, Dieter Grün. Mich begeistert, wie unterschiedlich
+                Wein schmecken kann – je nach Herkunft, Rebsorte und Handschrift des Weinguts.
               </p>
               <p>
-                Als zertifizierter Sommelier und Weinhändler stelle ich ein handverlesenes
-                Sortiment aus deutschen Weinregionen zusammen: von Sekt, Weiß-, Rosé- und
-                Rotwein bis zu besonderen Reserve- und Naturweinen. Dabei wähle ich nur Weine
-                aus, die ich selbst gern öffne und persönlich empfehlen kann.
+                Als zertifizierter Sommelier und Weinhändler stelle ich deshalb eine persönliche
+                Auswahl aus deutschen Weinregionen zusammen: von Sekt, Weiß-, Rosé- und
+                Rotwein bis zu besonderen Reserve- und Naturweinen. Bei DeidiVino findest Du
+                nur Weine, die ich selbst probiert habe und mit gutem Gefühl empfehle.
               </p>
               <p>
-                Ob Du Dich schon lange für Wein begeisterst oder gerade Deine Lieblingsweine
-                entdeckst: Ich höre zu, frage nach Anlass, Geschmack und Budget und begleite
-                Dich mit einer Auswahl, die wirklich zu Dir passt. Auf Wunsch stelle ich auch
-                individuelle Weinpakete zusammen oder gestalte private und betriebliche
-                Weinverkostungen.
+                Ob Du Dich schon lange für Wein begeisterst oder gerade erst herausfindest,
+                was Dir schmeckt: Ich höre zu und frage nach Anlass, Geschmack und Budget.
+                Daraus entsteht eine Auswahl, die wirklich zu Dir passt. Auf Wunsch stelle ich
+                auch individuelle Weinpakete zusammen oder gestalte Weinverkostungen im
+                privaten Kreis und für Unternehmen.
               </p>
             </div>
           </div>
