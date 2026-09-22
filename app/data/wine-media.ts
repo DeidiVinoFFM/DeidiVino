@@ -1,66 +1,220 @@
-export type WineMedia = {
-  src: string;
-  alt: string;
-  credit?: string;
-  sourceUrl?: string;
-};
-
-// Hier werden ausschließlich Bilder eingetragen, an denen DeidiVino die eigenen
-// Rechte hält oder deren Nutzung ausdrücklich freigegeben wurde. Bis ein Foto
-// vorliegt, zeigt die Website bewusst einen neutralen Platzhalter.
-export const wineMedia: Partial<Record<string, WineMedia>> = {
-  W0002: { src: "/wine-images/W0002.webp", alt: "Chardonnay 2023 von Weingut Thanisch" },
-  W0005: { src: "/wine-images/W0005.webp", alt: "Chardonnay 500 Reserve 2022 von Weingut Thanisch" },
-  W0006: { src: "/wine-images/W0006.webp", alt: "Chardonnay 500 Reserve 2023 von Weingut Thanisch" },
-  W0009: { src: "/wine-images/W0009.webp", alt: "Tribut Grauschiefer Riesling 2023 von Weingut Thanisch" },
-  W0010: { src: "/wine-images/W0010.webp", alt: "Riesling Spätlese Trocken Niederberg Helden 2022 von Weingut Thanisch" },
-  W0012: { src: "/wine-images/W0012.webp", alt: "Alte Reben R Trocken 2022 von Weingut Thanisch" },
-  W0027: { src: "/wine-images/W0027.webp", alt: "Spätburgunder Trocken unfiltriert Barrique 2020 von Weingut Thanisch" },
-  W0028: { src: "/wine-images/W0028.webp", alt: "Spätburgunder Trocken unfiltriert Barrique 2021 von Weingut Thanisch" },
-  W0036: { src: "/wine-images/W0036.webp", alt: "Chardonnay Sekt Brut 2021 von Weingut Geisser" },
-  W0040: { src: "/wine-images/W0040.webp", alt: "Sauvignon Blanc Sonnenberg von Weingut Geisser" },
-  W0048: { src: "/wine-images/W0048.webp", alt: "Weißburgunder Trocken 2022 von Weingut Schloss Lieser" },
-  W0051: { src: "/wine-images/W0051.webp", alt: "Lieser Heldenstück Trocken 2022 von Weingut Schloss Lieser" },
-  W0052: { src: "/wine-images/W0052.webp", alt: "Juffer Feinherb 2022 von Weingut Schloss Lieser" },
-  W0053: { src: "/wine-images/W0053.webp", alt: "Niederberg Helden Feinherb 2022 von Weingut Schloss Lieser" },
-  W0054: { src: "/wine-images/W0054.webp", alt: "Juffer Kabinett Feinfruchtig 2022 von Weingut Schloss Lieser" },
-  W0056: { src: "/wine-images/W0056.webp", alt: "Riesling Niederberg Helden Auslese Goldkapsel 2022 von Weingut Schloss Lieser" },
-  W0057: { src: "/wine-images/W0057.webp", alt: "Riesling Goldtröpfchen Auslese 2022 von Weingut Schloss Lieser" },
-  W0059: { src: "/wine-images/W0059.webp", alt: "Riesling GG Graacher Himmelreich 2022 von Weingut Schloss Lieser" },
-  W0060: { src: "/wine-images/W0060.webp", alt: "Riesling GG Niederberg Helden 2022 von Weingut Schloss Lieser" },
-  W0061: { src: "/wine-images/W0061.webp", alt: "Riesling GG Juffer Sonnenuhr 2022 von Weingut Schloss Lieser" },
-  W0062: { src: "/wine-images/W0062.webp", alt: "Riesling GG Wehlener Sonnenuhr 2022 von Weingut Schloss Lieser" },
-  W0063: { src: "/wine-images/W0063.webp", alt: "Riesling GG Goldtröpfchen 2022 von Weingut Schloss Lieser" },
-  W0064: { src: "/wine-images/W0064.webp", alt: "Nahesteiner Weißburgunder 2022 von Schlossgut Diel" },
-  W0066: { src: "/wine-images/W0066.webp", alt: "Pinot Gris Reserve 2018 von Schlossgut Diel" },
-  W0067: { src: "/wine-images/W0067.webp", alt: "Prestige Cuvée Victor 2018 von Schlossgut Diel" },
-  W0068: { src: "/wine-images/W0068.webp", alt: "Rosé de Diel 2022 von Schlossgut Diel" },
-  W0071: { src: "/wine-images/W0071.webp", alt: "Grauburgunder von Weingut Christian Bamberger" },
-  W0072: { src: "/wine-images/W0072.webp", alt: "Weissburgunder 2021 von Weingut Christian Bamberger" },
-  W0080: { src: "/wine-images/W0080.webp", alt: "Glückslos von Weingut Christian Bamberger" },
-  W0081: { src: "/wine-images/W0081.webp", alt: "Augenblick von Weingut Christian Bamberger" },
-  W0082: { src: "/wine-images/W0082.webp", alt: "Riesling Vulkangestein von Weingut Christian Bamberger" },
-  W0084: { src: "/wine-images/W0084.webp", alt: "Spätburgunder Vulkangestein 2020 von Weingut Christian Bamberger" },
-  W0085: { src: "/wine-images/W0085.webp", alt: "Spätburgunder Vulkangestein 2021 von Weingut Christian Bamberger" },
-  W0093: { src: "/wine-images/W0093.webp", alt: "Riesling Bopparder Hamm Kieselgallenschiefer von Weingut Matthias Müller" },
-  W0094: { src: "/wine-images/W0094.webp", alt: "Riesling Feuerlay GG von Weingut Matthias Müller" },
-  W0095: { src: "/wine-images/W0095.webp", alt: "Riesling Mandelstein GG von Weingut Matthias Müller" },
-  W0097: { src: "/wine-images/W0097.webp", alt: "Rosé von Weingut Daniel Mattern" },
-  W0098: { src: "/wine-images/W0098.webp", alt: "Grauburgunder von Weingut Daniel Mattern" },
-  W0099: { src: "/wine-images/W0099.webp", alt: "Dittelsheimer Chardonnay Reserve von Weingut Daniel Mattern" },
-  W0100: { src: "/wine-images/W0100.webp", alt: "Dittelsheimer Assemblage Réserve von Weingut Daniel Mattern" },
-  W0103: { src: "/wine-images/W0103.webp", alt: "Hop & Grape Perlwein von Weingut Daniel Mattern" },
-  W0109: { src: "/wine-images/W0109.webp", alt: "No Limit Sparkling alkoholfrei von Weingut Daniel Mattern" },
-  W0111: { src: "/wine-images/W0111.webp", alt: "Grauer Burgunder 2024 von Weingut Bischel" },
-  W0112: { src: "/wine-images/W0112.webp", alt: "Rosé Trocken 2023 von Weingut Bischel" },
-  W0114: { src: "/wine-images/W0114.webp", alt: "Appenheimer Weißburgunder und Chardonnay 2023 von Weingut Bischel" },
-  W0115: { src: "/wine-images/W0115.webp", alt: "Chardonnay Reserve 2022 von Weingut Bischel" },
-  W0116: { src: "/wine-images/W0116.webp", alt: "Riesling Sekt Brut von Weingut Bischel" },
-  W0117: { src: "/wine-images/W0117.webp", alt: "Riesling Hundertgulden GG 2023 von Weingut Bischel" },
-  W0118: { src: "/wine-images/W0118.webp", alt: "Riesling Scharlachberg GG 2023 von Weingut Bischel" },
-  W0119: { src: "/wine-images/W0119.webp", alt: "Riesling Heerkretz GG 2023 von Weingut Bischel" },
-  W0120: { src: "/wine-images/W0120.webp", alt: "Riesling St. Laurenzikapelle GG 2023 von Weingut Bischel" },
-  W0121: { src: "/wine-images/W0121.webp", alt: "Appenheim Spätburgunder aus 1. Lagen 2019 von Weingut Bischel" },
-  W0122: { src: "/wine-images/W0122.webp", alt: "Gau-Algesheim Johannisberg Spätburgunder 1. Lage 2020 von Weingut Bischel" },
-  W0123: { src: "/wine-images/W0123.webp", alt: "Pinot Noir Reserve 2021 von Weingut Bischel" },
+// Von DeidiVino lokal erzeugt.
+export type WineMedia={src:string;alt:string};
+export const wineMedia: Partial<Record<string,WineMedia>> = {
+  "W0064": {
+    "src": "/wine-images/W0064.webp",
+    "alt": "Nahesteiner Weißburgunder 2022 von Schlossgut Diel"
+  },
+  "W0066": {
+    "src": "/wine-images/W0066.webp",
+    "alt": "Pinot Gris Reserve 2018 von Schlossgut Diel"
+  },
+  "W0067": {
+    "src": "/wine-images/W0067.webp",
+    "alt": "Prestige Cuvée Victor 2018 von Schlossgut Diel"
+  },
+  "W0068": {
+    "src": "/wine-images/W0068.webp",
+    "alt": "Rosé de Diel 2022 von Schlossgut Diel"
+  },
+  "W0121": {
+    "src": "/wine-images/W0121.webp",
+    "alt": "Appenheim Spätburgunder aus 1. Lagen 2019 von Weingut Bischel"
+  },
+  "W0114": {
+    "src": "/wine-images/W0114.webp",
+    "alt": "Appenheimer Weißburgunder & Chardonnay 2023 von Weingut Bischel"
+  },
+  "W0115": {
+    "src": "/wine-images/W0115.webp",
+    "alt": "Chardonnay Reserve 2022 von Weingut Bischel"
+  },
+  "W0122": {
+    "src": "/wine-images/W0122.webp",
+    "alt": "Gau-Algesheim Johannisberg Spätburgunder 1. Lage 2020 von Weingut Bischel"
+  },
+  "W0111": {
+    "src": "/wine-images/W0111.webp",
+    "alt": "Grauer Burgunder 2024 von Weingut Bischel"
+  },
+  "W0123": {
+    "src": "/wine-images/W0123.webp",
+    "alt": "Pinot Noir Reserve 2021 von Weingut Bischel"
+  },
+  "W0119": {
+    "src": "/wine-images/W0119.webp",
+    "alt": "Riesling Heerkretz GG 2023 von Weingut Bischel"
+  },
+  "W0117": {
+    "src": "/wine-images/W0117.webp",
+    "alt": "Riesling Hundertgulden GG 2023 von Weingut Bischel"
+  },
+  "W0118": {
+    "src": "/wine-images/W0118.webp",
+    "alt": "Riesling Scharlachberg GG 2023 von Weingut Bischel"
+  },
+  "W0116": {
+    "src": "/wine-images/W0116.webp",
+    "alt": "Riesling Sekt Brut 2022 von Weingut Bischel"
+  },
+  "W0120": {
+    "src": "/wine-images/W0120.webp",
+    "alt": "Riesling St. Laurenzikapelle GG 2023 von Weingut Bischel"
+  },
+  "W0112": {
+    "src": "/wine-images/W0112.webp",
+    "alt": "Rosé Trocken 2023 von Weingut Bischel"
+  },
+  "W0081": {
+    "src": "/wine-images/W0081.webp",
+    "alt": "Augenblick 2023 von Weingut Christian Bamberger"
+  },
+  "W0080": {
+    "src": "/wine-images/W0080.webp",
+    "alt": "Glückslos 2023 von Weingut Christian Bamberger"
+  },
+  "W0071": {
+    "src": "/wine-images/W0071.webp",
+    "alt": "Grauburgunder 2022 von Weingut Christian Bamberger"
+  },
+  "W0082": {
+    "src": "/wine-images/W0082.webp",
+    "alt": "Riesling Vulkangestein Trocken 2021 von Weingut Christian Bamberger"
+  },
+  "W0084": {
+    "src": "/wine-images/W0084.webp",
+    "alt": "Spätburgunder Vulkangestein 2020 von Weingut Christian Bamberger"
+  },
+  "W0085": {
+    "src": "/wine-images/W0085.webp",
+    "alt": "Spätburgunder Vulkangestein 2021 von Weingut Christian Bamberger"
+  },
+  "W0072": {
+    "src": "/wine-images/W0072.webp",
+    "alt": "Weissburgunder 2021 von Weingut Christian Bamberger"
+  },
+  "W0100": {
+    "src": "/wine-images/W0100.webp",
+    "alt": "Dittelsheimer Assemblage Réserve 2019 von Weingut Daniel Mattern"
+  },
+  "W0099": {
+    "src": "/wine-images/W0099.webp",
+    "alt": "Dittelsheimer Chardonnay Reserve 2021 von Weingut Daniel Mattern"
+  },
+  "W0098": {
+    "src": "/wine-images/W0098.webp",
+    "alt": "Grauburgunder 2023 von Weingut Daniel Mattern"
+  },
+  "W0103": {
+    "src": "/wine-images/W0103.webp",
+    "alt": "Hop & Grape Perlwein / Secco 2024 von Weingut Daniel Mattern"
+  },
+  "W0109": {
+    "src": "/wine-images/W0109.webp",
+    "alt": "No Limit Sparkling alkoholfrei 2024 von Weingut Daniel Mattern"
+  },
+  "W0097": {
+    "src": "/wine-images/W0097.webp",
+    "alt": "Rosé 2024 von Weingut Daniel Mattern"
+  },
+  "W0036": {
+    "src": "/wine-images/W0036.webp",
+    "alt": "Chardonnay Sekt Brut 2021 von Weingut Geisser"
+  },
+  "W0040": {
+    "src": "/wine-images/W0040.webp",
+    "alt": "Sauvignon Blanc \"Sonnenberg\" 2022 von Weingut Geisser"
+  },
+  "W0093": {
+    "src": "/wine-images/W0093.webp",
+    "alt": "Riesling Bopparder Hamm Kieselgallenschiefer 2022 von Weingut Matthias Müller"
+  },
+  "W0094": {
+    "src": "/wine-images/W0094.webp",
+    "alt": "Riesling Feuerlay GG 2022 von Weingut Matthias Müller"
+  },
+  "W0095": {
+    "src": "/wine-images/W0095.webp",
+    "alt": "Riesling Mandelstein GG 2021 von Weingut Matthias Müller"
+  },
+  "W0052": {
+    "src": "/wine-images/W0052.webp",
+    "alt": "Juffer Feinherb 2022 von Weingut Schloss Lieser"
+  },
+  "W0054": {
+    "src": "/wine-images/W0054.webp",
+    "alt": "Juffer Kabinett Feinfruchtig 2022 von Weingut Schloss Lieser"
+  },
+  "W0051": {
+    "src": "/wine-images/W0051.webp",
+    "alt": "Lieser Heldenstück Trocken 2022 von Weingut Schloss Lieser"
+  },
+  "W0053": {
+    "src": "/wine-images/W0053.webp",
+    "alt": "Niederberg Helden Feinherb 2022 von Weingut Schloss Lieser"
+  },
+  "W0063": {
+    "src": "/wine-images/W0063.webp",
+    "alt": "Riesling GG Goldtröpfchen 2022 von Weingut Schloss Lieser"
+  },
+  "W0059": {
+    "src": "/wine-images/W0059.webp",
+    "alt": "Riesling GG Graacher Himmelreich 2022 von Weingut Schloss Lieser"
+  },
+  "W0061": {
+    "src": "/wine-images/W0061.webp",
+    "alt": "Riesling GG Juffer Sonnenuhr 2022 von Weingut Schloss Lieser"
+  },
+  "W0060": {
+    "src": "/wine-images/W0060.webp",
+    "alt": "Riesling GG Niederberg Helden 2022 von Weingut Schloss Lieser"
+  },
+  "W0062": {
+    "src": "/wine-images/W0062.webp",
+    "alt": "Riesling GG Wehlener Sonnenuhr 2022 von Weingut Schloss Lieser"
+  },
+  "W0057": {
+    "src": "/wine-images/W0057.webp",
+    "alt": "Riesling Goldtröpfchen Auslese 2022 von Weingut Schloss Lieser"
+  },
+  "W0056": {
+    "src": "/wine-images/W0056.webp",
+    "alt": "Riesling Niederberg Helden Auslese Goldkapsel 2022 von Weingut Schloss Lieser"
+  },
+  "W0048": {
+    "src": "/wine-images/W0048.webp",
+    "alt": "Weißburgunder Trocken 2022 von Weingut Schloss Lieser"
+  },
+  "W0012": {
+    "src": "/wine-images/W0012.webp",
+    "alt": "Alte Reben R Trocken 2022 von Weingut Thanisch"
+  },
+  "W0002": {
+    "src": "/wine-images/W0002.webp",
+    "alt": "Chardonnay 2023 von Weingut Thanisch"
+  },
+  "W0005": {
+    "src": "/wine-images/W0005.webp",
+    "alt": "Chardonnay 500 2022 von Weingut Thanisch"
+  },
+  "W0006": {
+    "src": "/wine-images/W0006.webp",
+    "alt": "Chardonnay 500 2023 von Weingut Thanisch"
+  },
+  "W0010": {
+    "src": "/wine-images/W0010.webp",
+    "alt": "Riesling Spätlese Trocken Niederberg Helden 2022 von Weingut Thanisch"
+  },
+  "W0027": {
+    "src": "/wine-images/W0027.webp",
+    "alt": "Spätburgunder Trocken unfiltriert Barrique 2020 von Weingut Thanisch"
+  },
+  "W0028": {
+    "src": "/wine-images/W0028.webp",
+    "alt": "Spätburgunder Trocken unfiltriert Barrique 2021 von Weingut Thanisch"
+  },
+  "W0009": {
+    "src": "/wine-images/W0009.webp",
+    "alt": "Tribut Grauschiefer Riesling 2023 von Weingut Thanisch"
+  }
 };
