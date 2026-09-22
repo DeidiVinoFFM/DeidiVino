@@ -47,10 +47,8 @@ export const wineDescriptions: Record<string,string> = {
   "W0056": "Die Goldkapsel steht für besondere Konzentration: intensive Frucht, tiefe Süße und klare Säure halten sich eindrucksvoll in Balance. Ein Wein für sehr besondere Momente.",
   "W0048": "Ein trockener Weißburgunder mit heller Frucht, feiner Cremigkeit und frischer Linie. Unkompliziert, aber sorgfältig gebaut – passend zu Fisch, Gemüse und leichten Vorspeisen.",
   "W0012": "Riesling aus alten Reben mit reifer Frucht, Schieferwürze und trockenem, konzentriertem Zug. Mehr Tiefe als ein Alltagsriesling, ohne seine Trinkfreude zu verlieren.",
-  "W0002": "Ein trockener Chardonnay mit gelber Frucht, sanfter Cremigkeit und frischer Kontur. Vielseitig am Tisch und eine gute Wahl, wenn Du rundere Weißweine magst.",
   "W0005": "Im 500-Liter-Fass ausgebauter Chardonnay mit reifer Frucht, cremiger Textur und zurückhaltender Holzwürze. Kraftvoll, aber ausgewogen und sehr gut zum Essen.",
   "W0006": "Chardonnay aus dem 500-Liter-Fass: gelbe Frucht, feine Würze und eine geschmeidige Struktur treffen auf genügend Frische. Ein vielseitiger Speisenbegleiter mit Charakter.",
-  "W0010": "Eine trockene Riesling-Spätlese aus dem Niederberg Helden mit reifer Frucht, Schieferwürze und straffer Säure. Substanz und Frische bleiben dabei schön im Gleichgewicht.",
   "W0027": "Unfiltriert und im Barrique ausgebaut: ein saftiger Spätburgunder mit roter Frucht, feiner Holzwürze und bewusst ursprünglichem Charakter. Ideal für neugierige Rotweintrinker.",
   "W0028": "Ein unfiltrierter Spätburgunder mit reifer Beerenfrucht, würziger Tiefe und dezentem Barrique-Einfluss. Kraft und Saftigkeit bleiben dabei gut ausbalanciert.",
   "W0009": "Ein trockener Grauschiefer-Riesling mit Zitrusfrucht, feiner Würze und klarer mineralischer Linie. Geradlinig, animierend und ein starker Einstieg in die Moselwelt von Thanisch."

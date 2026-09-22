@@ -755,22 +755,6 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
-    "id": "W0002",
-    "winery": "Weingut Thanisch",
-    "region": "Mosel",
-    "name": "Chardonnay",
-    "vintage": 2023,
-    "availability": "Nur noch 1 Flasche",
-    "price": 9.9,
-    "volume": 0.75,
-    "unitPrice": 13.2,
-    "category": "Weißwein",
-    "grape": "Chardonnay",
-    "style": "Trocken",
-    "profile": "Rund & charaktervoll",
-    "featured": false
-  },
-  {
     "id": "W0005",
     "winery": "Weingut Thanisch",
     "region": "Mosel",
@@ -800,22 +784,6 @@ export const wines: Wine[] = [
     "grape": "Chardonnay",
     "style": "Trocken",
     "profile": "Rund & charaktervoll",
-    "featured": false
-  },
-  {
-    "id": "W0010",
-    "winery": "Weingut Thanisch",
-    "region": "Mosel",
-    "name": "Riesling Spätlese Trocken Niederberg Helden",
-    "vintage": 2022,
-    "availability": "Nur noch 1 Flasche",
-    "price": 13.0,
-    "volume": 0.75,
-    "unitPrice": 17.33,
-    "category": "Weißwein",
-    "grape": "Riesling",
-    "style": "Trocken",
-    "profile": "Frisch & mineralisch",
     "featured": false
   },
   {

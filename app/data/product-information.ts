@@ -372,13 +372,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Riesling Alte Reben Réserve 2022",
     "verification": "verified"
   },
-  "W0002": {
-    "alcohol": "12,5 % vol.",
-    "allergens": "Enthält Sulfite",
-    "producer": "Abfüller: Weinhaus Thanisch, 54470 Lieser, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett des Chardonnay trocken 2023",
-    "verification": "verified"
-  },
   "W0005": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",
@@ -391,13 +384,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "allergens": "Enthält Sulfite",
     "producer": "Weingut Thanisch, 54470 Lieser, Deutschland",
     "sourceLabel": "Fotografiertes Rücketikett des Chardonnay 500 Réserve 2023",
-    "verification": "verified"
-  },
-  "W0010": {
-    "alcohol": "12,0 % vol.",
-    "allergens": "Enthält Sulfite",
-    "producer": "Weingut Thanisch, 54470 Lieser, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett der Riesling Spätlese trocken Lieserer Niederberg Helden 2022",
     "verification": "verified"
   },
   "W0027": {
