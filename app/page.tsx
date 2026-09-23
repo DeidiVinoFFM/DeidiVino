@@ -183,7 +183,7 @@ function WineCard({
         {media ? (
           <>
             <ImageWithFallback src={`${basePath}${media.src}`} alt={media.alt} loading="lazy" />
-            {media.credit && <small>{media.credit}</small>}
+            {"credit" in media && typeof media.credit === "string" && <small>{media.credit}</small>}
           </>
         ) : (
           <div className="wine-image-placeholder" aria-label="Flaschenfoto folgt">
@@ -217,6 +217,13 @@ function WineCard({
             {wineRatings[wine.id][0].score} · {wineRatings[wine.id][0].publication}
           </button>
         ) : null}
+
+        {wineDescriptions[wine.id] && (
+          <details className="wine-tasting-note">
+            <summary>So schmeckt dieser Wein</summary>
+            <p>{wineDescriptions[wine.id]}</p>
+          </details>
+        )}
 
         <div className="wine-tags" aria-label="Weininformationen">
           <span>{wine.vintage}</span>
@@ -487,11 +494,11 @@ export default function Home() {
 
       <header className="site-header">
         <div className="site-header-inner">
-          <button
-            type="button"
+          <a
+            href="#top"
             className="brand-link"
             aria-label="Zur DeidiVino-Startseite"
-            onClick={() => scrollToSection("top")}
+            onClick={(event) => { event.preventDefault(); scrollToSection("top"); }}
           >
             <img
               src={`${basePath}/deidivino-logo.png`}
@@ -499,11 +506,11 @@ export default function Home() {
               width={1000}
               height={239}
             />
-          </button>
+          </a>
           <nav aria-label="Hauptnavigation">
-            <button type="button" onClick={() => scrollToSection("empfehlungen")}>Favoriten</button>
-            <button type="button" onClick={() => scrollToSection("weine")}>Weine entdecken</button>
-            <button type="button" onClick={() => scrollToSection("beratung")}>Persönliche Beratung</button>
+            <a href="#empfehlungen" onClick={(event) => { event.preventDefault(); scrollToSection("empfehlungen"); }}>Favoriten</a>
+            <a href="#weine" onClick={(event) => { event.preventDefault(); scrollToSection("weine"); }}>Weine entdecken</a>
+            <a href="#beratung" onClick={(event) => { event.preventDefault(); scrollToSection("beratung"); }}>Persönliche Beratung</a>
             <button className="nav-wishlist" type="button" onClick={() => setWishlistOpen(true)}>
               Merkliste{selectedWines.length > 0 ? ` (${selectedBottleCount})` : ""}
             </button>
@@ -525,19 +532,20 @@ export default function Home() {
       <main id="top" tabIndex={-1}>
         <section className="hero-shell page-width" aria-labelledby="hero-title">
           <div className="hero-copy">
-              <p className="eyebrow">Deutsche Weine · persönliche Beratung aus Schöneck</p>
-            <h1 id="hero-title">Deutsche Weine, die im Glas Freude machen.</h1>
+              <p className="eyebrow">DeidiVino · Weinhandel in Schöneck-Büdesheim</p>
+            <h1 id="hero-title">Deutsche Weine & persönliche Weinberatung in Schöneck.</h1>
             <p className="hero-intro">
-              Für DeidiVino wähle ich nur Weine aus, die ich auch selbst gern öffne:
-              charaktervoll, ehrlich gemacht und mit einem überzeugenden Preis-Genuss-Verhältnis.
-              Schau Dich in Ruhe um – oder erzähl mir, was Du vorhast, und ich stelle Dir
-              etwas Passendes zusammen.
+              Ich bin Dieter Grün, Sommelier und Weinhändler in Schöneck-Büdesheim.
+              Für DeidiVino wähle ich deutsche Weine aus, die ich selbst probiert habe
+              und gern empfehle. Ob für Dein Essen, als Geschenk oder für einen
+              besonderen Abend: Gemeinsam finden wir etwas, das zu Deinem Geschmack
+              und Budget passt.
             </p>
             <div className="hero-actions">
-              <button className="button button-primary" type="button" onClick={() => scrollToSection("weine")}>
+              <a className="button button-primary" href="#weine" onClick={(event) => { event.preventDefault(); scrollToSection("weine"); }}>
                 Weine entdecken
                 <ArrowDown aria-hidden="true" size={18} />
-              </button>
+              </a>
               <a className="button button-ghost" href={inquiryUrl}>
                 <Mail aria-hidden="true" size={18} />
                 Dieter um Rat fragen
@@ -570,7 +578,7 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <p className="eyebrow dark">Meine Favoriten für Dich</p>
-              <h2 id="featured-heading">Sechs gute Gründe, eine Flasche zu öffnen</h2>
+              <h2 id="featured-heading">Meine persönlichen Weinempfehlungen</h2>
             </div>
             <p>
               Mal frisch und leicht, mal mit Tiefe und besonderer Herkunft: Diese Weine
@@ -629,10 +637,10 @@ export default function Home() {
             <div className="section-heading catalog-title">
               <div>
                 <p className="eyebrow dark">Was darf es sein?</p>
-                <h2 id="catalog-heading">Finde den Wein, der zu Dir passt</h2>
+                <h2 id="catalog-heading">Deutsche Weine entdecken</h2>
               </div>
               <p>
-                Suche nach einem bestimmten Wein oder filtere nach Weinart und Preis.
+                Weißwein, Rotwein, Rosé, Sekt und alkoholfreie Alternativen: Suche nach einem bestimmten Wein oder filtere nach Weinart und Preis.
                 Was Dir gefällt, kommt auf die Merkliste und lässt sich anschließend
                 unverbindlich anfragen.
               </p>
@@ -730,12 +738,15 @@ export default function Home() {
           </div>
           <div className="advice-copy">
             <p className="eyebrow">Persönlich statt kompliziert</p>
-            <h2 id="advice-heading">Welcher Wein passt zu Dir?</h2>
+            <h2 id="advice-heading">Persönliche Weinberatung – welcher Wein passt zu Dir?</h2>
             <p>
               Erzähl mir, was Du gern trinkst, für welchen Anlass Du suchst und was Du
               ausgeben möchtest. Ich antworte Dir persönlich und schlage Dir eine kleine
               Auswahl vor, die zu Deinen Vorstellungen passt.
             </p>
+            <p>Als zertifizierter Sommelier stelle ich meine Auswahl aus deutschen Weinregionen
+              persönlich zusammen. Ich empfehle nur Weine, die ich selbst probiert habe –
+              und erkläre Dir gern, was sie auszeichnet und zu welchen Speisen sie passen.</p>
             <button className="about-link" type="button" onClick={() => setAboutOpen(true)}>
               <UserRound aria-hidden="true" size={17} />
               Mehr über mich
@@ -795,6 +806,22 @@ export default function Home() {
               <div><strong>Alles Weitere klären</strong><p>Ich melde mich mit Verfügbarkeit, Gesamtpreis und den passenden Lieferdetails.</p></div>
             </li>
           </ol>
+        </section>
+        <section id="lieferung" className="local-service page-width" aria-labelledby="local-service-heading">
+          <div>
+            <p className="eyebrow dark">Aus Schöneck zu Dir</p>
+            <h2 id="local-service-heading">Wein kaufen mit persönlicher Beratung</h2>
+            <p>Du kannst Deine Auswahl unverbindlich anfragen. Ich bestätige Dir Verfügbarkeit,
+              Gesamtpreis und die passende Übergabe. Eine Abholung in Schöneck-Büdesheim
+              ist nach persönlicher Terminvereinbarung möglich.</p>
+          </div>
+          <div className="local-service-details">
+            <h3>Versand & persönliche Lieferung</h3>
+            <p>Versand innerhalb Deutschlands sowie persönliche Lieferung rund um
+              Schöneck-Büdesheim nach Absprache. Kosten und Bedingungen findest Du in der Versandübersicht.</p>
+            <a href={`${basePath}/versand/`}>Versandkosten, Lieferung & Abholung ansehen →</a>
+            <p className="local-address">DeidiVino · Dieter Grün<br />Marie-von-Oriola-Straße 24 · 61137 Schöneck</p>
+          </div>
         </section>
       </main>
 
@@ -931,7 +958,7 @@ export default function Home() {
                     <div className="wishlist-thumb">
                       {wineMedia[wine.id] ? (
                         <ImageWithFallback
-                          src={`${basePath}${wineMedia[wine.id].src}`}
+                          src={`${basePath}${wineMedia[wine.id]!.src}`}
                           alt=""
                           loading="lazy"
                         />

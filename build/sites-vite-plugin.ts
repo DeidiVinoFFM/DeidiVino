@@ -35,6 +35,11 @@ export function sites(): Plugin {
       if (await exists(hostingConfig)) {
         await cp(hostingConfig, resolve(outputDirectory, "hosting.json"));
       }
+      const appPhotos = resolve(root, "wine-images");
+      if (await exists(appPhotos)) {
+        await cp(appPhotos, resolve(root, "dist", "client", "wine-images"), { recursive: true });
+      }
+
       if (await exists(drizzleSource)) {
         await cp(drizzleSource, resolve(outputDirectory, "drizzle"), {
           recursive: true,

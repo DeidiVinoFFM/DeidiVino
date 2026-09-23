@@ -45,6 +45,11 @@ export default function VersandPage() {
       </div>
       <p>Liefertermin und Übergabe werden persönlich abgestimmt.</p>
 
+      <h2>Abholung in Schöneck-Büdesheim</h2>
+      <p>Du kannst Deine Weine nach persönlicher Terminvereinbarung bei DeidiVino,
+        Marie-von-Oriola-Straße 24, 61137 Schöneck, abholen. Bitte stimme den Termin
+        vorab per E-Mail oder telefonisch mit mir ab.</p>
+
       <h2>Zahlung</h2>
       <p>
         Die Zahlung erfolgt grundsätzlich per Überweisung. Bei persönlicher Abholung ist
