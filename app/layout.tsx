@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   verification: {
     google: "lJxNDekwJizbML81flGZfCShpCr0Tsv0vDiXmXQKdxw",
   },
-  title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
+  title: "Weinhandel & Weinberatung in Schöneck | DeidiVino",
   description:
-    "Entdecke handverlesene deutsche Weine und persönliche Weinberatung von Sommelier Dieter Grün in Schöneck. Favoriten merken und unverbindlich anfragen.",
+    "Deutsche Weine vom Sommelier in Schöneck-Büdesheim: persönliche Weinberatung, Abholung nach Vereinbarung und Versand innerhalb Deutschlands. Jetzt entdecken.",
   keywords: [
     "DeidiVino",
     "Weinliste",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "de_DE",
     url: siteUrl,
     siteName: "DeidiVino",
-    title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
+    title: "Weinhandel & Weinberatung in Schöneck | DeidiVino",
     description:
       "Handverlesene deutsche Weine und persönliche Weinberatung von Sommelier Dieter Grün.",
     images: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DeidiVino | Deutsche Weine & persönliche Weinberatung",
+    title: "Weinhandel & Weinberatung in Schöneck | DeidiVino",
     description:
       "Handverlesene deutsche Weine und persönliche Weinberatung von Sommelier Dieter Grün.",
     images: [socialImageUrl],
@@ -83,7 +83,7 @@ export default function RootLayout({
       addressLocality: "Schöneck",
       addressCountry: "DE",
     },
-    sameAs: ["https://www.instagram.com/deidivino/"],
+    sameAs: ["https://www.instagram.com/deidivino/", "https://maps.app.goo.gl/PrMbNQJX1FvxePcY7"],
   };
 
   return (
