@@ -6,7 +6,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export const metadata: Metadata = {
   title: "Datenschutz | DeidiVino",
   description: "Datenschutzerklärung von DeidiVino.",
-  alternates: { canonical: "https://deidivinoffm.github.io/DeidiVino/datenschutz/" },
+  alternates: { canonical: "https://www.charakterimglas.de/datenschutz/" },
 };
 
 export default function DatenschutzPage() {

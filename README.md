@@ -76,13 +76,16 @@ npm run build
 5. Änderungen nach `main` übertragen. Der enthaltene Workflow baut und
    veröffentlicht die Seite automatisch.
 
-Die Adresse lautet anschließend üblicherweise:
+Ohne eigene Domain lautet die Adresse üblicherweise:
 
 `https://DEIN-GITHUB-NAME.github.io/deidivino-weinliste/`
 
 Diese Adresse kann im Google-Unternehmensprofil als Website hinterlegt werden.
-Bei Verwendung einer eigenen Domain sind zusätzlich DNS- und GitHub-Pages-
-Einstellungen erforderlich.
+Für die eigene Domain `www.charakterimglas.de` liegt eine Datei `public/CNAME`
+bei. Der Build verwendet dadurch auf der eigenen Domain den Root-Pfad `/` statt
+des Repository-Unterordners `/DeidiVino/`, damit Stylesheets, Skripte und Bilder
+geladen werden. Für reine GitHub-Pages-Repository-Adressen ohne eigene Domain
+bleibt der Unterordner-Pfad aktiv.
 
 ## Technischer Aufbau
 
@@ -91,4 +94,3 @@ Einstellungen erforderlich.
 - lokale Bilder und Systemschriften
 - keine Cookies, keine Analysewerkzeuge, keine eingebetteten Drittanbieterinhalte
 - GitHub Actions für den Pages-Deploy
-
