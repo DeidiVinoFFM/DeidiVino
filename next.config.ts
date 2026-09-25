@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
+import { existsSync } from "node:fs";
 
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const hasCustomDomain =
+  existsSync("public/CNAME") || existsSync("CNAME");
 const githubBasePath =
-  process.env.GITHUB_ACTIONS === "true" && repositoryName ? `/${repositoryName}` : "";
+  process.env.GITHUB_ACTIONS === "true" && repositoryName && !hasCustomDomain
+    ? `/${repositoryName}`
+    : "";
 
 const nextConfig: NextConfig = {
   output: "export",

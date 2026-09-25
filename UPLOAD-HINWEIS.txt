@@ -1,0 +1,11 @@
+DeidiVino – Domain-Fix für charakterimglas.de
+
+UPLOAD VIA GITHUB DESKTOP
+1. Entpacke den ZIP-Ordner. Öffne darin DeidiVino.
+2. Kopiere den gesamten Inhalt dieses Ordners in deinen vorhandenen lokalen Klon des GitHub-Repositories DeidiVino.
+   Wichtig: In den bestehenden Repository-Ordner kopieren, nicht den Repository-Ordner selbst ersetzen. Den versteckten Ordner .git niemals löschen oder überschreiben.
+3. GitHub Desktop sollte die Änderungen anzeigen. Erstelle einen Branch, committe und pushe die Änderungen.
+4. Erstelle wie zuvor einen Pull Request nach main und merge ihn. Warte, bis der GitHub Actions Workflow erfolgreich abgeschlossen ist.
+5. Rufe https://www.charakterimglas.de auf und lade mit Strg+F5 neu.
+
+DNS musst du dafür nicht erneut ändern. Das Paket enthält public/CNAME mit www.charakterimglas.de und die Konfiguration für Assets im Domain-Stammverzeichnis.

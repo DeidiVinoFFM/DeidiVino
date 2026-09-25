@@ -1,5 +1,6 @@
 import vinext from "vinext";
 import { defineConfig } from "vite";
+import { existsSync } from "node:fs";
 import hostingConfig from "./.openai/hosting.json";
 import { sites } from "./build/sites-vite-plugin";
 
@@ -43,8 +44,10 @@ export default defineConfig(async () => {
   // Wrangler snapshots its log path while the Cloudflare plugin is imported.
   const { cloudflare } = await import("@cloudflare/vite-plugin");
   const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+  const hasCustomDomain =
+    existsSync("public/CNAME") || existsSync("CNAME");
   const githubPagesBase =
-    process.env.GITHUB_ACTIONS === "true" && repositoryName
+    process.env.GITHUB_ACTIONS === "true" && repositoryName && !hasCustomDomain
       ? `/${repositoryName}/`
       : "/";
 

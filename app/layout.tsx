@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = "https://deidivinoffm.github.io/DeidiVino/";
+const siteUrl = "https://www.charakterimglas.de/";
 const socialImageUrl = `${siteUrl}mixed-wines-retina.webp`;
 
 export const viewport: Viewport = {
