@@ -398,7 +398,16 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "allergens": "Enthält Sulfite",
     "producer": "Weingut Thanisch, 54470 Lieser, Deutschland",
     "sourceLabel": "Fotografiertes Rücketikett des Spätburgunder unfiltriert 2021",
-    "verification": "verified"
+    "verification": "verified",
+    "nutrition": {
+      "energy": "",
+      "fat": "",
+      "saturates": "",
+      "carbohydrates": "",
+      "sugars": "",
+      "protein": "",
+      "salt": ""
+    }
   },
   "W0009": {
     "alcohol": "12,0 % vol.",
