@@ -1,6 +1,6 @@
 // Von DeidiVino lokal erzeugt. Nur freigegebene Weine mit Bestand werden veröffentlicht.
 export type Wine = { id:string; winery:string; region:string; name:string; vintage:number|string; availability:"Direkt verfügbar"|"Nur noch wenige Flaschen"|"Nur noch 1 Flasche"; price:number; volume:number; unitPrice:number; category:string; grape:string; style:string; profile:string; featured:boolean; };
-export const inventoryAsOf = "23.09.2026";
+export const inventoryAsOf = "26.09.2026";
 export const wines: Wine[] = [
   {
     "id": "W0064",
