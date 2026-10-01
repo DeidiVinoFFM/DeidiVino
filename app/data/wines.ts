@@ -435,22 +435,6 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
-    "id": "W0109",
-    "winery": "Weingut Daniel Mattern",
-    "region": "Rheinhessen",
-    "name": "No Limit Sparkling alkoholfrei",
-    "vintage": 2024,
-    "availability": "Nur noch wenige Flaschen",
-    "price": 13.9,
-    "volume": 0.75,
-    "unitPrice": 18.53,
-    "category": "Alkoholfrei",
-    "grape": "Cuvée",
-    "style": "Alkoholfrei",
-    "profile": "Alkoholfrei",
-    "featured": false
-  },
-  {
     "id": "W0097",
     "winery": "Weingut Daniel Mattern",
     "region": "Rheinhessen",

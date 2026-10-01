@@ -212,23 +212,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": "< 0,1 g"
     }
   },
-  "W0109": {
-    "alcohol": "alkoholfrei (< 0,1 % vol.)",
-    "ingredients": "Entalkoholisierter Wein (Trauben, Saccharose, Säureregulator: Weinsäure/E334, Stabilisator: Cellulosegummi/E466, Konservierungsstoffe: Sulfite und Ascorbinsäure/E300), Kohlensäure",
-    "allergens": "Enthält Sulfite",
-    "producer": "Abfüller D-RP 200703; Vertrieb: Daniel Mattern, 67582 Mettenheim, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett der angebotenen Flasche (Los L-241048; mindestens haltbar bis Ende 04/2028)",
-    "verification": "verified",
-    "nutrition": {
-      "energy": "93 kJ / 22 kcal",
-      "fat": "< 0,1 g",
-      "saturates": "< 0,1 g",
-      "carbohydrates": "5,0 g",
-      "sugars": "5,0 g",
-      "protein": "< 0,1 g",
-      "salt": "< 0,01 g"
-    }
-  },
   "W0097": {
     "alcohol": "11,5 % vol.",
     "ingredients": "Trauben, Saccharose, Stabilisator: Carboxymethylcellulose, Konservierungsstoff: Sulfite",
