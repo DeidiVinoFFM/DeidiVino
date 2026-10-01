@@ -1,6 +1,6 @@
 // Von DeidiVino lokal erzeugt. Nur freigegebene Weine mit Bestand werden veröffentlicht.
 export type Wine = { id:string; winery:string; region:string; name:string; vintage:number|string; availability:"Direkt verfügbar"|"Nur noch wenige Flaschen"|"Nur noch 1 Flasche"; price:number; volume:number; unitPrice:number; category:string; grape:string; style:string; profile:string; featured:boolean; };
-export const inventoryAsOf = "28.09.2026";
+export const inventoryAsOf = "01.10.2026";
 export const wines: Wine[] = [
   {
     "id": "W0064",
@@ -432,22 +432,6 @@ export const wines: Wine[] = [
     "grape": "Cuvée",
     "style": "Perlwein",
     "profile": "Prickelnd",
-    "featured": false
-  },
-  {
-    "id": "W0109",
-    "winery": "Weingut Daniel Mattern",
-    "region": "Rheinhessen",
-    "name": "No Limit Sparkling alkoholfrei",
-    "vintage": 2024,
-    "availability": "Nur noch wenige Flaschen",
-    "price": 13.9,
-    "volume": 0.75,
-    "unitPrice": 18.53,
-    "category": "Alkoholfrei",
-    "grape": "Cuvée",
-    "style": "Alkoholfrei",
-    "profile": "Alkoholfrei",
     "featured": false
   },
   {
