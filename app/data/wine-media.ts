@@ -109,6 +109,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0103.webp",
     "alt": "Hop & Grape Perlwein / Secco 2024 von Weingut Daniel Mattern"
   },
+  "W0109": {
+    "src": "/wine-images/W0109.webp",
+    "alt": "No Limit Sparkling alkoholfrei 2024 von Weingut Daniel Mattern"
+  },
   "W0097": {
     "src": "/wine-images/W0097.webp",
     "alt": "Rosé 2024 von Weingut Daniel Mattern"
