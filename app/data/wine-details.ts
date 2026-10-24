@@ -1,5 +1,6 @@
 // Von DeidiVino lokal erzeugt.
 export const wineDescriptions: Record<string,string> = {
+  "W0149": "Die Cuvée Gaudenz trocken 2023 von Knipser präsentiert sich als eleganter, trockener Rotwein mit ausgewogener Struktur und feinen Fruchtnoten. Ein vielseitiger Begleiter für viele Anlässe.",
   "W0064": "Ein feiner, trockener Burgunder von der Nahe mit heller Frucht, sanfter Cremigkeit und frischer Kontur. Vielseitig zu Fisch, Gemüse oder einfach als ruhiger Feierabendwein.",
   "W0066": "Pinot Gris mit mehr Tiefe: gelbe Frucht, cremige Textur und würzige Reife verbinden sich zu einem kraftvollen, aber eleganten Weißwein für die Tafel.",
   "W0067": "Eine vielschichtige, trockene Cuvée mit reifer Frucht, feiner Würze und Substanz. Ein besonderer Weißwein zu kräftigeren Gerichten – oder für einen Abend, an dem das Glas im Mittelpunkt steht.",

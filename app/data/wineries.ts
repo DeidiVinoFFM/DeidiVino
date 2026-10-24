@@ -1,6 +1,13 @@
 // Von DeidiVino lokal erzeugt.
 export type WineryProfile = {name:string;region:string;locationLabel:string;description:string;sourceUrl:string};
 export const wineryProfiles: Record<string, WineryProfile> = {
+  "Knipser": {
+    "name": "Knipser",
+    "region": "Pfalz",
+    "locationLabel": "",
+    "description": "Informationen zum Weingut werden ergänzt.",
+    "sourceUrl": ""
+  },
   "Schlossgut Diel": {
     "name": "Schlossgut Diel",
     "region": "Nahe",

@@ -1,6 +1,10 @@
 // Von DeidiVino lokal erzeugt.
 export type WineMedia={src:string;alt:string};
 export const wineMedia: Partial<Record<string,WineMedia>> = {
+  "W0149": {
+    "src": "/wine-images/W0149.webp",
+    "alt": "Cuvée Gaudenz trocken 2023 von Knipser"
+  },
   "W0064": {
     "src": "/wine-images/W0064.webp",
     "alt": "Nahesteiner Weißburgunder 2022 von Schlossgut Diel"

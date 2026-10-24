@@ -3,6 +3,22 @@ export type Wine = { id:string; winery:string; region:string; name:string; vinta
 export const inventoryAsOf = "24.10.2026";
 export const wines: Wine[] = [
   {
+    "id": "W0149",
+    "winery": "Knipser",
+    "region": "Pfalz",
+    "name": "Cuvée Gaudenz trocken",
+    "vintage": 2023,
+    "availability": "Direkt verfügbar",
+    "price": 11.5,
+    "volume": 0.75,
+    "unitPrice": 15.33,
+    "category": "Deutscher Qualitätswein",
+    "grape": "Cabernet Franc, Dornfelder, Merlot",
+    "style": "trocken",
+    "profile": "Deutscher Qualitätswein",
+    "featured": false
+  },
+  {
     "id": "W0064",
     "winery": "Schlossgut Diel",
     "region": "Nahe",

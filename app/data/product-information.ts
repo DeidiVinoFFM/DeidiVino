@@ -3,6 +3,22 @@ import type { Wine } from "./wines";
 export type Nutrition = {energy:string;fat:string;saturates:string;carbohydrates:string;sugars:string;protein:string;salt:string};
 export type ProductInformation = {alcohol?:string;ingredients?:string;allergens:string;nutrition?:Nutrition;producer:string;sourceLabel:string;sourceUrl?:string;verification:"verified"|"label-needed"};
 const productInformation: Record<string,Partial<ProductInformation>> = {
+  "W0149": {
+    "alcohol": "13,5% vol",
+    "ingredients": "Trauben, Saccharose, Konservierungsstoffe: Sulfite",
+    "allergens": "enthält Sulfite",
+    "producer": "Weingut Knipser, D-67229 Laumersheim",
+    "sourceLabel": "Fotografierte Rücketikett-/Weinangaben",
+    "nutrition": {
+      "energy": "314 kJ / 75 kcal",
+      "fat": "<0,1g",
+      "saturates": "<0,1g",
+      "carbohydrates": "0,8g",
+      "sugars": "0,0g",
+      "protein": "<0,1g",
+      "salt": "<0,01g"
+    }
+  },
   "W0064": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",
