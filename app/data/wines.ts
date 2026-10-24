@@ -13,7 +13,7 @@ export const wines: Wine[] = [
     "volume": 0.75,
     "unitPrice": 15.33,
     "category": "Deutscher Qualitätswein",
-    "grape": "Cabernet Franc, Dornfelder, Merlot",
+    "grape": "Cuvée",
     "style": "trocken",
     "profile": "Deutscher Qualitätswein",
     "featured": false
