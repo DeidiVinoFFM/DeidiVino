@@ -6,8 +6,8 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
   "W0149": {
     "alcohol": "13,5% vol",
     "ingredients": "Trauben, Saccharose, Konservierungsstoffe: Sulfite",
-    "allergens": "enthält Sulfite",
-    "producer": "Weingut Knipser, D-67229 Laumersheim",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Knipser",
     "sourceLabel": "Fotografierte Rücketikett-/Weinangaben",
     "nutrition": {
       "energy": "314 kJ / 75 kcal",
