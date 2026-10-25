@@ -36,6 +36,11 @@ jobs:
       - name: Build-Skripte ausführbar machen
         run: chmod +x scripts/*.sh
 
+      - name: Google-Bewertung konfigurieren
+        env:
+          GOOGLE_MAPS_BROWSER_API_KEY: ${{ secrets.GOOGLE_MAPS_BROWSER_API_KEY }}
+        run: node scripts/configure-google-rating.mjs
+
       - name: Statische Website bauen
         run: npm run build
 

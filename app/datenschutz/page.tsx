@@ -16,6 +16,9 @@ export default function DatenschutzPage() {
       <p className="eyebrow dark">Informationen zum Datenschutz</p>
       <h1>Datenschutzerklärung</h1>
 
+      <h2>Google-Bewertungsanzeige</h2>
+      <p>Beim Aufruf der Startseite wird die Google-Bewertungsanzeige automatisch geladen. Dein Browser verbindet sich dabei mit Google Maps Platform; insbesondere Deine IP-Adresse und technische Browserinformationen werden übermittelt. Die Anzeige ruft Durchschnitt und Anzahl der Bewertungen unseres Unternehmensprofils ab. Wir speichern diese Bewertungsdaten nicht dauerhaft. Eine Übermittlung in Länder außerhalb der EU kann erfolgen.</p>
+      <p>Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google-Datenschutz</a> und <a href="https://maps.google.com/help/terms_maps/" target="_blank" rel="noopener noreferrer">Google-Maps-Nutzungsbedingungen</a>.</p>
       <h2>1. Verantwortlicher</h2>
       <p>
         Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Website ist:

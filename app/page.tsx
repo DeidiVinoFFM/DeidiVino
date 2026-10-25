@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import type { CSSProperties, ImgHTMLAttributes } from "react";
 import { useEffect, useMemo, useState } from "react";
+import { GoogleRating } from "@/components/google-rating";
 import {
   Dialog,
   DialogContent,
@@ -252,9 +253,18 @@ function WineCard({
 }
 
 export default function Home() {
+  const [visibleCount, setVisibleCount] = useState(9);
   const [category, setCategory] = useState("Alle");
   const [budget, setBudget] = useState("all");
   const [query, setQuery] = useState("");
+  useEffect(() => { setVisibleCount(9); }, [category, budget, query]);
+  useEffect(() => {
+    const header = document.querySelector<HTMLElement>(".site-header");
+    if (!header) return;
+    const observer = new ResizeObserver(() => document.documentElement.style.setProperty("--header-height", `${header.getBoundingClientRect().height}px`));
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
   const [selectedQuantities, setSelectedQuantities] = useState<Record<string, number>>({});
   const [selectionReady, setSelectionReady] = useState(false);
   const [wishlistOpen, setWishlistOpen] = useState(false);
@@ -608,6 +618,9 @@ export default function Home() {
               <h2 id="discovery-heading">Finde Deinen Moment im Glas</h2>
             </div>
           </div>
+          <div className="category-entry" aria-label="Direkt nach Weinart entdecken">
+            {categories.filter((item) => item !== "Alle").map((item) => <button type="button" className="filter-chip" key={item} onClick={() => discoverCategory(item)}>{item}</button>)}
+          </div>
           <div className="discovery-grid">
             {discoveryCards.map((card) => (
               <button
@@ -692,8 +705,9 @@ export default function Home() {
             </p>
 
             {filteredWines.length ? (
+              <>
               <div className="catalog-grid">
-                {filteredWines.map((wine) => (
+                {filteredWines.slice(0, visibleCount).map((wine) => (
                   <WineCard
                     key={wine.id}
                     wine={wine}
@@ -704,6 +718,11 @@ export default function Home() {
                   />
                 ))}
               </div>
+              <div className="catalog-more">
+                <p aria-live="polite">{Math.min(visibleCount, filteredWines.length)} von {filteredWines.length} Weinen angezeigt</p>
+                {visibleCount < filteredWines.length && <button type="button" className="button button-dark" onClick={() => setVisibleCount((n) => n + 9)}>Weitere Weine entdecken</button>}
+              </div>
+              </>
             ) : (
               <div className="empty-state">
                 <WineIcon aria-hidden="true" size={32} />
@@ -823,6 +842,13 @@ export default function Home() {
             <p className="local-address">DeidiVino · Dieter Grün<br />Marie-von-Oriola-Straße 24 · 61137 Schöneck</p>
           </div>
         </section>
+        <section className="name-story page-width" aria-labelledby="name-story-title">
+          <p className="eyebrow">Der Name hinter den Weinen</p>
+          <h2 id="name-story-title">Wie aus „Deidi“ DeidiVino wurde.</h2>
+          <p>Mein Patenkind war zwei Jahre alt, als aus „Dieter“ kurzerhand „Deidi“ wurde. Mein Name war noch ein bisschen zu schwierig – und die neue Version einfach zu schön, um sie wieder loszulassen. Bald nannten mich auch meine Freunde so.</p>
+          <p>Bis heute steckt in diesem Namen für mich die Freude an diesem Moment: das gemeinsame Lachen, die Nähe und eine Erinnerung, die mich immer wieder lächeln lässt. Genau dieses gute Gefühl wollte ich mitnehmen, als ich meinen Weinhandel gründete. Aus Deidi und Vino wurde DeidiVino.</p>
+          <p>Weine mit Persönlichkeit, für Menschen und Momente, die uns etwas bedeuten. Schön, dass Du hier bist.</p>
+        </section>
       </main>
 
       <footer className="site-footer">
@@ -851,6 +877,7 @@ export default function Home() {
             <a href={`${basePath}/versand/`}>Versand & Lieferung</a>
           </div>
         </div>
+        <div className="page-width footer-rating"><GoogleRating /></div>
         <div className="page-width footer-note">
           <p>
             Alle Preise sind Gesamtpreise. Gemäß § 19 UStG wird keine Umsatzsteuer
