@@ -9,6 +9,7 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "allergens": "Enthält Sulfite",
     "producer": "Weingut Knipser",
     "sourceLabel": "Fotografierte Rücketikett-/Weinangaben",
+    "sourceUrl": "https://shop.weingut-knipser.de/wein/2023-gaudenz-weingut-knipser-gbr-cabernet-franc-deutscher-qualitaetswein",
     "nutrition": {
       "energy": "314 kJ / 75 kcal",
       "fat": "<0,1g",

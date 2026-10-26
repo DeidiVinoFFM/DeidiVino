@@ -15,7 +15,7 @@ export const wines: Wine[] = [
     "category": "Deutscher Qualitätswein",
     "grape": "Cuvée",
     "style": "trocken",
-    "profile": "Deutscher Qualitätswein",
+    "profile": "Kräftige Cabernet-Aromatik mit reifer Cassis, Brombeere und saftiger Schwarzkirsche. Feinwürzig mit samtigen Tanninen.",
     "featured": false
   },
   {

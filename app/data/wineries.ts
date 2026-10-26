@@ -6,7 +6,7 @@ export const wineryProfiles: Record<string, WineryProfile> = {
     "region": "Pfalz",
     "locationLabel": "",
     "description": "Informationen zum Weingut werden ergänzt.",
-    "sourceUrl": ""
+    "sourceUrl": "https://shop.weingut-knipser.de/wein/2023-gaudenz-weingut-knipser-gbr-cabernet-franc-deutscher-qualitaetswein"
   },
   "Schlossgut Diel": {
     "name": "Schlossgut Diel",
