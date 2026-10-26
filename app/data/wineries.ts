@@ -4,8 +4,8 @@ export const wineryProfiles: Record<string, WineryProfile> = {
   "Knipser": {
     "name": "Knipser",
     "region": "Pfalz",
-    "locationLabel": "",
-    "description": "Informationen zum Weingut werden ergänzt.",
+    "locationLabel": "Laumersheim",
+    "description": "Das Weingut Knipser ist seit 1876 als Familienbetrieb in Laumersheim ansässig. Es bewirtschaftet Weinberge in Laumersheim, Großkarlbach und Dirmstein.",
     "sourceUrl": "https://shop.weingut-knipser.de/wein/2023-gaudenz-weingut-knipser-gbr-cabernet-franc-deutscher-qualitaetswein"
   },
   "Schlossgut Diel": {
