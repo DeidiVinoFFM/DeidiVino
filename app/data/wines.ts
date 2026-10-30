@@ -35,6 +35,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0152",
+    "winery": "Markus Schneider",
+    "region": "Pfalz",
+    "name": "Black Print trocken 2023",
+    "vintage": 2023,
+    "availability": "Direkt verfügbar",
+    "price": 15.8,
+    "volume": 0.75,
+    "unitPrice": 21.07,
+    "category": "Deutscher Qualitätswein",
+    "grape": "Cabernet Dorsa, Cabernet Sauvignon, Merlot, Syrah",
+    "style": "Trocken",
+    "profile": "Tiefdunkler Rotwein mit dichter Struktur und aromatischen dunklen Beeren, trocken und elegant.",
+    "featured": false
+  },
+  {
     "id": "W0064",
     "winery": "Schlossgut Diel",
     "region": "Nahe",

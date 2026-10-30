@@ -37,6 +37,22 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": "<0,01g"
     }
   },
+  "W0152": {
+    "alcohol": "14,5 % vol",
+    "allergens": "Enthält Sulfite",
+    "producer": "Markus Schneider",
+    "sourceLabel": "Black Print Rotwein · Markus Schneider Pfalz Cuvée, Markus Schneider 2023 Black Print Rotwein",
+    "sourceUrl": "https://www.vinoscout.de/products/markus-schneider-black-print",
+    "nutrition": {
+      "energy": "364 kJ / 87 kcal",
+      "fat": "0 g",
+      "saturates": "0 g",
+      "carbohydrates": "0,2 g",
+      "sugars": "0,2 g",
+      "protein": "0 g",
+      "salt": "0 g"
+    }
+  },
   "W0064": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",

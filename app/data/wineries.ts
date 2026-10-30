@@ -15,6 +15,13 @@ export const wineryProfiles: Record<string, WineryProfile> = {
     "description": "Das Weingut Knipser ist seit 1876 als Familienbetrieb in Laumersheim ansässig. Es bewirtschaftet Weinberge in Laumersheim, Großkarlbach und Dirmstein.",
     "sourceUrl": "https://shop.weingut-knipser.de/wein/2023-gaudenz-weingut-knipser-gbr-cabernet-franc-deutscher-qualitaetswein"
   },
+  "Markus Schneider": {
+    "name": "Markus Schneider",
+    "region": "Pfalz",
+    "locationLabel": "Am Hohen Weg 1, 67158 Ellerstadt, Deutschland",
+    "description": "Markus Schneider, gegründet 1994, produziert ausdrucksstarke Weine mit moderner Stilistik in der Pfalz.",
+    "sourceUrl": "https://www.vinoscout.de/products/markus-schneider-black-print"
+  },
   "Schlossgut Diel": {
     "name": "Schlossgut Diel",
     "region": "Nahe",

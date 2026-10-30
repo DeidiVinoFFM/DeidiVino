@@ -9,6 +9,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0149.webp",
     "alt": "Cuvée Gaudenz trocken 2023 von Knipser"
   },
+  "W0152": {
+    "src": "/wine-images/W0152.webp",
+    "alt": "Black Print trocken 2023 2023 von Markus Schneider"
+  },
   "W0064": {
     "src": "/wine-images/W0064.webp",
     "alt": "Nahesteiner Weißburgunder 2022 von Schlossgut Diel"
