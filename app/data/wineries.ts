@@ -5,8 +5,8 @@ export const wineryProfiles: Record<string, WineryProfile> = {
     "name": "Karl Pfaffmann",
     "region": "Pfalz",
     "locationLabel": "Allmendstraße 1, D-76833 Walsheim",
-    "description": "Informationen zum Weingut werden ergänzt.",
-    "sourceUrl": "https://analyse.karl-pfaffmann.de/QR_KP_229"
+    "description": "Das Weingut Karl Pfaffmann wurde 1955 von Karl Pfaffmann gegründet und liegt am westlichen Ortsrand von Walsheim. Es wird heute in dritter Generation von Markus Pfaffmann und Marion Pfaffmann geführt.",
+    "sourceUrl": "https://www.karl-pfaffmann.de/"
   },
   "Knipser": {
     "name": "Knipser",
