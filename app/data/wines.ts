@@ -755,6 +755,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0002",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Chardonnay",
+    "vintage": 2023,
+    "availability": "Nur noch 1 Flasche",
+    "price": 9.9,
+    "volume": 0.75,
+    "unitPrice": 13.2,
+    "category": "Weißwein",
+    "grape": "Chardonnay",
+    "style": "Trocken",
+    "profile": "Rund & charaktervoll",
+    "featured": false
+  },
+  {
     "id": "W0005",
     "winery": "Weingut Thanisch",
     "region": "Mosel",

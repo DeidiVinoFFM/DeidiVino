@@ -372,6 +372,13 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Riesling Alte Reben Réserve 2022",
     "verification": "verified"
   },
+  "W0002": {
+    "alcohol": "12,5 % vol.",
+    "allergens": "Enthält Sulfite",
+    "producer": "Abfüller: Weinhaus Thanisch, 54470 Lieser, Deutschland",
+    "sourceLabel": "Fotografiertes Rücketikett des Chardonnay trocken 2023",
+    "verification": "verified"
+  },
   "W0005": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",
