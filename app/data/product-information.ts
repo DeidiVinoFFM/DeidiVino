@@ -3,6 +3,23 @@ import type { Wine } from "./wines";
 export type Nutrition = {energy:string;fat:string;saturates:string;carbohydrates:string;sugars:string;protein:string;salt:string};
 export type ProductInformation = {alcohol?:string;ingredients?:string;allergens:string;nutrition?:Nutrition;producer:string;sourceLabel:string;sourceUrl?:string;verification:"verified"|"label-needed"};
 const productInformation: Record<string,Partial<ProductInformation>> = {
+  "W0151": {
+    "alcohol": "13,5 % vol",
+    "ingredients": "Trauben, Saccharose, Stabilisatoren: E466, Kohlendioxid, unter Schutzatmosphäre abgefüllt",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Karl Pfaffmann Erben, Allmendstraße 1, D-76833 Walsheim",
+    "sourceLabel": "QR_KP_229, Karl Pfaffmann Lebenswerk Chardonnay Réserve trocken 2025, Höchstnote für Wein aus der Pfalz | BILD-Kaufberater BILD Logo Affiliate Info Affiliate Info Affilia, Karl Pfaffmann Lebenswerk Chardonnay Réserve 2025 PayPal Visa Mastercard Maestro American Express Go",
+    "sourceUrl": "https://analyse.karl-pfaffmann.de/QR_KP_229",
+    "nutrition": {
+      "energy": "344 kJ (83 kcal)",
+      "fat": "<0,01g",
+      "saturates": "<0,01g",
+      "carbohydrates": "1,7 g",
+      "sugars": "0,6 g",
+      "protein": "<0,01g",
+      "salt": "<0,01g"
+    }
+  },
   "W0149": {
     "alcohol": "13,5% vol",
     "ingredients": "Trauben, Saccharose, Konservierungsstoffe: Sulfite",

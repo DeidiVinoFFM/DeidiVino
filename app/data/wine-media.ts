@@ -1,6 +1,10 @@
 // Von DeidiVino lokal erzeugt.
 export type WineMedia={src:string;alt:string};
 export const wineMedia: Partial<Record<string,WineMedia>> = {
+  "W0151": {
+    "src": "/wine-images/W0151.webp",
+    "alt": "Lebenswerk Chardonnay Réserve trocken 2025 2025 von Karl Pfaffmann"
+  },
   "W0149": {
     "src": "/wine-images/W0149.webp",
     "alt": "Cuvée Gaudenz trocken 2023 von Knipser"

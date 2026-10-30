@@ -1,5 +1,6 @@
 // Von DeidiVino lokal erzeugt.
 export const wineDescriptions: Record<string,string> = {
+  "W0151": "Ein eleganter Chardonnay aus der Pfalz, teilweise im Holzfass gereift.",
   "W0149": "Die Cuvée Gaudenz trocken 2023 von Knipser präsentiert sich als eleganter, trockener Rotwein mit ausgewogener Struktur und feinen Fruchtnoten. Ein vielseitiger Begleiter für viele Anlässe.",
   "W0064": "Ein feiner, trockener Burgunder von der Nahe mit heller Frucht, sanfter Cremigkeit und frischer Kontur. Vielseitig zu Fisch, Gemüse oder einfach als ruhiger Feierabendwein.",
   "W0066": "Pinot Gris mit mehr Tiefe: gelbe Frucht, cremige Textur und würzige Reife verbinden sich zu einem kraftvollen, aber eleganten Weißwein für die Tafel.",

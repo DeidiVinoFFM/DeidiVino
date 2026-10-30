@@ -3,6 +3,22 @@ export type Wine = { id:string; winery:string; region:string; name:string; vinta
 export const inventoryAsOf = "30.10.2026";
 export const wines: Wine[] = [
   {
+    "id": "W0151",
+    "winery": "Karl Pfaffmann",
+    "region": "Pfalz",
+    "name": "Lebenswerk Chardonnay Réserve trocken 2025",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 14.95,
+    "volume": 0.75,
+    "unitPrice": 19.93,
+    "category": "Deutscher Qualitätswein",
+    "grape": "Chardonnay",
+    "style": "Trocken",
+    "profile": "Harmonisch mit cremigem Schmelz, feiner Würze und lebendiger Säure.",
+    "featured": false
+  },
+  {
     "id": "W0149",
     "winery": "Knipser",
     "region": "Pfalz",

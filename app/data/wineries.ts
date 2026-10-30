@@ -1,6 +1,13 @@
 // Von DeidiVino lokal erzeugt.
 export type WineryProfile = {name:string;region:string;locationLabel:string;description:string;sourceUrl:string};
 export const wineryProfiles: Record<string, WineryProfile> = {
+  "Karl Pfaffmann": {
+    "name": "Karl Pfaffmann",
+    "region": "Pfalz",
+    "locationLabel": "Allmendstraße 1, D-76833 Walsheim",
+    "description": "Informationen zum Weingut werden ergänzt.",
+    "sourceUrl": "https://analyse.karl-pfaffmann.de/QR_KP_229"
+  },
   "Knipser": {
     "name": "Knipser",
     "region": "Pfalz",
