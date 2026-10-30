@@ -105,10 +105,6 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0099.webp",
     "alt": "Dittelsheimer Chardonnay Reserve 2021 von Weingut Daniel Mattern"
   },
-  "W0098": {
-    "src": "/wine-images/W0098.webp",
-    "alt": "Grauburgunder 2023 von Weingut Daniel Mattern"
-  },
   "W0103": {
     "src": "/wine-images/W0103.webp",
     "alt": "Hop & Grape Perlwein / Secco 2024 von Weingut Daniel Mattern"
@@ -188,10 +184,6 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
   "W0012": {
     "src": "/wine-images/W0012.webp",
     "alt": "Alte Reben R Trocken 2022 von Weingut Thanisch"
-  },
-  "W0002": {
-    "src": "/wine-images/W0002.webp",
-    "alt": "Chardonnay 2023 von Weingut Thanisch"
   },
   "W0005": {
     "src": "/wine-images/W0005.webp",

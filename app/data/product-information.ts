@@ -205,13 +205,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Dittelsheim Chardonnay trocken 2021",
     "verification": "verified"
   },
-  "W0098": {
-    "alcohol": "13,0 % vol.",
-    "allergens": "Enthält Sulfite",
-    "producer": "Weingut Daniel Mattern, 67582 Mettenheim, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett des Grauburgunder trocken 2023",
-    "verification": "verified"
-  },
   "W0103": {
     "alcohol": "12,7 % vol.",
     "ingredients": "Trauben, Saccharose, Hopfen, Konservierungsstoffe: Sulfite und L-Ascorbinsäure (E300), Gas und Packgas: Kohlendioxid (E290)",
@@ -370,13 +363,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "allergens": "Enthält Sulfite",
     "producer": "Weingut Thanisch, 54470 Lieser, Deutschland",
     "sourceLabel": "Fotografiertes Rücketikett des Riesling Alte Reben Réserve 2022",
-    "verification": "verified"
-  },
-  "W0002": {
-    "alcohol": "12,5 % vol.",
-    "allergens": "Enthält Sulfite",
-    "producer": "Abfüller: Weinhaus Thanisch, 54470 Lieser, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett des Chardonnay trocken 2023",
     "verification": "verified"
   },
   "W0005": {

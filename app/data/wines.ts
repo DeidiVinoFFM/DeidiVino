@@ -419,22 +419,6 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
-    "id": "W0098",
-    "winery": "Weingut Daniel Mattern",
-    "region": "Rheinhessen",
-    "name": "Grauburgunder",
-    "vintage": 2023,
-    "availability": "Nur noch 1 Flasche",
-    "price": 9.5,
-    "volume": 0.75,
-    "unitPrice": 12.67,
-    "category": "Weißwein",
-    "grape": "Grauburgunder",
-    "style": "Trocken",
-    "profile": "Rund & charaktervoll",
-    "featured": false
-  },
-  {
     "id": "W0103",
     "winery": "Weingut Daniel Mattern",
     "region": "Rheinhessen",
@@ -752,22 +736,6 @@ export const wines: Wine[] = [
     "grape": "Riesling",
     "style": "Trocken",
     "profile": "Frisch & mineralisch",
-    "featured": false
-  },
-  {
-    "id": "W0002",
-    "winery": "Weingut Thanisch",
-    "region": "Mosel",
-    "name": "Chardonnay",
-    "vintage": 2023,
-    "availability": "Nur noch 1 Flasche",
-    "price": 9.9,
-    "volume": 0.75,
-    "unitPrice": 13.2,
-    "category": "Weißwein",
-    "grape": "Chardonnay",
-    "style": "Trocken",
-    "profile": "Rund & charaktervoll",
     "featured": false
   },
   {
