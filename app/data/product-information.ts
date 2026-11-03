@@ -238,6 +238,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Dittelsheim Chardonnay trocken 2021",
     "verification": "verified"
   },
+  "W0103": {
+    "alcohol": "12,7 % vol.",
+    "ingredients": "Trauben, Saccharose, Hopfen, Konservierungsstoffe: Sulfite und L-Ascorbinsäure (E300), Gas und Packgas: Kohlendioxid (E290)",
+    "allergens": "Enthält Sulfite",
+    "producer": "Daniel Mattern, 67582 Mettenheim, Deutschland",
+    "sourceLabel": "Fotografiertes Rücketikett und zugehöriges E-Label der angebotenen Flasche (Los HG/05/25)",
+    "verification": "verified",
+    "nutrition": {
+      "energy": "318 kJ / 77 kcal",
+      "fat": "< 0,1 g",
+      "saturates": "< 0,1 g",
+      "carbohydrates": "1,7 g",
+      "sugars": "0,9 g",
+      "protein": "< 0,1 g",
+      "salt": "< 0,1 g"
+    }
+  },
   "W0097": {
     "alcohol": "11,5 % vol.",
     "ingredients": "Trauben, Saccharose, Stabilisator: Carboxymethylcellulose, Konservierungsstoff: Sulfite",

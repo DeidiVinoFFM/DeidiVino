@@ -451,6 +451,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0103",
+    "winery": "Weingut Daniel Mattern",
+    "region": "Rheinhessen",
+    "name": "Hop & Grape Perlwein / Secco",
+    "vintage": 2024,
+    "availability": "Direkt verfügbar",
+    "price": 13.9,
+    "volume": 0.75,
+    "unitPrice": 18.53,
+    "category": "Prickelnd",
+    "grape": "Cuvée",
+    "style": "Perlwein",
+    "profile": "Prickelnd",
+    "featured": false
+  },
+  {
     "id": "W0097",
     "winery": "Weingut Daniel Mattern",
     "region": "Rheinhessen",

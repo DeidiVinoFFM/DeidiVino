@@ -113,6 +113,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0099.webp",
     "alt": "Dittelsheimer Chardonnay Reserve 2021 von Weingut Daniel Mattern"
   },
+  "W0103": {
+    "src": "/wine-images/W0103.webp",
+    "alt": "Hop & Grape Perlwein / Secco 2024 von Weingut Daniel Mattern"
+  },
   "W0097": {
     "src": "/wine-images/W0097.webp",
     "alt": "Rosé 2024 von Weingut Daniel Mattern"
