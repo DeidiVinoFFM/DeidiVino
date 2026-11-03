@@ -28,7 +28,6 @@ export const wineDescriptions: Record<string,string> = {
   "W0072": "Ein klarer, trockener Weißburgunder mit heller Frucht und sanfter Cremigkeit. Unaufgeregt, ausgewogen und vielseitig zu Fisch, Gemüse und hellem Fleisch.",
   "W0100": "Eine gereifte Réserve-Cuvée mit Substanz, würziger Tiefe und ruhiger Balance. Ein eigenständiger Weißwein, wenn Du Entwicklung und Struktur im Glas magst.",
   "W0099": "Chardonnay mit reifer gelber Frucht, cremiger Struktur und feiner Holzwürze. Die Reserve ist ein Wein für den Tisch und darf gern etwas Luft bekommen.",
-  "W0103": "Leicht, verspielt und animierend: ein Perlwein mit saftiger Frucht und schönem Trinkfluss. Passt zum Anstoßen, auf die Terrasse und zu lockeren Abenden.",
   "W0097": "Ein lebendiger Rosé mit roter Frucht, Frische und unkompliziertem Charme. Die passende Flasche für einen spontanen Abend oder ein leichtes Essen.",
   "W0036": "Chardonnay als trockener Sekt mit feiner Frucht, cremigem Anklang und lebendiger Perlage. Ein charmanter Begleiter vom Aperitif bis zu kleinen Vorspeisen.",
   "W0040": "Aromatischer Sauvignon Blanc mit Anklängen von Stachelbeere, Limette, grüner Paprika und feiner Kräuterwürze. Frisch, trocken und markant, ohne laut zu werden.",

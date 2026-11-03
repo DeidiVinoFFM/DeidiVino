@@ -1,6 +1,6 @@
 // Von DeidiVino lokal erzeugt. Nur freigegebene Weine mit Bestand werden veröffentlicht.
 export type Wine = { id:string; winery:string; region:string; name:string; vintage:number|string; availability:"Direkt verfügbar"|"Nur noch wenige Flaschen"|"Nur noch 1 Flasche"; price:number; volume:number; unitPrice:number; category:string; grape:string; style:string; profile:string; featured:boolean; };
-export const inventoryAsOf = "30.10.2026";
+export const inventoryAsOf = "03.11.2026";
 export const wines: Wine[] = [
   {
     "id": "W0151",
@@ -448,22 +448,6 @@ export const wines: Wine[] = [
     "grape": "Chardonnay",
     "style": "Trocken",
     "profile": "Rund & charaktervoll",
-    "featured": false
-  },
-  {
-    "id": "W0103",
-    "winery": "Weingut Daniel Mattern",
-    "region": "Rheinhessen",
-    "name": "Hop & Grape Perlwein / Secco",
-    "vintage": 2024,
-    "availability": "Direkt verfügbar",
-    "price": 13.9,
-    "volume": 0.75,
-    "unitPrice": 18.53,
-    "category": "Prickelnd",
-    "grape": "Cuvée",
-    "style": "Perlwein",
-    "profile": "Prickelnd",
     "featured": false
   },
   {
