@@ -403,6 +403,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0169",
+    "winery": "Weingut Christian Bamberger",
+    "region": "Nahe",
+    "name": "Merlot ist Weiß - Blanc de Noir",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 9.5,
+    "volume": 0.75,
+    "unitPrice": 12.67,
+    "category": "Weißwein",
+    "grape": "Merlot",
+    "style": "Trocken",
+    "profile": "Weißwein",
+    "featured": false
+  },
+  {
     "id": "W0170",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",

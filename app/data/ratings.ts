@@ -40,5 +40,15 @@ export const wineRatings: Record<string,WineRating[]> = {
       "vintage": 2022,
       "sourceUrl": "https://www.cb-wein.de/news.html"
     }
+  ],
+  "W0169": [
+    {
+      "kind": "Auszeichnung",
+      "publication": "Falstaff",
+      "award": "Best Buy",
+      "score": "",
+      "vintage": 2025,
+      "sourceUrl": "https://merlot-ist-weiss.de/homepage.html"
+    }
   ]
 };
