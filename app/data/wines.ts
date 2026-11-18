@@ -406,7 +406,7 @@ export const wines: Wine[] = [
     "id": "W0167",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",
-    "name": "Scheurebe Don´t be shy Trocken",
+    "name": "Scheurebe Don´t be shy",
     "vintage": 2025,
     "availability": "Direkt verfügbar",
     "price": 9.5,

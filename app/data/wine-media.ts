@@ -103,7 +103,7 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
   },
   "W0167": {
     "src": "/wine-images/W0167.webp",
-    "alt": "Scheurebe Don´t be shy Trocken 2025 von Weingut Christian Bamberger"
+    "alt": "Scheurebe Don´t be shy 2025 von Weingut Christian Bamberger"
   },
   "W0084": {
     "src": "/wine-images/W0084.webp",
