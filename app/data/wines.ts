@@ -787,6 +787,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0157",
+    "winery": "Weingut Schloss Lieser",
+    "region": "Mosel",
+    "name": "Riesling Sekt Extra Brut",
+    "vintage": 2020,
+    "availability": "Direkt verfügbar",
+    "price": 23.0,
+    "volume": 0.75,
+    "unitPrice": 30.67,
+    "category": "Sekt",
+    "grape": "Riesling",
+    "style": "Extra Brut",
+    "profile": "Puristische Eleganz, feine Struktur und klare Frucht.",
+    "featured": false
+  },
+  {
     "id": "W0048",
     "winery": "Weingut Schloss Lieser",
     "region": "Mosel",
