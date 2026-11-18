@@ -198,6 +198,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": ""
     }
   },
+  "W0171": {
+    "alcohol": "11,0 % vol.",
+    "ingredients": "Trauben, Saccharose, Konservierungsstoffe: Sulfite, L-Ascorbinsäure, Stabilisator: Metaweinsäure, Apfelsäure, Kohlendioxid",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Christian Bamberger",
+    "sourceLabel": "360° Rundgang - Weingut Christian Bamberger, 73126 Fräulein Müller – E-Label, 360° Rundgang - Weingut Christian Bamberger, Fräulein Müller aus dem Rosengarten trocken | Christian Bamberger",
+    "sourceUrl": "https://www.cb-wein.de/360-start.html",
+    "nutrition": {
+      "energy": "290 kJ / 70 kcal",
+      "fat": "<0,01g",
+      "saturates": "<0,01g",
+      "carbohydrates": "1,5 g",
+      "sugars": "0,6 g",
+      "protein": "<0,01g",
+      "salt": "<0,01g"
+    }
+  },
   "W0080": {
     "alcohol": "12,0 % vol.",
     "allergens": "Enthält Sulfite",

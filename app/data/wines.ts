@@ -339,6 +339,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0171",
+    "winery": "Weingut Christian Bamberger",
+    "region": "Nahe",
+    "name": "Fräulein Müller aus gutem Hause",
+    "vintage": 2026,
+    "availability": "Direkt verfügbar",
+    "price": 8.5,
+    "volume": 0.75,
+    "unitPrice": 11.33,
+    "category": "Deutscher Qualitätswein",
+    "grape": "Cuvée",
+    "style": "trocken",
+    "profile": "Deutscher Qualitätswein",
+    "featured": false
+  },
+  {
     "id": "W0080",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",
