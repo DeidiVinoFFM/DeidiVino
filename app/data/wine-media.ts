@@ -197,10 +197,6 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0056.webp",
     "alt": "Riesling Niederberg Helden Auslese Goldkapsel 2022 von Weingut Schloss Lieser"
   },
-  "W0157": {
-    "src": "/wine-images/W0157.webp",
-    "alt": "Riesling Sekt Extra Brut 2020 von Weingut Schloss Lieser"
-  },
   "W0048": {
     "src": "/wine-images/W0048.webp",
     "alt": "Weißburgunder Trocken 2022 von Weingut Schloss Lieser"

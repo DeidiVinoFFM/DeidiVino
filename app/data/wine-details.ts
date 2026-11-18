@@ -49,7 +49,6 @@ export const wineDescriptions: Record<string,string> = {
   "W0062": "Ein eleganter, trockener Riesling aus der Wehlener Sonnenuhr mit feiner Frucht, mineralischer Spannung und langem, präzisem Finale. Besonders schön mit etwas Reife.",
   "W0057": "Eine edelsüße Auslese mit reifer gelber Frucht, konzentrierter Süße und lebendiger Säure. Ein besonderer Abschluss zu Dessert, Käse oder ganz für sich.",
   "W0056": "Die Goldkapsel steht für besondere Konzentration: intensive Frucht, tiefe Süße und klare Säure halten sich eindrucksvoll in Balance. Ein Wein für sehr besondere Momente.",
-  "W0157": "Nach klassischer Flaschengärung über 60 Monate auf der Hefe. Zarte, klare Frucht und eine filigrane Struktur prägen den Riesling Sekt Extra Brut 2020 von Schloss Lieser. Am Gaumen zeigt er sich feingliedrig und elegant, mit einer betont trockenen, puristischen Art. Ein Jahrgangssekt aus Moseler Schieferlagen, dessen besonderer Reiz in seiner Finesse und Präzision liegt.",
   "W0048": "Ein trockener Weißburgunder mit heller Frucht, feiner Cremigkeit und frischer Linie. Unkompliziert, aber sorgfältig gebaut – passend zu Fisch, Gemüse und leichten Vorspeisen.",
   "W0012": "Riesling aus alten Reben mit reifer Frucht, Schieferwürze und trockenem, konzentriertem Zug. Mehr Tiefe als ein Alltagsriesling, ohne seine Trinkfreude zu verlieren.",
   "W0005": "Im 500-Liter-Fass ausgebauter Chardonnay mit reifer Frucht, cremiger Textur und zurückhaltender Holzwürze. Kraftvoll, aber ausgewogen und sehr gut zum Essen.",

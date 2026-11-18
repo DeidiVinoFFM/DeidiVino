@@ -434,22 +434,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett der Lieser Niederberg Helden Riesling Auslese Goldkapsel 2022",
     "verification": "verified"
   },
-  "W0157": {
-    "alcohol": "12,5 Vol%",
-    "allergens": "Enthält Sulfite",
-    "producer": "Weingut Schloss Lieser, D-54470 Lieser",
-    "sourceLabel": "WINZER DES JAHRES - Weingut Schloss Lieser - Thomas Haag, Riesling Sekt Extra Brut | Schloss-Lieser | Mosel | weinthum, Vinothek der Bauer GmbH & Co. KG",
-    "sourceUrl": "https://www.weingut-schloss-lieser.de/",
-    "nutrition": {
-      "energy": "297 kJ (71 kcal)",
-      "fat": "",
-      "saturates": "",
-      "carbohydrates": "",
-      "sugars": "",
-      "protein": "",
-      "salt": ""
-    }
-  },
   "W0048": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",
