@@ -796,7 +796,7 @@ export const wines: Wine[] = [
     "price": 23.0,
     "volume": 0.75,
     "unitPrice": 30.67,
-    "category": "Sekt",
+    "category": "Prickelnd",
     "grape": "Riesling",
     "style": "Extra Brut",
     "profile": "Puristische Eleganz, feine Struktur und klare Frucht.",
