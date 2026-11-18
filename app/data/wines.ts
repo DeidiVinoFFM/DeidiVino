@@ -323,6 +323,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0172",
+    "winery": "Weingut Christian Bamberger",
+    "region": "Nahe",
+    "name": "Cuvée »R« Réserve",
+    "vintage": 2022,
+    "availability": "Direkt verfügbar",
+    "price": 32.0,
+    "volume": 0.75,
+    "unitPrice": 42.67,
+    "category": "Deutscher Qualitätswein",
+    "grape": "Cuvée",
+    "style": "Trocken",
+    "profile": "Im Feinschmecker wird dem Wein dunkelbeerige Frucht, Saftigkeit und gut integrierte Gerbstoffe attestiert.",
+    "featured": false
+  },
+  {
     "id": "W0080",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",

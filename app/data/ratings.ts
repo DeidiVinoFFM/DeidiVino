@@ -30,5 +30,15 @@ export const wineRatings: Record<string,WineRating[]> = {
       "vintage": 2023,
       "sourceUrl": "https://www.falstaff.com/de/weine/weingut-bischel-2023-bingen-scharlachberg-riesling-gg"
     }
+  ],
+  "W0172": [
+    {
+      "kind": "Bewertung",
+      "publication": "Falstaff Weinguide",
+      "award": null,
+      "score": "zu den besten Weinen des Jahrgangs 2022",
+      "vintage": 2022,
+      "sourceUrl": "https://www.cb-wein.de/news.html"
+    }
   ]
 };

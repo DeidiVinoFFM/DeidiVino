@@ -182,6 +182,22 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Augenblick trocken 2023",
     "verification": "verified"
   },
+  "W0172": {
+    "alcohol": "14,0% vol",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Christian Bamberger, Steinhardter Hof, Bad Sobernheim",
+    "sourceLabel": "360° Rundgang - Weingut Christian Bamberger, News - Weingut Christian Bamberger, Das Weingut an der Nahe - Weingut Christian Bamberger",
+    "sourceUrl": "https://www.cb-wein.de/360-start.html",
+    "nutrition": {
+      "energy": "",
+      "fat": "",
+      "saturates": "",
+      "carbohydrates": "",
+      "sugars": "",
+      "protein": "",
+      "salt": ""
+    }
+  },
   "W0080": {
     "alcohol": "12,0 % vol.",
     "allergens": "Enthält Sulfite",

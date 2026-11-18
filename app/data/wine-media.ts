@@ -81,6 +81,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0081.webp",
     "alt": "Augenblick 2023 von Weingut Christian Bamberger"
   },
+  "W0172": {
+    "src": "/wine-images/W0172.webp",
+    "alt": "Cuvée »R« Réserve 2022 von Weingut Christian Bamberger"
+  },
   "W0080": {
     "src": "/wine-images/W0080.webp",
     "alt": "Glückslos 2023 von Weingut Christian Bamberger"
