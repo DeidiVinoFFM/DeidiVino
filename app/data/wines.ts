@@ -403,6 +403,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0170",
+    "winery": "Weingut Christian Bamberger",
+    "region": "Nahe",
+    "name": "Rendezvous mit Rosamunde",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 8.5,
+    "volume": 0.75,
+    "unitPrice": 11.33,
+    "category": "Rosé",
+    "grape": "Cuvée",
+    "style": "Feinherb",
+    "profile": "Rosé",
+    "featured": false
+  },
+  {
     "id": "W0082",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",

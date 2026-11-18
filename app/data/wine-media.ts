@@ -101,6 +101,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0071.webp",
     "alt": "Grauburgunder 2022 von Weingut Christian Bamberger"
   },
+  "W0170": {
+    "src": "/wine-images/W0170.webp",
+    "alt": "Rendezvous mit Rosamunde 2025 von Weingut Christian Bamberger"
+  },
   "W0082": {
     "src": "/wine-images/W0082.webp",
     "alt": "Riesling Vulkangestein Trocken 2021 von Weingut Christian Bamberger"

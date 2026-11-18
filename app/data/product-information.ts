@@ -246,6 +246,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Grauburgunder trocken 2022",
     "verification": "verified"
   },
+  "W0170": {
+    "alcohol": "12% vol",
+    "ingredients": "Trauben, Saccharose, Konservierungsstoffe: Sulfite, L-Ascorbinsäure, Stabilisator: Metaweinsäure, Kohlendioxid",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Christian Bamberger",
+    "sourceLabel": "360° Rundgang - Weingut Christian Bamberger, 40726 – E-Label",
+    "sourceUrl": "https://www.cb-wein.de/360-start.html",
+    "nutrition": {
+      "energy": "295 kJ / 70 kcal",
+      "fat": "<0,01g",
+      "saturates": "<0,01g",
+      "carbohydrates": "2,2 g",
+      "sugars": "1,3 g",
+      "protein": "<0,01g",
+      "salt": "<0,01g"
+    }
+  },
   "W0082": {
     "alcohol": "13,0 % vol.",
     "allergens": "Enthält Sulfite",
