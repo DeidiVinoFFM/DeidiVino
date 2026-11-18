@@ -182,6 +182,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Augenblick trocken 2023",
     "verification": "verified"
   },
+  "W0168": {
+    "alcohol": "11% vol",
+    "ingredients": "Trauben, Saccharose, Konservierungsstoff: Sulfite, Stabilisator: Metaweinsäure",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Christian Bamberger, Steinhardter Hof, Kreuznacher Straße 2, 55566 Bad Sobernheim",
+    "sourceLabel": "360° Rundgang - Weingut Christian Bamberger, 71826 – E-Label, Kollektion - Weingut Christian Bamberger, Christian Bamberger Augenblick: Cuvée-Kollektion NEO Wein - Castello del Gusto",
+    "sourceUrl": "https://www.cb-wein.de/360-start.html",
+    "nutrition": {
+      "energy": "301 kJ / 72 kcal",
+      "fat": "<0,01g",
+      "saturates": "<0,01g",
+      "carbohydrates": "1,7 g",
+      "sugars": "0,8 g",
+      "protein": "<0,01g",
+      "salt": "<0,01g"
+    }
+  },
   "W0172": {
     "alcohol": "14,0% vol",
     "allergens": "Enthält Sulfite",

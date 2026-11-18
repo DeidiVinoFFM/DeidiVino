@@ -323,6 +323,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0168",
+    "winery": "Weingut Christian Bamberger",
+    "region": "Nahe",
+    "name": "Augenblick",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 9.5,
+    "volume": 0.75,
+    "unitPrice": 12.67,
+    "category": "Weißwein",
+    "grape": "Cuvée",
+    "style": "Trocken",
+    "profile": "Der Wein wird aus Sauvignon Blanc und Silvaner gekeltert, ist trocken und zeichnet sich durch frische Eleganz aus.",
+    "featured": false
+  },
+  {
     "id": "W0172",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",
