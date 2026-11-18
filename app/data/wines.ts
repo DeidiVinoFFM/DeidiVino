@@ -332,7 +332,7 @@ export const wines: Wine[] = [
     "price": 32.0,
     "volume": 0.75,
     "unitPrice": 42.67,
-    "category": "Deutscher Qualitätswein",
+    "category": "Rotwein",
     "grape": "Cuvée",
     "style": "Trocken",
     "profile": "Im Feinschmecker wird dem Wein dunkelbeerige Frucht, Saftigkeit und gut integrierte Gerbstoffe attestiert.",
