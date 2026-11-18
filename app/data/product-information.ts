@@ -518,6 +518,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": ""
     }
   },
+  "W0155": {
+    "alcohol": "11,0 % vol",
+    "ingredients": "Trauben, Konservierungsstoff:Sulfite",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Schloss Lieser",
+    "sourceLabel": "WINZER DES JAHRES - Weingut Schloss Lieser - Thomas Haag, Der Wein-Informations-Dienst von Winestro.cloud, 2025 SL Riesling feinherb - Weingut Schloss Lieser Thomas Haag, Schloss Lieser - Thomas Haag – eno",
+    "sourceUrl": "https://www.weingut-schloss-lieser.de/",
+    "nutrition": {
+      "energy": "301 kJ / 72 kcal",
+      "fat": "0 g",
+      "saturates": "0 g",
+      "carbohydrates": "2,4 g",
+      "sugars": "1,6 g",
+      "protein": "0 g",
+      "salt": "<0,01g"
+    }
+  },
   "W0048": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",

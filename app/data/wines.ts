@@ -867,6 +867,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0155",
+    "winery": "Weingut Schloss Lieser",
+    "region": "Mosel",
+    "name": "2025 SL Riesling feinherb",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 11.9,
+    "volume": 0.75,
+    "unitPrice": 15.87,
+    "category": "Weißwein",
+    "grape": "Riesling",
+    "style": "Feinherb",
+    "profile": "Feine Frucht, animierende Säure, hohe Mineralität.",
+    "featured": false
+  },
+  {
     "id": "W0048",
     "winery": "Weingut Schloss Lieser",
     "region": "Mosel",
