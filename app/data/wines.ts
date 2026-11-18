@@ -371,6 +371,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0166",
+    "winery": "Weingut Christian Bamberger",
+    "region": "Nahe",
+    "name": "Glückslos",
+    "vintage": 2026,
+    "availability": "Direkt verfügbar",
+    "price": 9.5,
+    "volume": 0.75,
+    "unitPrice": 12.67,
+    "category": "Deutscher Qualitätswein",
+    "grape": "Sauvignon Blanc, Scheurebe",
+    "style": "Trocken",
+    "profile": "Anklänge von Cassis, Stachelbeeren, Limetten, Apfel, Kiwi, Mandarinen, Gras, Brennnessel, Zitronenmelisse und Holunder. Am Gaumen knackig mit schöner Frucht und zarter Würze.",
+    "featured": false
+  },
+  {
     "id": "W0071",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",

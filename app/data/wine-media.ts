@@ -93,6 +93,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0080.webp",
     "alt": "Glückslos 2023 von Weingut Christian Bamberger"
   },
+  "W0166": {
+    "src": "/wine-images/W0166.webp",
+    "alt": "Glückslos 2026 von Weingut Christian Bamberger"
+  },
   "W0071": {
     "src": "/wine-images/W0071.webp",
     "alt": "Grauburgunder 2022 von Weingut Christian Bamberger"

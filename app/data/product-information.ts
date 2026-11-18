@@ -222,6 +222,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Glückslos trocken 2023",
     "verification": "verified"
   },
+  "W0166": {
+    "alcohol": "12,5%",
+    "ingredients": "Trauben, Saccharose, Konservierungsstoffe: Sulfite, L-Ascorbinsäure, Stabilisator: Metaweinsäure, Kohlendioxid",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Christian Bamberger",
+    "sourceLabel": "360° Rundgang - Weingut Christian Bamberger, 73326 Glückslos – E-Label, Gesamtkollektion%203_2024.pdf, Glückslos DQ trocken Weingut Christian Bamberger, Nahe",
+    "sourceUrl": "https://www.cb-wein.de/360-start.html",
+    "nutrition": {
+      "energy": "313 kJ / 75 kcal",
+      "fat": "<0,01g",
+      "saturates": "<0,01g",
+      "carbohydrates": "1,7 g",
+      "sugars": "0,7 g",
+      "protein": "<0,01g",
+      "salt": "<0,01g"
+    }
+  },
   "W0071": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",
