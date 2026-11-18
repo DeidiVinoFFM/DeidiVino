@@ -48,7 +48,7 @@ export const wineRatings: Record<string,WineRating[]> = {
       "award": "Best Buy",
       "score": "",
       "vintage": 2025,
-      "sourceUrl": "https://merlot-ist-weiss.de/homepage.html"
+      "sourceUrl": "https://www.falstaff.com/de/weine/weingut-christian-bamberger-steinhardter-hof-2025-merlot-ist-weiss-merlot-blanc-de-noir-trocken-1"
     }
   ]
 };
