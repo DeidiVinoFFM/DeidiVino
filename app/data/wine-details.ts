@@ -21,7 +21,7 @@ export const wineDescriptions: Record<string,string> = {
   "W0112": "Saftige Beerenfrucht, trockene Art und eine angenehm frische Linie machen diesen Rosé zum unkomplizierten Begleiter für Terrasse, Salate und sommerliche Küche.",
   "W0081": "Eine zugängliche, trockene Cuvée mit heller Frucht, Frische und angenehm weichem Trinkfluss. Ein Wein für den Feierabend, die gesellige Runde und viele andere Gelegenheiten.",
   "W0172": "Dunkle Waldbeeren und schwarze Johannisbeeren treffen auf herbe Schokolade und feine, erdige Würze. Am Gaumen präsentiert sich die Cuvée »R« Réserve 2022 vollmundig und geschmeidig, mit reifen Tanninen und harmonisch eingebundenen Holznoten. Ein langer, würziger Nachhall mit mineralischen Anklängen verleiht diesem kraftvollen Rotwein Tiefe und Eleganz.",
-  "W0171": "Das harmonische Spiel aus lebendiger Frische und Finesse ist charakteristisch für diese Cuvée.",
+  "W0171": "Frischer Apfel, Stachelbeere und ein Hauch Maracuja verbinden sich mit zarten Blütennoten. Am Gaumen zeigt sich die Cuvée aus Müller-Thurgau und Sauvignon Blanc saftig und leichtfüßig, mit lebendiger, harmonisch eingebundener Säure. Eine feine Fruchtsüße und dezente Würze sorgen für einen ausgewogenen, beschwingten Charakter.",
   "W0080": "Saftig, frisch und charmant: eine trockene Cuvée, die ohne Umwege Freude macht. Ein guter Griff für den Feierabend, die Runde mit Freunden oder leichte Küche.",
   "W0071": "Gelbe Frucht, milde Würze und eine runde Textur prägen diesen trockenen Grauburgunder. Harmonisch und vielseitig zu Pasta, Gemüse, Geflügel oder solo.",
   "W0082": "Ein trockener Riesling mit Zitrusfrucht, kühler Würze und mineralischer Spannung vom Vulkangestein. Straff genug für Rieslingfans, zugänglich genug für den gedeckten Tisch.",

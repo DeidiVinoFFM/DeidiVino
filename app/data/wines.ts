@@ -350,7 +350,7 @@ export const wines: Wine[] = [
     "unitPrice": 11.33,
     "category": "Deutscher Qualitätswein",
     "grape": "Cuvée",
-    "style": "trocken",
+    "style": "Trocken",
     "profile": "Deutscher Qualitätswein",
     "featured": false
   },
