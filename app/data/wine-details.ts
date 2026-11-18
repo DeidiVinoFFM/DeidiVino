@@ -25,6 +25,7 @@ export const wineDescriptions: Record<string,string> = {
   "W0080": "Saftig, frisch und charmant: eine trockene Cuvée, die ohne Umwege Freude macht. Ein guter Griff für den Feierabend, die Runde mit Freunden oder leichte Küche.",
   "W0071": "Gelbe Frucht, milde Würze und eine runde Textur prägen diesen trockenen Grauburgunder. Harmonisch und vielseitig zu Pasta, Gemüse, Geflügel oder solo.",
   "W0082": "Ein trockener Riesling mit Zitrusfrucht, kühler Würze und mineralischer Spannung vom Vulkangestein. Straff genug für Rieslingfans, zugänglich genug für den gedeckten Tisch.",
+  "W0167": "Schwarze Johannisbeere trifft auf exotische Aromen von Mango, Litschi und Maracuja. Am Gaumen zeigt sich die „Don’t be shy“ 2025 saftig und ausdrucksstark, mit lebendiger Säure und feiner Fruchtsüße. Trotz ihrer aromatischen Fülle bleibt sie angenehm schlank. Dezente Würze und ein frischer Grapefruitakzent im Finale verleihen ihr einen animierenden Charakter.",
   "W0084": "Rote Beeren, kühle Würze und ein mineralischer Eindruck prägen diesen Spätburgunder vom Vulkangestein. Straff, charaktervoll und reizvoll zu Pilzen oder dunklem Fleisch.",
   "W0085": "Ein würziger, geradliniger Spätburgunder mit roter Frucht und der kühlen Spannung vulkanisch geprägter Böden. Charaktervoll, aber nicht schwer.",
   "W0072": "Ein klarer, trockener Weißburgunder mit heller Frucht und sanfter Cremigkeit. Unaufgeregt, ausgewogen und vielseitig zu Fisch, Gemüse und hellem Fleisch.",

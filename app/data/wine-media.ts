@@ -101,6 +101,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0082.webp",
     "alt": "Riesling Vulkangestein Trocken 2021 von Weingut Christian Bamberger"
   },
+  "W0167": {
+    "src": "/wine-images/W0167.webp",
+    "alt": "Scheurebe Don´t be shy Trocken 2025 von Weingut Christian Bamberger"
+  },
   "W0084": {
     "src": "/wine-images/W0084.webp",
     "alt": "Spätburgunder Vulkangestein 2020 von Weingut Christian Bamberger"

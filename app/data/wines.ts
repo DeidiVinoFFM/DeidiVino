@@ -403,6 +403,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0167",
+    "winery": "Weingut Christian Bamberger",
+    "region": "Nahe",
+    "name": "Scheurebe Don´t be shy Trocken",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 9.5,
+    "volume": 0.75,
+    "unitPrice": 12.67,
+    "category": "Deutscher Qualitätswein",
+    "grape": "Scheurebe",
+    "style": "Trocken",
+    "profile": "Deutscher Qualitätswein",
+    "featured": false
+  },
+  {
     "id": "W0084",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",
