@@ -599,6 +599,21 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Chardonnay 500 Réserve 2023",
     "verification": "verified"
   },
+  "W0031": {
+    "alcohol": "12,5% vol",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weinhaus Thanisch, D-54470 Lieser",
+    "sourceLabel": "Fotografierte Rücketikett-/Weinangaben",
+    "nutrition": {
+      "energy": "",
+      "fat": "",
+      "saturates": "",
+      "carbohydrates": "",
+      "sugars": "",
+      "protein": "",
+      "salt": ""
+    }
+  },
   "W0027": {
     "alcohol": "14,0 % vol.",
     "allergens": "Enthält Sulfite",

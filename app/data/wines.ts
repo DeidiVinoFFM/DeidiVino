@@ -963,6 +963,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0031",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Riesling Sekt Brut",
+    "vintage": 2023,
+    "availability": "Direkt verfügbar",
+    "price": 14.5,
+    "volume": 0.75,
+    "unitPrice": 19.33,
+    "category": "Prickelnd",
+    "grape": "Riesling",
+    "style": "Brut",
+    "profile": "Prickelnd",
+    "featured": false
+  },
+  {
     "id": "W0027",
     "winery": "Weingut Thanisch",
     "region": "Mosel",

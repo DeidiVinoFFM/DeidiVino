@@ -60,6 +60,7 @@ export const wineDescriptions: Record<string,string> = {
   "W0012": "Riesling aus alten Reben mit reifer Frucht, Schieferwürze und trockenem, konzentriertem Zug. Mehr Tiefe als ein Alltagsriesling, ohne seine Trinkfreude zu verlieren.",
   "W0005": "Im 500-Liter-Fass ausgebauter Chardonnay mit reifer Frucht, cremiger Textur und zurückhaltender Holzwürze. Kraftvoll, aber ausgewogen und sehr gut zum Essen.",
   "W0006": "Chardonnay aus dem 500-Liter-Fass: gelbe Frucht, feine Würze und eine geschmeidige Struktur treffen auf genügend Frische. Ein vielseitiger Speisenbegleiter mit Charakter.",
+  "W0031": "Apfel, Pfirsich und Orange treffen auf zarte Blütennoten und einen Hauch Brotkruste. Feine Perlage und saftige Frucht prägen diesen traditionell flaschenvergorenen Riesling-Sekt, der Fülle mit Eleganz und einem würzigen Ausklang verbindet. Ein charaktervoller Brut aus Lieser – als Aperitif ebenso reizvoll wie zu Fisch und Meeresfrüchten.",
   "W0027": "Unfiltriert und im Barrique ausgebaut: ein saftiger Spätburgunder mit roter Frucht, feiner Holzwürze und bewusst ursprünglichem Charakter. Ideal für neugierige Rotweintrinker.",
   "W0028": "Ein unfiltrierter Spätburgunder mit reifer Beerenfrucht, würziger Tiefe und dezentem Barrique-Einfluss. Kraft und Saftigkeit bleiben dabei gut ausbalanciert.",
   "W0009": "Ein trockener Grauschiefer-Riesling mit Zitrusfrucht, feiner Würze und klarer mineralischer Linie. Geradlinig, animierend und ein starker Einstieg in die Moselwelt von Thanisch."
