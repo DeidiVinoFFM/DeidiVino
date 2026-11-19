@@ -538,6 +538,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": "<0,01g"
     }
   },
+  "W0156": {
+    "alcohol": "8,5 vol %",
+    "ingredients": "Trauben, Konservierungsstoff: SULFITE",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Schloss Lieser",
+    "sourceLabel": "WINZER DES JAHRES - Weingut Schloss Lieser - Thomas Haag, 2025 SL Riesling Kabinett - Weingut Schloss Lieser Thomas Haag, Der Wein-Informations-Dienst von Winestro.cloud, Weingut Schloss Lieser SL Riesling Kabinett 2025 | Bremer Weinkolleg",
+    "sourceUrl": "https://www.weingut-schloss-lieser.de/",
+    "nutrition": {
+      "energy": "322 kJ / 77 kcal",
+      "fat": "0 g",
+      "saturates": "0 g",
+      "carbohydrates": "5,9 g",
+      "sugars": "5,3 g",
+      "protein": "0 g",
+      "salt": "<0,01g"
+    }
+  },
   "W0154": {
     "alcohol": "12,0 vol %",
     "allergens": "Enthält Sulfite",

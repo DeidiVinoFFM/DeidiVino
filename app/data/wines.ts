@@ -867,6 +867,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0156",
+    "winery": "Weingut Schloss Lieser",
+    "region": "Mosel",
+    "name": "SL Riesling Kabinett",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 15.0,
+    "volume": 0.75,
+    "unitPrice": 20.0,
+    "category": "Weißwein",
+    "grape": "Riesling",
+    "style": "Fruchtsüß",
+    "profile": "Leicht, verspielt, fruchtbetont, mit frischer Säurestruktur und schiefriger Mineralität.",
+    "featured": false
+  },
+  {
     "id": "W0154",
     "winery": "Weingut Schloss Lieser",
     "region": "Mosel",
