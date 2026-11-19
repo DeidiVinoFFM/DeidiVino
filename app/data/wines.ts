@@ -307,22 +307,6 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
-    "id": "W0081",
-    "winery": "Weingut Christian Bamberger",
-    "region": "Nahe",
-    "name": "Augenblick",
-    "vintage": 2023,
-    "availability": "Direkt verfügbar",
-    "price": 9.5,
-    "volume": 0.75,
-    "unitPrice": 12.67,
-    "category": "Weißwein",
-    "grape": "Cuvée",
-    "style": "Trocken",
-    "profile": "Rund & charaktervoll",
-    "featured": false
-  },
-  {
     "id": "W0168",
     "winery": "Weingut Christian Bamberger",
     "region": "Nahe",

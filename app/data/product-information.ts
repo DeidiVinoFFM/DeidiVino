@@ -175,13 +175,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Rosé trocken 2023",
     "verification": "verified"
   },
-  "W0081": {
-    "alcohol": "11,0 % vol.",
-    "allergens": "Enthält Sulfite",
-    "producer": "Weingut Christian Bamberger – Steinhardter Hof, Kreuznacher Straße 2, 55566 Bad Sobernheim, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett des Augenblick trocken 2023",
-    "verification": "verified"
-  },
   "W0168": {
     "alcohol": "11% vol",
     "ingredients": "Trauben, Saccharose, Konservierungsstoff: Sulfite, Stabilisator: Metaweinsäure",

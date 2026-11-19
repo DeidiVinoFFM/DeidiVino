@@ -77,10 +77,6 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0112.webp",
     "alt": "Rosé Trocken 2023 von Weingut Bischel"
   },
-  "W0081": {
-    "src": "/wine-images/W0081.webp",
-    "alt": "Augenblick 2023 von Weingut Christian Bamberger"
-  },
   "W0168": {
     "src": "/wine-images/W0168.webp",
     "alt": "Augenblick 2025 von Weingut Christian Bamberger"
