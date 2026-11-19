@@ -947,6 +947,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0159",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Thanisch D'Accord Cuvée",
+    "vintage": 2024,
+    "availability": "Direkt verfügbar",
+    "price": 9.9,
+    "volume": 0.75,
+    "unitPrice": 13.2,
+    "category": "Rotwein",
+    "grape": "Dunkelfelder, Dornfelder, Spätburgunder",
+    "style": "Trocken",
+    "profile": "Trocken, Noten von dunkler Kirsche, Brombeere und Vanille vom Barrique, weiche Tannine.",
+    "featured": false
+  },
+  {
     "id": "W0031",
     "winery": "Weingut Thanisch",
     "region": "Mosel",

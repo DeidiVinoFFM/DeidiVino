@@ -592,6 +592,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Chardonnay 500 Réserve 2023",
     "verification": "verified"
   },
+  "W0159": {
+    "alcohol": "13,0 % vol.",
+    "ingredients": "Trauben, Saccharose, Stabilisator: Metaweinsäure, Antioxidationsmittel: Sulfite",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weinhaus Thanisch, D-54470 Lieser",
+    "sourceLabel": "Nährwertangaben, Thanisch d'Accord trocken 2024 kaufen | Legendäre Weine, Thanisch Mosel Deutschland Wein Wein-Online-Shop Weinversand Wein-Shop Weine wein kaufen shop online",
+    "sourceUrl": "https://thanisch.winitas-shop.de/elabel/676",
+    "nutrition": {
+      "energy": "314 kJ / 75 kcal",
+      "fat": "0,0 g",
+      "saturates": "<0,01g",
+      "carbohydrates": "1,3 g",
+      "sugars": "0,5 g",
+      "protein": "0,0 g",
+      "salt": "0,0 g"
+    }
+  },
   "W0031": {
     "alcohol": "12,5% vol",
     "allergens": "Enthält Sulfite",

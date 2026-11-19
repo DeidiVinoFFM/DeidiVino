@@ -237,6 +237,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0006.webp",
     "alt": "Chardonnay 500 2023 von Weingut Thanisch"
   },
+  "W0159": {
+    "src": "/wine-images/W0159.webp",
+    "alt": "Thanisch D'Accord Cuvée 2024 von Weingut Thanisch"
+  },
   "W0031": {
     "src": "/wine-images/W0031.webp",
     "alt": "Riesling Sekt Brut 2023 von Weingut Thanisch"
