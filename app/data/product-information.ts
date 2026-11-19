@@ -232,13 +232,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": "<0,01g"
     }
   },
-  "W0080": {
-    "alcohol": "12,0 % vol.",
-    "allergens": "Enthält Sulfite",
-    "producer": "Weingut Christian Bamberger – Steinhardter Hof, Kreuznacher Straße 2, 55566 Bad Sobernheim, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett des Glückslos trocken 2023",
-    "verification": "verified"
-  },
   "W0166": {
     "alcohol": "12,5%",
     "ingredients": "Trauben, Saccharose, Konservierungsstoffe: Sulfite, L-Ascorbinsäure, Stabilisator: Metaweinsäure, Kohlendioxid",

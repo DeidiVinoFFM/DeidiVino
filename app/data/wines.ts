@@ -1,6 +1,6 @@
 // Von DeidiVino lokal erzeugt. Nur freigegebene Weine mit Bestand werden veröffentlicht.
 export type Wine = { id:string; winery:string; region:string; name:string; vintage:number|string; availability:"Direkt verfügbar"|"Nur noch wenige Flaschen"|"Nur noch 1 Flasche"; price:number; volume:number; unitPrice:number; category:string; grape:string; style:string; profile:string; featured:boolean; };
-export const inventoryAsOf = "18.11.2026";
+export const inventoryAsOf = "19.11.2026";
 export const wines: Wine[] = [
   {
     "id": "W0151",
@@ -368,22 +368,6 @@ export const wines: Wine[] = [
     "grape": "Cuvée",
     "style": "Trocken",
     "profile": "Deutscher Qualitätswein",
-    "featured": false
-  },
-  {
-    "id": "W0080",
-    "winery": "Weingut Christian Bamberger",
-    "region": "Nahe",
-    "name": "Glückslos",
-    "vintage": 2023,
-    "availability": "Nur noch wenige Flaschen",
-    "price": 9.5,
-    "volume": 0.75,
-    "unitPrice": 12.67,
-    "category": "Weißwein",
-    "grape": "Cuvée",
-    "style": "Trocken",
-    "profile": "Rund & charaktervoll",
     "featured": false
   },
   {
