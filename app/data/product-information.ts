@@ -578,6 +578,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "sourceLabel": "Fotografiertes Rücketikett des Riesling Alte Reben Réserve 2022",
     "verification": "verified"
   },
+  "W0163": {
+    "alcohol": "9,0 % vol",
+    "ingredients": "Trauben, Antioxidationsmittel: Sulfite",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Thanisch",
+    "sourceLabel": "Nährwertangaben, Weingut Thanisch BERNKASTEL-KUESER WEISENSTEIN RIESLING KABINETT Online Kaufen Bei WeinKollektion",
+    "sourceUrl": "https://weingut-thanisch.winitas-shop.de/elabel/862",
+    "nutrition": {
+      "energy": "293 kJ/70 kcal",
+      "fat": "0,0 g",
+      "saturates": "0,0 g",
+      "carbohydrates": "5,0 g",
+      "sugars": "4,4 g",
+      "protein": "0,0 g",
+      "salt": "0,0 g"
+    }
+  },
   "W0005": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",

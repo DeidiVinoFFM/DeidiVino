@@ -915,6 +915,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0163",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Bernkastel-Kues Weisenstein Riesling Kabinett",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 11.5,
+    "volume": 0.75,
+    "unitPrice": 15.33,
+    "category": "Weißwein",
+    "grape": "Riesling",
+    "style": "Trocken",
+    "profile": "Komplex, leicht, elegant und verspielt, begeistert Nase und Gaumen.",
+    "featured": false
+  },
+  {
     "id": "W0005",
     "winery": "Weingut Thanisch",
     "region": "Mosel",

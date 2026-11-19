@@ -229,6 +229,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0012.webp",
     "alt": "Alte Reben R Trocken 2022 von Weingut Thanisch"
   },
+  "W0163": {
+    "src": "/wine-images/W0163.webp",
+    "alt": "Bernkastel-Kues Weisenstein Riesling Kabinett 2025 von Weingut Thanisch"
+  },
   "W0005": {
     "src": "/wine-images/W0005.webp",
     "alt": "Chardonnay 500 2022 von Weingut Thanisch"
