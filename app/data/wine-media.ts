@@ -217,6 +217,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0155.webp",
     "alt": "2025 SL Riesling feinherb 2025 von Weingut Schloss Lieser"
   },
+  "W0154": {
+    "src": "/wine-images/W0154.webp",
+    "alt": "SL Weissburgunder 2023 von Weingut Schloss Lieser"
+  },
   "W0048": {
     "src": "/wine-images/W0048.webp",
     "alt": "Weißburgunder Trocken 2022 von Weingut Schloss Lieser"

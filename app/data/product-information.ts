@@ -538,6 +538,22 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": "<0,01g"
     }
   },
+  "W0154": {
+    "alcohol": "12,0 vol %",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Schloss Lieser",
+    "sourceLabel": "WINZER DES JAHRES - Weingut Schloss Lieser - Thomas Haag, 2023 SL Weissburgunder trocken - Weingut Schloss Lieser Thomas Haag, Schloss Lieser - Thomas Haag – eno",
+    "sourceUrl": "https://www.weingut-schloss-lieser.de/",
+    "nutrition": {
+      "energy": "",
+      "fat": "",
+      "saturates": "",
+      "carbohydrates": "",
+      "sugars": "",
+      "protein": "",
+      "salt": ""
+    }
+  },
   "W0048": {
     "alcohol": "12,5 % vol.",
     "allergens": "Enthält Sulfite",

@@ -867,6 +867,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0154",
+    "winery": "Weingut Schloss Lieser",
+    "region": "Mosel",
+    "name": "SL Weissburgunder",
+    "vintage": 2023,
+    "availability": "Direkt verfügbar",
+    "price": 14.5,
+    "volume": 0.75,
+    "unitPrice": 19.33,
+    "category": "Weißwein",
+    "grape": "Weißburgunder",
+    "style": "Trocken",
+    "profile": "Zarte Cremigkeit, komplex und dicht, charaktervoll.",
+    "featured": false
+  },
+  {
     "id": "W0048",
     "winery": "Weingut Schloss Lieser",
     "region": "Mosel",
