@@ -609,6 +609,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": "0,0 g"
     }
   },
+  "W0164": {
+    "alcohol": "8,5 Vol%",
+    "ingredients": "Trauben, Antioxidationsmittel: Sulfite",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Thanisch",
+    "sourceLabel": "Nährwertangaben, Wein Weuste Lieserer Niederberg-Helden Riesling Spätlese edelsüß Weingut Thanisch",
+    "sourceUrl": "https://weingut-thanisch.winitas-shop.de/elabel/870",
+    "nutrition": {
+      "energy": "339 kJ/81 kcal",
+      "fat": "0,0 g",
+      "saturates": "0,0 g",
+      "carbohydrates": "8,3 g",
+      "sugars": "7,6 g",
+      "protein": "0,0 g",
+      "salt": "0,0 g"
+    }
+  },
   "W0031": {
     "alcohol": "12,5% vol",
     "allergens": "Enthält Sulfite",

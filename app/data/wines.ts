@@ -963,6 +963,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0164",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Niederberg Helden Riesling Spätlese",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 14.0,
+    "volume": 0.75,
+    "unitPrice": 18.67,
+    "category": "Weißwein",
+    "grape": "Riesling",
+    "style": "Edelsüß",
+    "profile": "Fruchtnoten von Aprikose, Nektarine und Pfirsich mit lebendiger Frische.",
+    "featured": false
+  },
+  {
     "id": "W0031",
     "winery": "Weingut Thanisch",
     "region": "Mosel",
