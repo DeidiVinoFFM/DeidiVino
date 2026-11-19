@@ -257,6 +257,10 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0165.webp",
     "alt": "Rosé de Noir Sekt Brut Traditionelle Methode 2023 von Weingut Thanisch"
   },
+  "W0161": {
+    "src": "/wine-images/W0161.webp",
+    "alt": "Thanisch Spätburgunder 2025 von Weingut Thanisch"
+  },
   "W0027": {
     "src": "/wine-images/W0027.webp",
     "alt": "Spätburgunder Trocken unfiltriert Barrique 2020 von Weingut Thanisch"

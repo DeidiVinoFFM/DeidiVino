@@ -674,6 +674,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": ""
     }
   },
+  "W0161": {
+    "alcohol": "13,0 % vol.",
+    "ingredients": "Trauben, Saccarose, Stabilisator: Metaweinsäure, Antioxidationsmittel: Sulfite",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weinhaus Thanisch | D-54470 Lieser",
+    "sourceLabel": "Nährwertangaben, Thanisch Spätburgunder 2025 kaufen | Legendäre Weine",
+    "sourceUrl": "https://thanisch.winitas-shop.de/elabel/724",
+    "nutrition": {
+      "energy": "318 kJ / 76 kcal",
+      "fat": "<0,01g",
+      "saturates": "<0,01g",
+      "carbohydrates": "1,3 g",
+      "sugars": "0,3 g",
+      "protein": "<0,01g",
+      "salt": "<0,01g"
+    }
+  },
   "W0027": {
     "alcohol": "14,0 % vol.",
     "allergens": "Enthält Sulfite",

@@ -1027,6 +1027,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0161",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Thanisch Spätburgunder",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 11.0,
+    "volume": 0.75,
+    "unitPrice": 14.67,
+    "category": "Rotwein",
+    "grape": "Spätburgunder / Pinot Noir",
+    "style": "Trocken",
+    "profile": "Trocken und fruchtig mit roten Beeren, feiner Würze und guter Säurestruktur; Ausbau im Holzfass.",
+    "featured": false
+  },
+  {
     "id": "W0027",
     "winery": "Weingut Thanisch",
     "region": "Mosel",
