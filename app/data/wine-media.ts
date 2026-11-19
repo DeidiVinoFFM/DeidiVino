@@ -256,5 +256,9 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
   "W0009": {
     "src": "/wine-images/W0009.webp",
     "alt": "Tribut Grauschiefer Riesling 2023 von Weingut Thanisch"
+  },
+  "W0160": {
+    "src": "/wine-images/W0160.webp",
+    "alt": "Herzblut 2024 von Weinhaus Thanisch"
   }
 };

@@ -77,5 +77,12 @@ export const wineryProfiles: Record<string, WineryProfile> = {
     "locationLabel": "Weingut Thanisch, 54470 Lieser",
     "description": "Die Familie Thanisch betreibt in Lieser seit 1648 Weinbau. Rieslinge mit typischer Moselfrische stehen im Mittelpunkt, daneben zeigen Burgundersorten und im Holz ausgebaute Weine eine ganz andere Seite des Hauses. Die Auswahl reicht von lebendiger Schieferfrische bis zu konzentrierten Weinen für ein besonderes Essen.",
     "sourceUrl": "https://thanisch.de/"
+  },
+  "Weinhaus Thanisch": {
+    "name": "Weinhaus Thanisch",
+    "region": "Mosel",
+    "locationLabel": "Lieser, Mosel",
+    "description": "Familienweingut in Lieser/Mosel, geführt von Jörg Thanisch, 8 Hektar Steillagen.",
+    "sourceUrl": "https://thanisch.winitas-shop.de/elabel/677"
   }
 };

@@ -652,6 +652,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
     "producer": "Weingut Thanisch, 54470 Lieser, Deutschland",
     "sourceLabel": "Fotografiertes Rücketikett des Tribut Grauschiefer Riesling trocken 2023",
     "verification": "verified"
+  },
+  "W0160": {
+    "alcohol": "12,0 % vol",
+    "ingredients": "Trauben, Saccharose, Stabilisator: Metaweinsäure, Antioxidationsmittel: Sulfite",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weinhaus Thanisch, Moselstraße 57a, D-54470 Lieser",
+    "sourceLabel": "Nährwertangaben, Thanisch Herzblut Dornfelder 2024 kaufen | Legendäre Weine, Thanisch Wein kaufen | Riesling & Burgunder aus Lieser",
+    "sourceUrl": "https://thanisch.winitas-shop.de/elabel/677",
+    "nutrition": {
+      "energy": "302 kJ/72 kcal",
+      "fat": "0,0 g",
+      "saturates": "<0,01g",
+      "carbohydrates": "2,1 g",
+      "sugars": "1,3 g",
+      "protein": "0,0 g",
+      "salt": "0,0 g"
+    }
   }
 };
 export function productInformationFor(wine: Wine): ProductInformation { const item=productInformation[wine.id]||{}; return {allergens:"Enthält Sulfite",producer: wine.winery+", Deutschland",sourceLabel:"Angaben vor verbindlicher Bestellung anhand der Flasche prüfen",verification:"label-needed",...item}; }

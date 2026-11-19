@@ -1025,5 +1025,21 @@ export const wines: Wine[] = [
     "style": "Trocken",
     "profile": "Frisch & mineralisch",
     "featured": true
+  },
+  {
+    "id": "W0160",
+    "winery": "Weinhaus Thanisch",
+    "region": "Mosel",
+    "name": "Herzblut",
+    "vintage": 2024,
+    "availability": "Direkt verfügbar",
+    "price": 8.5,
+    "volume": 0.75,
+    "unitPrice": 11.33,
+    "category": "Rotwein",
+    "grape": "Dornfelder",
+    "style": "Feinherb",
+    "profile": "Dezente Holznoten und Frucht, feine Restsüße und spürbare Säure.",
+    "featured": false
   }
 ];

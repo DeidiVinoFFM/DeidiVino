@@ -63,5 +63,6 @@ export const wineDescriptions: Record<string,string> = {
   "W0165": "Charakter im Glas – Pinot Rosé Sekt Brut 2023, Thanisch (Lieser)\nSehr feine Perlage, lebendige Frische und elegante Leichtigkeit prägen diesen Rosé-Sekt aus Spätburgunder. Traditionell in der Flasche vergoren und lange auf der Hefe gereift, zeigt er sich harmonisch und animierend. Ein charmanter Brut aus Lieser – als Aperitif ebenso reizvoll wie zu Lachs, Meeresfrüchten oder feinen Vorspeisen.",
   "W0027": "Unfiltriert und im Barrique ausgebaut: ein saftiger Spätburgunder mit roter Frucht, feiner Holzwürze und bewusst ursprünglichem Charakter. Ideal für neugierige Rotweintrinker.",
   "W0028": "Ein unfiltrierter Spätburgunder mit reifer Beerenfrucht, würziger Tiefe und dezentem Barrique-Einfluss. Kraft und Saftigkeit bleiben dabei gut ausbalanciert.",
-  "W0009": "Ein trockener Grauschiefer-Riesling mit Zitrusfrucht, feiner Würze und klarer mineralischer Linie. Geradlinig, animierend und ein starker Einstieg in die Moselwelt von Thanisch."
+  "W0009": "Ein trockener Grauschiefer-Riesling mit Zitrusfrucht, feiner Würze und klarer mineralischer Linie. Geradlinig, animierend und ein starker Einstieg in die Moselwelt von Thanisch.",
+  "W0160": "Ein feinherber Dornfelder mit saftiger Kirsch- und Brombeerfrucht. Am Gaumen weich und samtig, mit feinen Gerbstoffen und einer angenehmen Fruchtsüße. Ein zugänglicher Rotwein von der Mosel, der zu Pasta, herzhaften Aufläufen oder leicht gekühlt zu Gegrilltem passt."
 };
