@@ -225,10 +225,6 @@ export const wineMedia: Partial<Record<string,WineMedia>> = {
     "src": "/wine-images/W0154.webp",
     "alt": "SL Weissburgunder 2023 von Weingut Schloss Lieser"
   },
-  "W0048": {
-    "src": "/wine-images/W0048.webp",
-    "alt": "Weißburgunder Trocken 2022 von Weingut Schloss Lieser"
-  },
   "W0012": {
     "src": "/wine-images/W0012.webp",
     "alt": "Alte Reben R Trocken 2022 von Weingut Thanisch"

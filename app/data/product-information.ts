@@ -571,13 +571,6 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": ""
     }
   },
-  "W0048": {
-    "alcohol": "12,5 % vol.",
-    "allergens": "Enthält Sulfite",
-    "producer": "Weingut Schloss Lieser, Am Markt 1–5, 54470 Lieser, Deutschland",
-    "sourceLabel": "Fotografiertes Rücketikett des Weißburgunder trocken 2022",
-    "verification": "verified"
-  },
   "W0012": {
     "alcohol": "12,0 % vol.",
     "allergens": "Enthält Sulfite",

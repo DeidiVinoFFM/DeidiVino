@@ -899,22 +899,6 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
-    "id": "W0048",
-    "winery": "Weingut Schloss Lieser",
-    "region": "Mosel",
-    "name": "Weißburgunder Trocken",
-    "vintage": 2022,
-    "availability": "Direkt verfügbar",
-    "price": 14.5,
-    "volume": 0.75,
-    "unitPrice": 19.33,
-    "category": "Weißwein",
-    "grape": "Weißburgunder",
-    "style": "Trocken",
-    "profile": "Rund & charaktervoll",
-    "featured": false
-  },
-  {
     "id": "W0012",
     "winery": "Weingut Thanisch",
     "region": "Mosel",
