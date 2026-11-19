@@ -963,6 +963,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0165",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Rosé de Noir Sekt Brut Traditionelle Methode",
+    "vintage": 2023,
+    "availability": "Direkt verfügbar",
+    "price": 14.5,
+    "volume": 0.75,
+    "unitPrice": 19.33,
+    "category": "Prickelnd",
+    "grape": "Spätburgunder",
+    "style": "Brut",
+    "profile": "Prickelnd",
+    "featured": false
+  },
+  {
     "id": "W0027",
     "winery": "Weingut Thanisch",
     "region": "Mosel",

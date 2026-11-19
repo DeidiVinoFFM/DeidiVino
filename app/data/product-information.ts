@@ -607,6 +607,22 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": ""
     }
   },
+  "W0165": {
+    "alcohol": "12,5% vol.",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Thanisch",
+    "sourceLabel": "Thanisch Mosel Deutschland Wein Wein-Online-Shop Weinversand Wein-Shop Weine wein kaufen shop online",
+    "sourceUrl": "https://www.weinhandel-kappus.de/weingut483-weine-Deutschland-Mosel-Thanisch.html",
+    "nutrition": {
+      "energy": "",
+      "fat": "",
+      "saturates": "",
+      "carbohydrates": "",
+      "sugars": "",
+      "protein": "",
+      "salt": ""
+    }
+  },
   "W0027": {
     "alcohol": "14,0 % vol.",
     "allergens": "Enthält Sulfite",
