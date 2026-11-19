@@ -626,6 +626,23 @@ const productInformation: Record<string,Partial<ProductInformation>> = {
       "salt": "0,0 g"
     }
   },
+  "W0162": {
+    "alcohol": "10,0",
+    "ingredients": "Trauben, Antioxidationsmittel: Sulfite",
+    "allergens": "Enthält Sulfite",
+    "producer": "Weingut Thanisch",
+    "sourceLabel": "Nährwertangaben",
+    "sourceUrl": "https://weingut-thanisch.winitas-shop.de/elabel/840",
+    "nutrition": {
+      "energy": "281 kJ / 67 kcal",
+      "fat": "<0,01g",
+      "saturates": "<0,01g",
+      "carbohydrates": "2,4 g",
+      "sugars": "1,8 g",
+      "protein": "<0,01g",
+      "salt": "<0,01g"
+    }
+  },
   "W0164": {
     "alcohol": "8,5 Vol%",
     "ingredients": "Trauben, Antioxidationsmittel: Sulfite",

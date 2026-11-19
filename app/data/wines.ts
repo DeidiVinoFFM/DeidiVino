@@ -979,6 +979,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0162",
+    "winery": "Weingut Thanisch",
+    "region": "Mosel",
+    "name": "Lieser Niederberg Helden Riesling Kabinett",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 11.5,
+    "volume": 0.75,
+    "unitPrice": 15.33,
+    "category": "Weißwein",
+    "grape": "Riesling",
+    "style": "Feinherb",
+    "profile": "Weißwein",
+    "featured": false
+  },
+  {
     "id": "W0164",
     "winery": "Weingut Thanisch",
     "region": "Mosel",
