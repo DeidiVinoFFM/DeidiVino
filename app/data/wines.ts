@@ -819,6 +819,22 @@ export const wines: Wine[] = [
     "featured": false
   },
   {
+    "id": "W0153",
+    "winery": "Weingut Schloss Lieser",
+    "region": "Mosel",
+    "name": "Riesling SL trocken",
+    "vintage": 2025,
+    "availability": "Direkt verfügbar",
+    "price": 11.9,
+    "volume": 0.75,
+    "unitPrice": 15.87,
+    "category": "Weißwein",
+    "grape": "Riesling",
+    "style": "Trocken",
+    "profile": "Animierende Frucht mit Finesse, feine Würze und ausgeprägte Schiefermineralität.",
+    "featured": false
+  },
+  {
     "id": "W0157",
     "winery": "Weingut Schloss Lieser",
     "region": "Mosel",
